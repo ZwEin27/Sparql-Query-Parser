@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 11:05:16
+# @Last Modified time: 2016-07-20 11:05:45
 
 import re
 import json
@@ -160,7 +160,7 @@ class SQParser(object):
         # statements = re_statement_split.split(text)
         # statements = [_.strip() for _ in re_statement_split.findall(text) if _ != '']
         for statement in statements:
-            print 'statement:', statement
+            # print 'statement:', statement
             SQParser.parse_statement(ans, statement.strip())
         return ans
 
@@ -193,7 +193,7 @@ class SQParser(object):
             ans[SQ_EXT_CLAUSES] += subc_rtn
             
         # content = re_statement_content.search(text).group(0)
-        print component
+        # print component
         return ans
 
     def __cp_func_optional(text):
@@ -221,7 +221,7 @@ class SQParser(object):
     def parse_content(text):
         ans = {}
         # text = text.split(' ')
-        print 'parse_content: ', text
+        # print 'parse_content: ', text
         text = text.split(' ', 1)
 
         # predicate = re_statement_qpr.search(text).group(0)
@@ -241,7 +241,7 @@ class SQParser(object):
     def parse_statement(ans, text):
         # print re_statement_a.findall(text)
         if re_statement_a.search(text):
-            print text
+            # print text
             ans[SQ_EXT_TYPE] = re_statement_qpr.search(text).group(0)
             ans[SQ_EXT_VARIABLE] = re_statement_variable.search(text).group(0)
         elif len(re_inner.findall(text)) > 0:
@@ -263,7 +263,7 @@ class SQParser(object):
                     ans.setdefault(SQ_EXT_FILTERS, [])
                     ans[SQ_EXT_FILTERS].append(icf_rtn)
         else:
-            print 'parse_statement:', text
+            # print 'parse_statement:', text
             content = re_statement_content.search(text)
             if not content:
                 raise Exception('Sparql Format Error')
