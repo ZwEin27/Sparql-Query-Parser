@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 17:32:07
+# @Last Modified time: 2016-07-20 17:48:51
 
 
 """
@@ -488,11 +488,6 @@ class SQParser(object):
             file_handler = open(output_path, 'wb')
             file_handler.write(json.dumps(json_obj, sort_keys=True, indent=4))
             file_handler.close()
-
-
-
-
-
 
 
 if __name__ == '__main__':
