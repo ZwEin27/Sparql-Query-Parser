@@ -40,5 +40,11 @@
         }
       ]
     }
-  ]
+  ],
+  "group-by": {
+    "group-variable": "?iwp",
+    "order-variable": "?iwe",
+    "sorted-order": "desc",
+    "limit": "10"
+  }
 }

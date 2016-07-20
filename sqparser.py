@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 11:11:31
+# @Last Modified time: 2016-07-20 14:18:28
 
 
 """
@@ -11,11 +11,14 @@ Usage Example
 # parse string
 python sqparser.py -s "<SPARQL_QUERIES_STRING>"
 
+# parse json file
+python sqparser.py -i <INPUT_FILE_PATH> -o <OUTPUT_FILE_PATH> -t <TRUE|FALSE> -c <'WHERE' by default>
+
 # parse sparql-queries.json that contains title, and only extract WHERE component
 python sqparser.py -i tests/data/sparql-queries.json -o test.json -t True -c "WHERE"
 
 # parse sparql-queries.json that doesn't contain title, and only extract WHERE component
-python sqparser.py -i tests/data/sparql-queries.json -o test.json -t False -c "WHERE"
+python sqparser.py -i tests/data/sparql-queries-without-title.json -o test.json -t False -c "WHERE"
 
 """
 
@@ -159,13 +162,13 @@ class SQParser(object):
     #   Outer Component Functions
     ####################################################
 
-    def __cp_func_prefix(text):
+    def __cp_func_prefix(parent_ans, text):
         pass
 
-    def __cp_func_select(text):
+    def __cp_func_select(parent_ans, text):
         pass
 
-    def __cp_func_where(text):
+    def __cp_func_where(parent_ans, text):
         ans = {}
         
         statements = [_.strip() for _ in re_statement_inner_keyword.findall(text)]
@@ -176,17 +179,18 @@ class SQParser(object):
         # statements = re_statement_split.split(text)
         # statements = [_.strip() for _ in re_statement_split.findall(text) if _ != '']
         for statement in statements:
-            # print 'statement:', statement
+            # print 'statement:', statement.encode('ascii', 'ignore')
             SQParser.parse_statement(ans, statement.strip())
-        return ans
+        parent_ans.setdefault(SQ_KEYWORD_WHERE, ans)
+        # return ans
 
     OUTER_COMPONENT_FUNC = {
         SQ_KEYWORD_PREFIX: __cp_func_prefix,
         SQ_KEYWORD_SELECT: __cp_func_select,
         SQ_KEYWORD_WHERE: __cp_func_where,
-        SQ_KEYWORD_ORDER: lambda x: None,
-        SQ_KEYWORD_GROUP: lambda x: None,
-        SQ_KEYWORD_LIMIT: lambda x: None
+        SQ_KEYWORD_ORDER: lambda x, y: None,
+        SQ_KEYWORD_GROUP: lambda x, y: None,
+        SQ_KEYWORD_LIMIT: lambda x, y: None
     }
 
     ####################################################
@@ -245,12 +249,12 @@ class SQParser(object):
         predicate = text[0]
         constraint = text[1]
         
-        cv = constraint
+        constraint = constraint[1:-1] if '\'' in constraint else constraint
         ans[SQ_EXT_PREDICATE] = predicate
-        if '?' in cv:
-            ans[SQ_EXT_VARIABLE] = cv
+        if '?' in constraint:
+            ans[SQ_EXT_VARIABLE] = constraint
         else:
-            ans[SQ_EXT_CONSTAINT] = cv
+            ans[SQ_EXT_CONSTAINT] = constraint
         return ans
 
     @staticmethod
@@ -298,6 +302,7 @@ class SQParser(object):
 
     @staticmethod
     def parse_subcomponent(text):
+        # print text
         # functions or condition statement
         
         # handle functions
@@ -326,9 +331,10 @@ class SQParser(object):
     def parse_components(components):
         ans = {}
         for (key, content) in components.iteritems():
-            # print 'key:', key
-            # print 'content:', content
-            ans[key] = SQParser.OUTER_COMPONENT_FUNC[key](content)
+            print 'key:', key
+            print 'content:', content
+            # ans[key] = SQParser.OUTER_COMPONENT_FUNC[key](content)
+            SQParser.OUTER_COMPONENT_FUNC[key](ans, content)
         return ans
 
     @staticmethod
@@ -414,12 +420,12 @@ if __name__ == '__main__':
 
     input_file = str(args.input_file)
     output_file = str(args.output_file)
-    target_component = str(args.target_component)
-    has_title = args.has_title if args.has_title else False
+    target_component = str(args.target_component) if args.target_component else 'WHERE'
+    has_title = args.has_title if args.has_title else True
     str_input = args.str_input
 
     if str_input:
-        print json.dumps(SQParser.parse(str_input), indent=4)
+        print json.dumps(SQParser.parse(str_input, target_component=target_component), indent=4)
     else:
         SQParser.parse_sq_json(input_file, output_path=output_file, target_component=target_component, has_title=has_title)
 

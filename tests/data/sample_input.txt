@@ -7,4 +7,5 @@ WHERE
      OPTIONAL { ?ad qpr:image_with_phone ?iwp } 
      OPTIONAL { ?ad qpr:image_with_email ?iwe }  
      FILTER(bound(?iwp) || bound(?iwe) || ?bt = 'Spa')
+     GROUP BY ?iwp ORDER BY DESC(?iwe) LIMIT 1
 }

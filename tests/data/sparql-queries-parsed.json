@@ -4,7 +4,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Eugene, OR'", 
+                        "constraint": "Eugene, OR", 
                         "predicate": "location"
                     }, 
                     {
@@ -22,7 +22,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Rochester, NY'", 
+                        "constraint": "Rochester, NY", 
                         "predicate": "location"
                     }, 
                     {
@@ -40,7 +40,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Seattle, WA'", 
+                        "constraint": "Seattle, WA", 
                         "predicate": "location"
                     }, 
                     {
@@ -58,7 +58,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Bangalore, India'", 
+                        "constraint": "Bangalore, India", 
                         "predicate": "location"
                     }, 
                     {
@@ -76,7 +76,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Flagstaff, AZ'", 
+                        "constraint": "Flagstaff, AZ", 
                         "predicate": "location"
                     }, 
                     {
@@ -94,7 +94,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Fayetteville, AR'", 
+                        "constraint": "Fayetteville, AR", 
                         "predicate": "location"
                     }, 
                     {
@@ -112,7 +112,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Capetown, South Africa'", 
+                        "constraint": "Capetown, South Africa", 
                         "predicate": "location"
                     }, 
                     {
@@ -130,7 +130,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Dubai, UAE'", 
+                        "constraint": "Dubai, UAE", 
                         "predicate": "location"
                     }, 
                     {
@@ -148,7 +148,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Galveston, TX'", 
+                        "constraint": "Galveston, TX", 
                         "predicate": "location"
                     }, 
                     {
@@ -176,7 +176,7 @@
                         "variable": "?physical_address "
                     }, 
                     {
-                        "constraint": "'Vermont'", 
+                        "constraint": "Vermont", 
                         "predicate": "location"
                     }, 
                     {
@@ -223,7 +223,7 @@
                         "variable": "?physical_address "
                     }, 
                     {
-                        "constraint": "'Philadelphia, PA'", 
+                        "constraint": "Philadelphia, PA", 
                         "predicate": "location"
                     }, 
                     {
@@ -270,7 +270,7 @@
                         "variable": "?physical_address "
                     }, 
                     {
-                        "constraint": "'Fargo, ND'", 
+                        "constraint": "Fargo, ND", 
                         "predicate": "location"
                     }, 
                     {
@@ -307,7 +307,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Delhi, India'", 
+                        "constraint": "Delhi, India", 
                         "predicate": "location"
                     }, 
                     {
@@ -319,13 +319,13 @@
                 "variable": "?ad"
             }, 
             "query": "1595 - Please find and list all of the ads in Delhi, India that include hair color in the ad text. In the answer field note the hair color for each ad. If there are multiple answers separate them with a comma. Return the least frequently occurring hair color.", 
-            "sparql": "PREFIX:<http://istresearch.com/qpr> SELECT ?ad (group_concat(distinct ?hair_color;separator=\",\") AS ?hair_colors) WHERE { ?ad a :Ad ; qpr:location 'Delhi, India' ; qpr:hair_color ?hair_color . } GROUP BY ?ad"
+            "sparql": "PREFIX qpr:<http://istresearch.com/qpr> SELECT ?hair_color (count(?ad) AS ?count)(group_concat(?ad;separator=\",\") AS ?ads) WHERE { ?ad a :Ad ; qpr:location 'Delhi, India' ; qpr:hair_color ?hair_color . } GROUP BY ?ad ORDER BY DESC(?count) LIMIT 1"
         }, 
         "1602": {
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Bangkok,Thailand'", 
+                        "constraint": "Bangkok,Thailand", 
                         "predicate": "location"
                     }, 
                     {
@@ -337,17 +337,17 @@
                 "variable": "?ad"
             }, 
             "query": "1602 - Please find and list all of the ads in Bangkok, Thailand that include hair color in the ad text. In the answer field note the hair color for each ad. If there are multiple answers separate them with a comma. Return the most frequently occurring hair color.", 
-            "sparql": "PREFIX:<http://istresearch.com/qpr> SELECT ?ad (group_concat(distinct ?hair_color;separator=\",\") AS ?hair_colors) WHERE { ?ad a :Ad ; qpr:location 'Bangkok,Thailand' ; qpr:hair_color ?hair_color . } GROUP BY ?ad"
+            "sparql": "PREFIX qpr:<http://istresearch.com/qpr> SELECT ?hair_color (count(?ad)) AS ?count)(group_concat(?ad;separator=\",\") AS ?ads) WHERE { ?ad a :Ad ; qpr:location 'Bangkok,Thailand' ; qpr:hair_color ?hair_color . } GROUP BY ?ad ORDER BY DESC(?count) LIMIT 1"
         }, 
         "1608": {
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Vancouver, BC, Canada'", 
+                        "constraint": "Vancouver, BC, Canada", 
                         "predicate": "location"
                     }, 
                     {
-                        "constraint": "'escort agency'", 
+                        "constraint": "escort agency", 
                         "predicate": "business_type"
                     }, 
                     {
@@ -365,11 +365,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Glasgow, Scotland'", 
+                        "constraint": "Glasgow, Scotland", 
                         "predicate": "location"
                     }, 
                     {
-                        "constraint": "'escort agency'", 
+                        "constraint": "escort agency", 
                         "predicate": "business_type"
                     }, 
                     {
@@ -397,7 +397,7 @@
                         "variable": "?iwe "
                     }, 
                     {
-                        "constraint": "'5105124396'", 
+                        "constraint": "5105124396", 
                         "predicate": "seed"
                     }, 
                     {
@@ -430,11 +430,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'2131743855'", 
+                        "constraint": "2131743855", 
                         "predicate": "seed:"
                     }, 
                     {
-                        "constraint": "'white'", 
+                        "constraint": "white", 
                         "predicate": "ethnicity:"
                     }, 
                     {
@@ -452,11 +452,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'9177362938'", 
+                        "constraint": "9177362938", 
                         "predicate": "seed"
                     }, 
                     {
-                        "constraint": "'cuban'", 
+                        "constraint": "cuban", 
                         "predicate": "ethnicity"
                     }, 
                     {
@@ -474,11 +474,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'0607354362'", 
+                        "constraint": "0607354362", 
                         "predicate": "seed"
                     }, 
                     {
-                        "constraint": "'white'", 
+                        "constraint": "white", 
                         "predicate": "ethnicity"
                     }, 
                     {
@@ -496,11 +496,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'380685070797'", 
+                        "constraint": "380685070797", 
                         "predicate": "seed"
                     }, 
                     {
-                        "constraint": "'female'", 
+                        "constraint": "female", 
                         "predicate": "gender"
                     }, 
                     {
@@ -518,11 +518,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'9714002633'", 
+                        "constraint": "9714002633", 
                         "predicate": "seed"
                     }, 
                     {
-                        "constraint": "'male'", 
+                        "constraint": "male", 
                         "predicate": "gender"
                     }, 
                     {
@@ -540,11 +540,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'6464809094'", 
+                        "constraint": "6464809094", 
                         "predicate": "seed"
                     }, 
                     {
-                        "constraint": "'male'", 
+                        "constraint": "male", 
                         "predicate": "gender"
                     }, 
                     {
@@ -562,11 +562,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'11991066691'", 
+                        "constraint": "11991066691", 
                         "predicate": "seed"
                     }, 
                     {
-                        "constraint": "'Samanta'", 
+                        "constraint": "Samanta", 
                         "predicate": "name"
                     }, 
                     {
@@ -584,11 +584,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'2508130801'", 
+                        "constraint": "2508130801", 
                         "predicate": "seed"
                     }, 
                     {
-                        "constraint": "'Co Co'", 
+                        "constraint": "Co Co", 
                         "predicate": "name"
                     }, 
                     {
@@ -606,11 +606,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'21967404017'", 
+                        "constraint": "21967404017", 
                         "predicate": "seed"
                     }, 
                     {
-                        "constraint": "'trans'", 
+                        "constraint": "trans", 
                         "predicate": "gender"
                     }, 
                     {
@@ -628,11 +628,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'0765701222'", 
+                        "constraint": "0765701222", 
                         "predicate": "seed"
                     }, 
                     {
-                        "constraint": "'trans'", 
+                        "constraint": "trans", 
                         "predicate": "gender"
                     }, 
                     {
@@ -660,7 +660,7 @@
                         "variable": "?iwe "
                     }, 
                     {
-                        "constraint": "'6476877096'", 
+                        "constraint": "6476877096", 
                         "predicate": "seed"
                     }, 
                     {
@@ -703,7 +703,7 @@
                         "variable": "?iwe "
                     }, 
                     {
-                        "constraint": "'7865064729'", 
+                        "constraint": "7865064729", 
                         "predicate": "seed"
                     }, 
                     {
@@ -746,7 +746,7 @@
                         "variable": "?iwe "
                     }, 
                     {
-                        "constraint": "'9253051222'", 
+                        "constraint": "9253051222", 
                         "predicate": "seed"
                     }, 
                     {
@@ -779,7 +779,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'3863346213'", 
+                        "constraint": "3863346213", 
                         "predicate": "seed"
                     }, 
                     {
@@ -801,7 +801,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'easytoremember@mail.ua'", 
+                        "constraint": "easytoremember@mail.ua", 
                         "predicate": "seed"
                     }, 
                     {
@@ -819,7 +819,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'mojoentertainment@outlook.com'", 
+                        "constraint": "mojoentertainment@outlook.com", 
                         "predicate": "seed"
                     }, 
                     {
@@ -837,7 +837,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'7075610282'", 
+                        "constraint": "7075610282", 
                         "predicate": "phone"
                     }, 
                     {
@@ -855,7 +855,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'4784201625'", 
+                        "constraint": "4784201625", 
                         "predicate": "phone"
                     }, 
                     {
@@ -873,7 +873,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'13222255761'", 
+                        "constraint": "13222255761", 
                         "predicate": "phone"
                     }, 
                     {
@@ -891,11 +891,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'GFEMonkey.com'", 
+                        "constraint": "GFEMonkey.com", 
                         "predicate": "top_level_domain"
                     }, 
                     {
-                        "constraint": "'Phoenix01skye@gmail.com'", 
+                        "constraint": "Phoenix01skye@gmail.com", 
                         "predicate": "email"
                     }, 
                     {
@@ -913,11 +913,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'GFEMonkey.com'", 
+                        "constraint": "GFEMonkey.com", 
                         "predicate": "top_level_domain"
                     }, 
                     {
-                        "constraint": "'Abigail.in.SF@gmail.com'", 
+                        "constraint": "Abigail.in.SF@gmail.com", 
                         "predicate": "email"
                     }, 
                     {
@@ -935,11 +935,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'0249613444'", 
+                        "constraint": "0249613444", 
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'May 7, 2016'", 
+                        "constraint": "\u20182016-05-07\u2019", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -951,17 +951,17 @@
                 "variable": "?ad"
             }, 
             "query": "41 - What are the prices associated with the ad posted on May 7, 2016 with the phone number 02 4961 3444?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?price WHERE { ?ad a qpr:Ad ; qpr:phone '0249613444' ; qpr:posting_date 'May 7, 2016' ; qpr:price ?price . }"
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?price WHERE { ?ad a qpr:Ad ; qpr:phone '0249613444' ; qpr:posting_date \u20182016-05-07\u2019 ; qpr:price ?price . }"
         }, 
         "43": {
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'7185048742'", 
+                        "constraint": "7185048742", 
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'February 18, 2016'", 
+                        "constraint": "\u20192016-02-18\u2019", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -973,17 +973,17 @@
                 "variable": "?ad"
             }, 
             "query": "43 - What are the prices associated with the ad posted on February 18, 2016 with the phone number 718-504-8742?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?price WHERE { ?ad a qpr:Ad ; qpr:phone '7185048742' ; qpr:posting_date 'February 18, 2016' ; qpr:price ?price . }"
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?price WHERE { ?ad a qpr:Ad ; qpr:phone '7185048742' ; qpr:posting_date \u20192016-02-18\u2019 ; qpr:price ?price . }"
         }, 
         "50": {
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'653511537'", 
+                        "constraint": "653511537", 
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'April 1, 2016'", 
+                        "constraint": "\u20182016-04-01\u2019", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -995,17 +995,17 @@
                 "variable": "?ad"
             }, 
             "query": "50 - What is the email address of the escort(s) advertised on April 1, 2016 with the phone number 653511537?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '653511537' ; qpr:posting_date 'April 1, 2016' ; qpr:email ?email . }"
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '653511537' ; qpr:posting_date \u20182016-04-01\u2019 ; qpr:email ?email . }"
         }, 
         "52": {
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'631307055'", 
+                        "constraint": "631307055", 
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'April 25, 2014'", 
+                        "constraint": "\u20182014-04-25\u2019", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -1017,17 +1017,17 @@
                 "variable": "?ad"
             }, 
             "query": "52 - What is the email address of the escort(s) advertised on April 25, 2014 with the phone number 631307055", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '631307055' ; qpr:posting_date 'April 25, 2014' ; qpr:email ?email . }"
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '631307055' ; qpr:posting_date \u20182014-04-25\u2019 ; qpr:email ?email . }"
         }, 
         "54": {
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'697940099'", 
+                        "constraint": "697940099", 
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'June 28, 2016'", 
+                        "constraint": "\u20192016-06-28\u2019", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -1039,17 +1039,17 @@
                 "variable": "?ad"
             }, 
             "query": "54 - What is the email address of the escort(s) advertised on June 28, 2016 with the phone number 697940099?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '697940099' ; qpr:posting_date 'June 28, 2016' ; qpr:email ?email . }"
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '697940099' ; qpr:posting_date \u20192016-06-28\u2019 ; qpr:email ?email . }"
         }, 
         "58": {
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'3343843063'", 
+                        "constraint": "3343843063", 
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'January 9, 2016'", 
+                        "constraint": "\u20182016-01-09\u2019", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -1061,17 +1061,17 @@
                 "variable": "?ad"
             }, 
             "query": "58 - What is the ethnicity of the escort(s) advertised in an ad on January 9, 2016 with the phone number (334) 384-3063?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '3343843063' ; qpr:posting_date 'January 9, 2016' ; qpr:ethnicity ?ethnicity . }"
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '3343843063' ; qpr:posting_date \u20182016-01-09\u2019 ; qpr:ethnicity ?ethnicity . }"
         }, 
         "61": {
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'0656852011'", 
+                        "constraint": "0656852011", 
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'January 17, 2015'", 
+                        "constraint": "\u20192015-01-17\u2019", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -1083,17 +1083,17 @@
                 "variable": "?ad"
             }, 
             "query": "61 - What is the ethnicity of the escort(s) advertised in an ad on January 17, 2015 with the phone number 06 56 85 20 11?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '0656852011' ; qpr:posting_date 'January 17, 2015' ; qpr:ethnicity ?ethnicity . }"
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '0656852011' ; qpr:posting_date \u20192015-01-17\u2019 ; qpr:ethnicity ?ethnicity . }"
         }, 
         "63": {
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'919594087952'", 
+                        "constraint": "919594087952", 
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'June 29, 2016'", 
+                        "constraint": "\u20182016-06-29\u2019", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -1105,21 +1105,21 @@
                 "variable": "?ad"
             }, 
             "query": "63 - What is the ethnicity of the escort(s) advertised in an ad on June 29, 2016 with the phone number 919594087952?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '919594087952' ; qpr:posting_date 'June 29, 2016' ; qpr:ethnicity ?ethnicity . }"
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '919594087952' ; qpr:posting_date \u20182016-06-29\u2019 ; qpr:ethnicity ?ethnicity . }"
         }, 
         "77": {
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Midtown East, New York City, NY'", 
+                        "constraint": "Midtown East, New York City, NY", 
                         "predicate": "location"
                     }, 
                     {
-                        "constraint": "'Stunning Ebony International Companion available for extended trysts and fun times!'", 
+                        "constraint": "Stunning Ebony International Companion available for extended trysts and fun times!", 
                         "predicate": "title"
                     }, 
                     {
-                        "constraint": "'Vivian'", 
+                        "constraint": "Vivian", 
                         "predicate": "name"
                     }, 
                     {
@@ -1137,15 +1137,15 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Chicago, IL'", 
+                        "constraint": "Chicago, IL", 
                         "predicate": "location"
                     }, 
                     {
-                        "constraint": "'Porn Star, Chicago, Illinois Female Escort & Limited GFE & GFE available for Incall and Outcall'", 
+                        "constraint": "Porn Star, Chicago, Illinois Female Escort & Limited GFE & GFE available for Incall and Outcall", 
                         "predicate": "title"
                     }, 
                     {
-                        "constraint": "'VIP Desire'", 
+                        "constraint": "VIP Desire", 
                         "predicate": "name"
                     }, 
                     {
@@ -1163,15 +1163,15 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Los Angeles, CA'", 
+                        "constraint": "Los Angeles, CA", 
                         "predicate": "location"
                     }, 
                     {
-                        "constraint": "'Los Angeles, California Female Escort & GFE available for Outcall.'", 
+                        "constraint": "Los Angeles, California Female Escort & GFE available for Outcall.", 
                         "predicate": "title"
                     }, 
                     {
-                        "constraint": "'Layla'", 
+                        "constraint": "Layla", 
                         "predicate": "name"
                     }, 
                     {
@@ -1189,15 +1189,15 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'June 30'", 
+                        "constraint": "\u201806-30\u2019", 
                         "predicate": "posting_date"
                     }, 
                     {
-                        "constraint": "'Bengaluru, India'", 
+                        "constraint": "Bengaluru, India", 
                         "predicate": "location"
                     }, 
                     {
-                        "constraint": "'Vishwas'", 
+                        "constraint": "Vishwas", 
                         "predicate": "name"
                     }, 
                     {
@@ -1217,7 +1217,7 @@
                 "variable": "?ad"
             }, 
             "query": "88 - What are the two phone numbers in the ad posted on June 30th in Bengaluru, India with the name Vishwas advertising 5 individuals?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone ?multiple_phone WHERE { ?ad a qpr:Ad ; qpr:posting_date 'June 30' ; qpr:location 'Bengaluru, India' ; qpr:name 'Vishwas' ; qpr:number_of_individuals \"5\"^^xsd:integer ; qpr:phone ?phone ; qpr:multiple_phone ?multiple_phone . }"
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone ?multiple_phone WHERE { ?ad a qpr:Ad ; qpr:posting_date \u201806-30\u2019 ; qpr:location 'Bengaluru, India' ; qpr:name 'Vishwas' ; qpr:number_of_individuals \"5\"^^xsd:integer ; qpr:phone ?phone ; qpr:multiple_phone ?multiple_phone . }"
         }
     }, 
     "Cluster": {
@@ -1235,7 +1235,7 @@
                         "variable": "?iwe "
                     }, 
                     {
-                        "constraint": "'5105124396'", 
+                        "constraint": "5105124396", 
                         "predicate": "seed"
                     }, 
                     {
@@ -1268,11 +1268,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'2131743855'", 
+                        "constraint": "2131743855", 
                         "predicate": "seed:"
                     }, 
                     {
-                        "constraint": "'white'", 
+                        "constraint": "white", 
                         "predicate": "ethnicity:"
                     }, 
                     {
@@ -1290,11 +1290,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'9177362938'", 
+                        "constraint": "9177362938", 
                         "predicate": "seed"
                     }, 
                     {
-                        "constraint": "'cuban'", 
+                        "constraint": "cuban", 
                         "predicate": "ethnicity"
                     }, 
                     {
@@ -1312,11 +1312,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'0607354362'", 
+                        "constraint": "0607354362", 
                         "predicate": "seed"
                     }, 
                     {
-                        "constraint": "'white'", 
+                        "constraint": "white", 
                         "predicate": "ethnicity"
                     }, 
                     {
@@ -1334,11 +1334,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'380685070797'", 
+                        "constraint": "380685070797", 
                         "predicate": "seed"
                     }, 
                     {
-                        "constraint": "'female'", 
+                        "constraint": "female", 
                         "predicate": "gender"
                     }, 
                     {
@@ -1356,11 +1356,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'9714002633'", 
+                        "constraint": "9714002633", 
                         "predicate": "seed"
                     }, 
                     {
-                        "constraint": "'male'", 
+                        "constraint": "male", 
                         "predicate": "gender"
                     }, 
                     {
@@ -1378,11 +1378,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'6464809094'", 
+                        "constraint": "6464809094", 
                         "predicate": "seed"
                     }, 
                     {
-                        "constraint": "'male'", 
+                        "constraint": "male", 
                         "predicate": "gender"
                     }, 
                     {
@@ -1400,11 +1400,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'11991066691'", 
+                        "constraint": "11991066691", 
                         "predicate": "seed"
                     }, 
                     {
-                        "constraint": "'Samanta'", 
+                        "constraint": "Samanta", 
                         "predicate": "name"
                     }, 
                     {
@@ -1422,11 +1422,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'2508130801'", 
+                        "constraint": "2508130801", 
                         "predicate": "seed"
                     }, 
                     {
-                        "constraint": "'Co Co'", 
+                        "constraint": "Co Co", 
                         "predicate": "name"
                     }, 
                     {
@@ -1444,11 +1444,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'21967404017'", 
+                        "constraint": "21967404017", 
                         "predicate": "seed"
                     }, 
                     {
-                        "constraint": "'trans'", 
+                        "constraint": "trans", 
                         "predicate": "gender"
                     }, 
                     {
@@ -1466,11 +1466,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'0765701222'", 
+                        "constraint": "0765701222", 
                         "predicate": "seed"
                     }, 
                     {
-                        "constraint": "'trans'", 
+                        "constraint": "trans", 
                         "predicate": "gender"
                     }, 
                     {
@@ -1498,7 +1498,7 @@
                         "variable": "?iwe "
                     }, 
                     {
-                        "constraint": "'6476877096'", 
+                        "constraint": "6476877096", 
                         "predicate": "seed"
                     }, 
                     {
@@ -1541,7 +1541,7 @@
                         "variable": "?iwe "
                     }, 
                     {
-                        "constraint": "'7865064729'", 
+                        "constraint": "7865064729", 
                         "predicate": "seed"
                     }, 
                     {
@@ -1584,7 +1584,7 @@
                         "variable": "?iwe "
                     }, 
                     {
-                        "constraint": "'9253051222'", 
+                        "constraint": "9253051222", 
                         "predicate": "seed"
                     }, 
                     {
@@ -1617,7 +1617,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'3863346213'", 
+                        "constraint": "3863346213", 
                         "predicate": "seed"
                     }, 
                     {
@@ -1639,7 +1639,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'easytoremember@mail.ua'", 
+                        "constraint": "easytoremember@mail.ua", 
                         "predicate": "seed"
                     }, 
                     {
@@ -1657,7 +1657,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'mojoentertainment@outlook.com'", 
+                        "constraint": "mojoentertainment@outlook.com", 
                         "predicate": "seed"
                     }, 
                     {
@@ -1675,7 +1675,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'7075610282'", 
+                        "constraint": "7075610282", 
                         "predicate": "phone"
                     }, 
                     {
@@ -1693,7 +1693,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'4784201625'", 
+                        "constraint": "4784201625", 
                         "predicate": "phone"
                     }, 
                     {
@@ -1711,7 +1711,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'13222255761'", 
+                        "constraint": "13222255761", 
                         "predicate": "phone"
                     }, 
                     {
@@ -1729,11 +1729,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'GFEMonkey.com'", 
+                        "constraint": "GFEMonkey.com", 
                         "predicate": "top_level_domain"
                     }, 
                     {
-                        "constraint": "'Phoenix01skye@gmail.com'", 
+                        "constraint": "Phoenix01skye@gmail.com", 
                         "predicate": "email"
                     }, 
                     {
@@ -1751,11 +1751,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'GFEMonkey.com'", 
+                        "constraint": "GFEMonkey.com", 
                         "predicate": "top_level_domain"
                     }, 
                     {
-                        "constraint": "'Abigail.in.SF@gmail.com'", 
+                        "constraint": "Abigail.in.SF@gmail.com", 
                         "predicate": "email"
                     }, 
                     {
@@ -1773,11 +1773,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'0249613444'", 
+                        "constraint": "0249613444", 
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'May 7, 2016'", 
+                        "constraint": "\u20192016-05-07\u2019", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -1789,17 +1789,17 @@
                 "variable": "?ad"
             }, 
             "query": "41 - What are the prices associated with the ad posted on May 7, 2016 with the phone number 02 4961 3444?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?price WHERE { ?ad a qpr:Ad ; qpr:phone '0249613444' ; qpr:posting_date 'May 7, 2016' ; qpr:price ?price . }"
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?price WHERE { ?ad a qpr:Ad ; qpr:phone '0249613444' ; qpr:posting_date \u20192016-05-07\u2019 ; qpr:price ?price . }"
         }, 
         "43": {
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'7185048742'", 
+                        "constraint": "7185048742", 
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'February 18, 2016'", 
+                        "constraint": "\u20192016\u201402-18\u2019", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -1811,17 +1811,17 @@
                 "variable": "?ad"
             }, 
             "query": "43 - What are the prices associated with the ad posted on February 18, 2016 with the phone number 718-504-8742?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?price WHERE { ?ad a qpr:Ad ; qpr:phone '7185048742' ; qpr:posting_date 'February 18, 2016' ; qpr:price ?price . }"
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?price WHERE { ?ad a qpr:Ad ; qpr:phone '7185048742' ; qpr:posting_date \u20192016\u201402-18\u2019 ; qpr:price ?price . }"
         }, 
         "50": {
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'653511537'", 
+                        "constraint": "653511537", 
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'April 1, 2016'", 
+                        "constraint": "\u20182016-04-01\u2019", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -1833,17 +1833,17 @@
                 "variable": "?ad"
             }, 
             "query": "50 - What is the email address of the escort(s) advertised on April 1, 2016 with the phone number 653511537?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '653511537' ; qpr:posting_date 'April 1, 2016' ; qpr:email ?email . }"
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '653511537' ; qpr:posting_date \u20182016-04-01\u2019 ; qpr:email ?email . }"
         }, 
         "52": {
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'631307055'", 
+                        "constraint": "631307055", 
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'April 25, 2014'", 
+                        "constraint": "\u20182016-04-01\u2019", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -1855,17 +1855,17 @@
                 "variable": "?ad"
             }, 
             "query": "52 - What is the email address of the escort(s) advertised on April 25, 2014 with the phone number 631307055", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '631307055' ; qpr:posting_date 'April 25, 2014' ; qpr:email ?email . }"
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '631307055' ; qpr:posting_date \u20182016-04-01\u2019 ; qpr:email ?email . }"
         }, 
         "54": {
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'697940099'", 
+                        "constraint": "697940099", 
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'June 28, 2016'", 
+                        "constraint": "\u20182016-06-28\u2019", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -1877,17 +1877,17 @@
                 "variable": "?ad"
             }, 
             "query": "54 - What is the email address of the escort(s) advertised on June 28, 2016 with the phone number 697940099?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '697940099' ; qpr:posting_date 'June 28, 2016' ; qpr:email ?email . }"
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '697940099' ; qpr:posting_date \u20182016-06-28\u2019 ; qpr:email ?email . }"
         }, 
         "58": {
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'3343843063'", 
+                        "constraint": "3343843063", 
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'January 9, 2016'", 
+                        "constraint": "\u20182016-01-09\u2019", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -1899,17 +1899,17 @@
                 "variable": "?ad"
             }, 
             "query": "58 - What is the ethnicity of the escort(s) advertised in an ad on January 9, 2016 with the phone number (334) 384-3063?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '3343843063' ; qpr:posting_date 'January 9, 2016' ; qpr:ethnicity ?ethnicity . }"
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '3343843063' ; qpr:posting_date \u20182016-01-09\u2019 ; qpr:ethnicity ?ethnicity . }"
         }, 
         "61": {
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'0656852011'", 
+                        "constraint": "0656852011", 
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'January 17, 2015'", 
+                        "constraint": "\u20182015-01-17\u2019", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -1921,17 +1921,17 @@
                 "variable": "?ad"
             }, 
             "query": "61 - What is the ethnicity of the escort(s) advertised in an ad on January 17, 2015 with the phone number 06 56 85 20 11?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '0656852011' ; qpr:posting_date 'January 17, 2015' ; qpr:ethnicity ?ethnicity . }"
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '0656852011' ; qpr:posting_date \u20182015-01-17\u2019 ; qpr:ethnicity ?ethnicity . }"
         }, 
         "63": {
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'919594087952'", 
+                        "constraint": "919594087952", 
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'June 29, 2016'", 
+                        "constraint": "\u20182016-06-29\u2019", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -1943,21 +1943,21 @@
                 "variable": "?ad"
             }, 
             "query": "63 - What is the ethnicity of the escort(s) advertised in an ad on June 29, 2016 with the phone number 919594087952?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '919594087952' ; qpr:posting_date 'June 29, 2016' ; qpr:ethnicity ?ethnicity . }"
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '919594087952' ; qpr:posting_date \u20182016-06-29\u2019 ; qpr:ethnicity ?ethnicity . }"
         }, 
         "77": {
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Midtown East, New York City, NY'", 
+                        "constraint": "Midtown East, New York City, NY", 
                         "predicate": "location"
                     }, 
                     {
-                        "constraint": "'Stunning Ebony International Companion available for extended trysts and fun times!'", 
+                        "constraint": "Stunning Ebony International Companion available for extended trysts and fun times!", 
                         "predicate": "title"
                     }, 
                     {
-                        "constraint": "'Vivian'", 
+                        "constraint": "Vivian", 
                         "predicate": "name"
                     }, 
                     {
@@ -1975,15 +1975,15 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Chicago, IL'", 
+                        "constraint": "Chicago, IL", 
                         "predicate": "location"
                     }, 
                     {
-                        "constraint": "'Porn Star, Chicago, Illinois Female Escort & Limited GFE & GFE available for Incall and Outcall'", 
+                        "constraint": "Porn Star, Chicago, Illinois Female Escort & Limited GFE & GFE available for Incall and Outcall", 
                         "predicate": "title"
                     }, 
                     {
-                        "constraint": "'VIP Desire'", 
+                        "constraint": "VIP Desire", 
                         "predicate": "name"
                     }, 
                     {
@@ -2001,15 +2001,15 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Los Angeles, CA'", 
+                        "constraint": "Los Angeles, CA", 
                         "predicate": "location"
                     }, 
                     {
-                        "constraint": "'Los Angeles, California Female Escort & GFE available for Outcall.'", 
+                        "constraint": "Los Angeles, California Female Escort & GFE available for Outcall.", 
                         "predicate": "title"
                     }, 
                     {
-                        "constraint": "'Layla'", 
+                        "constraint": "Layla", 
                         "predicate": "name"
                     }, 
                     {
@@ -2027,15 +2027,15 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'June 30'", 
+                        "constraint": "\u201906-30\u2019", 
                         "predicate": "posting_date"
                     }, 
                     {
-                        "constraint": "'Bengaluru, India'", 
+                        "constraint": "Bengaluru, India", 
                         "predicate": "location"
                     }, 
                     {
-                        "constraint": "'Vishwas'", 
+                        "constraint": "Vishwas", 
                         "predicate": "name"
                     }, 
                     {
@@ -2055,7 +2055,7 @@
                 "variable": "?ad"
             }, 
             "query": "88 - What are the two phone numbers in the ad posted on June 30th in Bengaluru, India with the name Vishwas advertising 5 individuals?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone ?multiple_phone WHERE { ?ad a qpr:Ad ; qpr:posting_date 'June 30' ; qpr:location 'Bengaluru, India' ; qpr:name 'Vishwas' ; qpr:number_of_individuals \"5\"^^xsd:integer ; qpr:phone ?phone ; qpr:multiple_phone ?multiple_phone . }"
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone ?multiple_phone WHERE { ?ad a qpr:Ad ; qpr:posting_date \u201906-30\u2019 ; qpr:location 'Bengaluru, India' ; qpr:name 'Vishwas' ; qpr:number_of_individuals \"5\"^^xsd:integer ; qpr:phone ?phone ; qpr:multiple_phone ?multiple_phone . }"
         }
     }
 }
