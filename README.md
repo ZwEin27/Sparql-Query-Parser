@@ -1,5 +1,5 @@
 # Sparql-Query-Parser
-an pure python utility to parse sparql query into json format
+a pure python utility to parse sparql query into json format
 
 
 ## Command Line Example Usuage
