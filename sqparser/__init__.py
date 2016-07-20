@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 09:07:07
+# @Last Modified time: 2016-07-20 09:43:48
 
 import re
 import json
@@ -88,8 +88,8 @@ re_inner_operator = re.compile(reg_inner_operator)
 
 # statement
 # re_statement_split = re.compile(r'[;\.]')
-re_statement_split = re.compile(r'.*?(?=$|;|\s\.\s)')
-re_statement_a = re.compile(r'(?<=[a-zA-Z])\s*?\ba\b\s*?(?=[a-zA-Z])')
+re_statement_split = re.compile(r'.*?(?=;|\s\.\s)')
+re_statement_a = re.compile(r'(?<=[a-zA-Z])\s+?\ba\b\s+?(?=[:a-zA-Z])')
 # re_statement_a_split = re.compile(r'(?<=[a-zA-Z])\s+?\ba\b\s+?(?=[a-zA-Z])')
 re_statement_variable = re.compile(r'(?:^|\s])\?[a-zA-Z]+\b')
 re_statement_qpr = re.compile(r'\b(?<=qpr\:)[a-zA-Z]+\b')
@@ -215,7 +215,9 @@ class SQParser(object):
 
     @staticmethod
     def parse_statement(ans, text):
+        # print re_statement_a.findall(text)
         if re_statement_a.search(text):
+            print text
             ans[SQ_EXT_TYPE] = re_statement_qpr.search(text).group(0)
             ans[SQ_EXT_VARIABLE] = re_statement_variable.search(text).group(0)
         elif len(re_inner.findall(text)) > 0:
@@ -316,7 +318,7 @@ class SQParser(object):
             if has_title: 
                 for value in json_obj.values():
                     for (k, v) in value.iteritems():
-                        k['parsed'] = SQParser.parse(v['sparql'], target_component=target_component)
+                        value[k]['parsed'] = SQParser.parse(v['sparql'], target_component=target_component)
             else:
                 for (k, v) in json_obj.iteritems():
                     k['parsed'] = SQParser.parse(v['sparql'], target_component=target_component)
