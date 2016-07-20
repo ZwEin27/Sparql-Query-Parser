@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 14:48:56
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-19 21:22:27
+# @Last Modified time: 2016-07-19 22:06:50
 
 
 import re
@@ -11,14 +11,14 @@ import re
 
 # text = "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {    ?cluster a qpr:cluster ; qpr:seed '5105124396' . qpr:ad ?ad . OPTIONAL { ?ad qpr:image_with_phone ?iwp } OPTIONAL { ?ad qpr:image_with_email ?iwe } FILTER(bound(?iwp) || bound(?iwe)) }"
  
-text = "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE  {    ?cluster a qpr:cluster ;              qpr:seed '5105124396' ;              qpr:ad ?ad .      OPTIONAL { ?ad qpr:image_with_phone ?iwp }       OPTIONAL { ?ad qpr:image_with_email ?iwe }        FILTER(bound(?iwp) || bound(?iwe) || ?bt = 'Spa') } "
+text = "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE  {    ?cluster a qpr:cluster ;              qpr:seed '5105124396' ;              qpr:ad ?ad .      OPTIONAL { ?ad qpr:image_with_phone ?iwp }       OPTIONAL { ?ad qpr:image_with_email ?iwe } } FILTER(bound(?iwp) || bound(?iwe) || ?bt = 'Spa') "
 
 re_ = re.compile(r'(?<={).*(?=})')
 
 # re_s = re.compile(r'.*?(?=;)')
 
 a = ' '.join(re_.findall(text)) 
-# print a
+print a
 b = re.split(r'[\.;]', a)
 # print b
 
@@ -26,9 +26,13 @@ b = re.split(r'[\.;]', a)
 re_optional = re.compile(r'((?<=OPTIONAL)\s+\{.+?\s+\})')
 c = re_optional.findall(text)
 
+# print re.findall(r'\{.*\}', text)
 
+SQ_KEYWORDS = ['SELECT','PREFIX','WHERE','ORDER BY', 'GROUP BY', 'LIMIT']
+reg_kw = r'(?:'+r'|'.join(SQ_KEYWORDS)+r').*?(?='+r'|'.join(SQ_KEYWORDS)+r'|\s*$)'
+re_kw = re.compile(reg_kw)
+# print re_kw.findall(text)
 
-print re.findall(r'\{.*\}', text)
 
 
 
