@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-19 23:04:32
+# @Last Modified time: 2016-07-19 23:22:40
 
 import re
 
@@ -28,6 +28,14 @@ SQ_KEYWORDS = ['SELECT','CONSTRUCT','DESCRIBE','ASK','BASE','PREFIX','LIMIT','OF
 SQ_FUNCTIONS = ['STR','LANGMATCHES','LANG','DATATYPE','BOUND','sameTerm','isIRI','isURI','isBLANK','isLITERAL','REGEX']
 
 
+SQ_EXT_TYPE = 'type'
+SQ_EXT_VARIABLE = 'variable'
+SQ_EXT_CLAUSES = 'clauses'
+SQ_EXT_PREDICATE = 'predicate'
+SQ_EXT_CONSTAINT = 'constraint'
+SQ_EXT_FILTERS = 'filters'
+SQ_EXT_OPTIONAL = 'optional'
+
 ######################################################################
 #   Regular Expression
 ######################################################################
@@ -44,6 +52,7 @@ re_statement_a = re.compile(r'(?<=[a-zA-Z])\s*?\ba\b\s*?(?=[a-zA-Z])')
 # re_statement_a_split = re.compile(r'(?<=[a-zA-Z])\s+?\ba\b\s+?(?=[a-zA-Z])')
 re_statement_variable = re.compile(r'(?:^|\s])\?[a-zA-Z]+\b')
 re_statement_qpr = re.compile(r'\b(?<=qpr\:)[a-zA-Z]+\b')
+re_statement_content = re.compile(r'(?<=qpr\:).+(?=\s|$)')
 
 ######################################################################
 #   Main Function
@@ -84,8 +93,29 @@ class SQParser(object):
     def parse_statement(ans, text):
         if re_statement_a.search(text):
             # for a
-            ans['type'] = re_statement_qpr.findall(text)
-            ans['variable'] = re_statement_variable.findall(text)
+            ans[SQ_EXT_TYPE] = re_statement_qpr.search(text).group(0)
+            ans[SQ_EXT_VARIABLE] = re_statement_variable.search(text).group(0)
+        elif SQ_KEYWORD_FILTER in text:
+            pass
+        elif SQ_KEYWORD_OPTIONAL in text:
+            pass
+        else:
+            content = re_statement_content.search(text)
+            print content.group()
+            if not content:
+                raise Exception('Sparql Format Error')
+            content = content.group(0).split(' ')
+            predicate = content[0]
+            cv = content[1]
+            tmp = {}
+            tmp[SQ_EXT_PREDICATE] = content[0]
+            if '?' in cv:
+                tmp[SQ_EXT_VARIABLE] = cv
+            else:
+                tmp[SQ_EXT_CONSTAINT] = cv
+            ans.setdefault(SQ_EXT_CLAUSES, [])
+            ans[SQ_EXT_CLAUSES].append(tmp)
+
 
     @staticmethod
     def parse_components(components):
