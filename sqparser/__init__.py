@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 00:19:16
+# @Last Modified time: 2016-07-20 00:37:46
 
 import re
 import json
@@ -22,11 +22,14 @@ SQ_KEYWORD_OPTIONAL = 'OPTIONAL'
 
 
 SQ_OUTER_KEYWORDS = ['SELECT','PREFIX','WHERE','ORDER', 'GROUP', 'LIMIT']
-SQ_INNER_KEYWORDS = ['FILTER', 'OPTIONAL']
+SQ_INNER_KEYWORDS = ['FILTER', 'OPTIONAL', 'BIND']
 
-SQ_KEYWORDS = ['SELECT','CONSTRUCT','DESCRIBE','ASK','BASE','PREFIX','LIMIT','OFFSET','DISTINCT','REDUCED','ORDER','BY','ASC','DESC','FROM','NAMED','WHERE','GRAPH','OPTIONAL','UNION','FILTER']
+SQ_OUTER_OPERATOR = ['||', '&&']
+SQ_INNER_OPERATOR = ['!=', '<=', '>=', '<', '>', '==']
 
-SQ_FUNCTIONS = ['STR','LANGMATCHES','LANG','DATATYPE','BOUND','sameTerm','isIRI','isURI','isBLANK','isLITERAL','REGEX']
+# SQ_KEYWORDS = ['SELECT','CONSTRUCT','DESCRIBE','ASK','BASE','PREFIX','LIMIT','OFFSET','DISTINCT','REDUCED','ORDER','BY','ASC','DESC','FROM','NAMED','WHERE','GRAPH','OPTIONAL','UNION','FILTER']
+
+# SQ_FUNCTIONS = ['STR','LANGMATCHES','LANG','DATATYPE','BOUND','sameTerm','isIRI','isURI','isBLANK','isLITERAL','REGEX']
 
 
 SQ_EXT_TYPE = 'type'
@@ -48,12 +51,21 @@ re_brackets_least_m = re.compile(r'(?<=\[).*?(?=\])')
 re_brackets_most_s = re.compile(r'(?<=\().*(?=\))')
 re_brackets_least_s = re.compile(r'(?<=\().*?(?=\))')
 
+# keyword
 reg_outer = r'(?:'+r'|'.join(SQ_OUTER_KEYWORDS)+r').*?(?='+r'|'.join(SQ_OUTER_KEYWORDS)+r'|\s*$)'
 re_outer = re.compile(reg_outer)
 reg_inner = r'(?:'+r'|'.join(SQ_INNER_KEYWORDS)+r').*?(?='+r'|'.join(SQ_INNER_KEYWORDS)+r'|\s*$)'
 re_inner = re.compile(reg_inner)
 
 re_keyword = re.compile(r'^[a-zA-Z]+\b')
+
+# operator 
+reg_outer_operator = r'(?:'+r'|'.join(SQ_OUTER_OPERATOR)+r').*?(?='+r'|'.join(SQ_OUTER_OPERATOR)+r'|\s*$)'
+re_outer_operator = re.compile(reg_outer_operator)
+re_outer_operator_split = re.compile(r'['+r''.join(SQ_OUTER_OPERATOR)+r']')
+reg_inner_operator = r'(?:'+r'|'.join(SQ_INNER_OPERATOR)+r').*?(?='+r'|'.join(SQ_INNER_OPERATOR)+r'|\s*$)'
+re_inner_operator = re.compile(reg_inner_operator)
+
 
 # statement
 re_statement_split = re.compile(r'[;\.]')
@@ -101,7 +113,10 @@ class SQParser(object):
     ####################################################
 
     def __cp_func_filter(text):
-        return 's'
+        # print text
+        component = [_.strip() for _ in re_outer_operator_split.split(text) if _ != '']
+        # content = re_statement_content.search(text).group(0)
+        print component
 
     def __cp_func_optional(text):
         content = re_statement_content.search(text).group(0)
