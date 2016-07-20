@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 07:31:58
+# @Last Modified time: 2016-07-20 07:43:35
 
 import re
 import json
@@ -40,7 +40,7 @@ SQ_OPERATOR_MAPPING = {
 
 # SQ_FUNCTIONS = ['STR','LANGMATCHES','LANG','DATATYPE','BOUND','sameTerm','isIRI','isURI','isBLANK','isLITERAL','REGEX']
 
-
+# extraction names
 SQ_EXT_TYPE = 'type'
 SQ_EXT_VARIABLE = 'variable'
 SQ_EXT_CLAUSES = 'clauses'
@@ -131,8 +131,11 @@ class SQParser(object):
 
         component = [_.strip() for _ in re_outer_operator_split.split(text) if _ != '']
 
-
-
+        subc_rtn = SQParser.parse_subcomponents(component)
+        if len(subc_rtn) > 0:
+            ans.setdefault(SQ_EXT_CLAUSES, [])
+            ans[SQ_EXT_CLAUSES] += subc_rtn
+            
         # content = re_statement_content.search(text).group(0)
         print component
         return ans
@@ -157,7 +160,6 @@ class SQParser(object):
     @staticmethod
     def parse_content(text):
         ans = {}
-        # content = content.group(0).split(' ')
         text = text.split(' ')
         cv = text[1]
         ans[SQ_EXT_PREDICATE] = text[0]
@@ -166,8 +168,6 @@ class SQParser(object):
         else:
             ans[SQ_EXT_CONSTAINT] = cv
         return ans
-
-
 
     @staticmethod
     def parse_statement(ans, text):
@@ -199,6 +199,25 @@ class SQParser(object):
             content = content.group(0)
             ans.setdefault(SQ_EXT_CLAUSES, [])
             ans[SQ_EXT_CLAUSES].append(SQParser.parse_content(content))
+
+    @staticmethod
+    def parse_function(text):
+        ans = {}
+        return ans
+
+    @staticmethod
+    def parse_subcomponent(text):
+        # functions or condition statement
+        
+         
+
+
+    @staticmethod
+    def parse_subcomponents(subcomponents):
+        ans = []
+        for subcomponent in subcomponents:
+            ans.append(SQParser.parse_component(subcomponent))
+        return ans
 
 
     @staticmethod
