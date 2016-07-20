@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 07:44:22
+# @Last Modified time: 2016-07-20 08:10:13
 
 import re
 import json
@@ -52,9 +52,11 @@ SQ_EXT_OPERATOR = 'operator'
 
 # functions
 SQ_FUNCTION_BIND = 'bind'
+SQ_FUNCTION_BOUND = 'bound'
 
-SQ_FUNCTIONS = [
-    SQ_FUNCTION_BIND
+SQ_FUNCTIONS = [    # modify SQ_FUNCTION_FUNC also, if update
+    SQ_FUNCTION_BIND,
+    SQ_FUNCTION_BOUND
 ]
 
 ######################################################################
@@ -92,11 +94,43 @@ re_statement_variable = re.compile(r'(?:^|\s])\?[a-zA-Z]+\b')
 re_statement_qpr = re.compile(r'\b(?<=qpr\:)[a-zA-Z]+\b')
 re_statement_content = re.compile(r'(?<=qpr\:).+(?=\s|$)')
 
+
+# function
+re_function_content = re.compile(r'(?:'+r'|'.join(SQ_FUNCTIONS)+r')'+r'.*', re.IGNORECASE)
+def re_functions_content(func_name):
+    return re.compile(r'(?<='+func_name+r'\().*?(?=\))')
+re_functions_content = {_:re_functions_content(_) for _ in SQ_FUNCTIONS}
+
+
 ######################################################################
 #   Main Function
 ######################################################################
 
+
 class SQParser(object):
+
+    ####################################################
+    #   functions for SQ functions
+    ####################################################
+    def __sqf_func_bind(text):
+        print 'bind'
+        print re_function_content.findall(text)
+
+    def __sqf_func_bound(text):
+        ans = {}
+        content = re_functions_content[SQ_FUNCTION_BOUND].search(text)
+        if not content:
+            raise Exception('Sparql Format Error')
+        content = content.group(0)
+        ans.setdefault(SQ_FUNCTION_BIND.lower(), content)
+        return ans
+
+        
+
+    SQ_FUNCTIONS_FUNC = {
+        SQ_FUNCTION_BIND: __sqf_func_bind,
+        SQ_FUNCTION_BOUND: __sqf_func_bound
+    }
     
     ####################################################
     #   Outer Component Functions
@@ -215,7 +249,9 @@ class SQParser(object):
     @staticmethod
     def parse_subcomponent(text):
         # functions or condition statement
-        
+        for func_name in SQ_FUNCTIONS:
+            if func_name in text:
+                return SQParser.SQ_FUNCTIONS_FUNC[func_name](text)
          
 
 
@@ -223,7 +259,7 @@ class SQParser(object):
     def parse_subcomponents(subcomponents):
         ans = []
         for subcomponent in subcomponents:
-            ans.append(SQParser.parse_component(subcomponent))
+            ans.append(SQParser.parse_subcomponent(subcomponent))
         return ans
 
 
