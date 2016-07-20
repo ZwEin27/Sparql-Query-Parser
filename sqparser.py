@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 17:26:22
+# @Last Modified time: 2016-07-20 17:32:07
 
 
 """
@@ -234,14 +234,20 @@ class SQParser(object):
             text = text.replace(variable_filed, '').strip()
         variable_fileds += text.split(' ')
 
+        # print variable_fileds
         for variable_filed in variable_fileds:
             # variables in function 
+            # print variable_filed
+            is_func = False
             for func_name in SQ_FUNCTIONS:
                 if func_name in variable_filed:
                     func_rtn = SQParser.SQ_FUNCTIONS_FUNC[func_name](variable_filed)
                     ans['variables'].append(func_rtn)
+                    is_func = True
+                    break
 
-            ans['variables'].append({'variable': variable_filed.strip(), 'type': 'simple'})
+            if not is_func:
+                ans['variables'].append({'variable': variable_filed.strip(), 'type': 'simple'})
             
         
 

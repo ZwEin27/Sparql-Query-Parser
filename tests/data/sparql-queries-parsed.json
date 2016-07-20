@@ -16,19 +16,11 @@
                             "variable": "?ad"
                         }, 
                         {
-                            "type": "simple", 
-                            "variable": "(count(?ad) AS ?count)"
-                        }, 
-                        {
                             "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
                             "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
                         }, 
                         {
                             "type": "simple", 
@@ -66,19 +58,11 @@
                             "variable": "?ad"
                         }, 
                         {
-                            "type": "simple", 
-                            "variable": "(count(?ad) AS ?count)"
-                        }, 
-                        {
                             "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
                             "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
                         }, 
                         {
                             "type": "simple", 
@@ -117,19 +101,11 @@
                             "variable": "?ad"
                         }, 
                         {
-                            "type": "simple", 
-                            "variable": "(count(?ad) AS ?count)"
-                        }, 
-                        {
                             "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
                             "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
                         }, 
                         {
                             "type": "simple", 
@@ -167,19 +143,11 @@
                             "variable": "?ad"
                         }, 
                         {
-                            "type": "simple", 
-                            "variable": "(count(?ad) AS ?count)"
-                        }, 
-                        {
                             "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
                             "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
                         }, 
                         {
                             "type": "simple", 
@@ -217,19 +185,11 @@
                             "variable": "?ad"
                         }, 
                         {
-                            "type": "simple", 
-                            "variable": "(count(?ad) AS ?count)"
-                        }, 
-                        {
                             "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
                             "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
                         }, 
                         {
                             "type": "simple", 
@@ -268,19 +228,11 @@
                             "variable": "?ad"
                         }, 
                         {
-                            "type": "simple", 
-                            "variable": "(count(?ad) AS ?count)"
-                        }, 
-                        {
                             "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
                             "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
                         }, 
                         {
                             "type": "simple", 
@@ -319,19 +271,11 @@
                             "variable": "?ad"
                         }, 
                         {
-                            "type": "simple", 
-                            "variable": "(count(?ad) AS ?count)"
-                        }, 
-                        {
                             "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
                             "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
                         }, 
                         {
                             "type": "simple", 
@@ -370,19 +314,11 @@
                             "variable": "?ad"
                         }, 
                         {
-                            "type": "simple", 
-                            "variable": "(count(?ad) AS ?count)"
-                        }, 
-                        {
                             "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
                             "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
                         }, 
                         {
                             "type": "simple", 
@@ -425,19 +361,11 @@
                             "variable": "?ad"
                         }, 
                         {
-                            "type": "simple", 
-                            "variable": "(count(?ad) AS ?count)"
-                        }, 
-                        {
                             "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
                             "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
                         }, 
                         {
                             "type": "simple", 
@@ -481,19 +409,11 @@
                             "variable": "?ad"
                         }, 
                         {
-                            "type": "simple", 
-                            "variable": "(count(?ad) AS ?count)"
-                        }, 
-                        {
                             "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
                             "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
                         }, 
                         {
                             "type": "simple", 
@@ -566,19 +486,11 @@
                             "variable": "?ad"
                         }, 
                         {
-                            "type": "simple", 
-                            "variable": "(count(?ad) AS ?count)"
-                        }, 
-                        {
                             "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
                             "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
                         }, 
                         {
                             "type": "simple", 
@@ -650,19 +562,11 @@
                             "variable": "?ad"
                         }, 
                         {
-                            "type": "simple", 
-                            "variable": "(count(?ad) AS ?count)"
-                        }, 
-                        {
                             "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
                             "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
                         }, 
                         {
                             "type": "simple", 
@@ -735,19 +639,11 @@
                             "variable": "?ad"
                         }, 
                         {
-                            "type": "simple", 
-                            "variable": "(count(?ad) AS ?count)"
-                        }, 
-                        {
                             "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": "\",\"", 
                             "type": "group-concat", 
                             "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "(group_concat(?ad;separator=\",\") AS ?ads)"
                         }, 
                         {
                             "type": "simple", 
@@ -786,19 +682,11 @@
                             "variable": "?ad"
                         }, 
                         {
-                            "type": "simple", 
-                            "variable": "(count(?ad) AS ?count)"
-                        }, 
-                        {
                             "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": "\",\"", 
                             "type": "group-concat", 
                             "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "(group_concat(?ad;separator=\",\") AS ?ads)"
                         }, 
                         {
                             "type": "simple", 
@@ -837,19 +725,11 @@
                             "variable": "?ad"
                         }, 
                         {
-                            "type": "simple", 
-                            "variable": "(count(?ad) AS ?count)"
-                        }, 
-                        {
                             "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
                             "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
                         }, 
                         {
                             "type": "simple", 
@@ -893,19 +773,11 @@
                             "variable": "?ad"
                         }, 
                         {
-                            "type": "simple", 
-                            "variable": "(count(?ad) AS ?count)"
-                        }, 
-                        {
                             "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
                             "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
                         }, 
                         {
                             "type": "simple", 
