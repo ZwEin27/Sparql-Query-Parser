@@ -1,0 +1,44 @@
+{
+  "type": "cluster",
+  "variable": "?cluster",
+  "clauses": [
+    {
+      "predicate": "seed",
+      "comstraint": "5105124396"
+    },
+    {
+      "variable": "?ad",
+      "predicate": "ad"
+    },
+    {
+      "variable": "?iwp",
+      "predicate": "image_with_phone",
+      "isOptional": "True"
+    },
+    {
+      "variable": "?iwe",
+      "predicate": "image_with_email",
+      "isOptional": "True"
+    }
+  ],
+  "filters": [
+    {
+      "operator": [
+        "or"
+      ],
+      "clauses": [
+        {
+          "bound": "?iwp"
+        },
+        {
+          "bound": "?iwe"
+        },
+        {
+          "variable": "?bt",
+          "constraint": "Spa",
+          "operator": "="
+        }
+      ]
+    }
+  ]
+}

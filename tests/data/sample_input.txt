@@ -1,0 +1,10 @@
+PREFIX qpr: <http://istresearch.com/qpr>
+SELECT ?cluster ?ad
+WHERE 
+{    ?cluster a qpr:cluster ;
+             qpr:seed '5105124396' ;
+             qpr:ad ?ad .
+     OPTIONAL { ?ad qpr:image_with_phone ?iwp } 
+     OPTIONAL { ?ad qpr:image_with_email ?iwe }  
+     FILTER(bound(?iwp) || bound(?iwe) || ?bt = 'Spa')
+}

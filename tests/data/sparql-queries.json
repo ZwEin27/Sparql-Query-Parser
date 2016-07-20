@@ -1,0 +1,342 @@
+{
+    "Aggregate": {
+        "1486": {
+            "query": "1486 - Please find and list all the ads posted in Eugene, OR with indicators of multiple individuals being advertised, in the answer field note how many individuals are advertised for each ad. Return the maximum count of individuals in an ad.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?number_of_individuals (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads) WHERE { ?ad a qpr:Ad ; qpr:location 'Eugene, OR' ; qpr:number_of_individuals ?number_of_individuals .  } GROUP BY ?number_of_individuals ORDER BY DESC(?count) LIMIT 1"
+        }, 
+        "1493": {
+            "query": "1493 - Please find and list all the ads in Rochester, NY posted with indicators of multiple individuals being advertised, in the answer field note how many individuals are advertised for each ad. Return the least frequently occurring number of individuals.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?number_of_individuals (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads) WHERE { ?ad a qpr:Ad ; qpr:location 'Rochester, NY' ; qpr:number_of_individuals ?number_of_individuals .  } GROUP BY ?number_of_individuals ORDER BY ?count LIMIT 1"
+        }, 
+        "1505": {
+            "query": "1505 - Please find and list all of the ads in Seattle, WA that include an ethnicity in the ad text. In the answer field note the ethnicity for each ad. If there are multiple answers separate them with a comma. Return the most frequently occurring ethnicity.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ethnicity  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads) WHERE { ?ad a qpr:Ad ; qpr:location 'Seattle, WA' ; qpr:ethnicity ?ethnicity . } GROUP BY ?ethnicity ORDER BY DESC(?count) LIMIT 1"
+        }, 
+        "1519": {
+            "query": "1519 - Please find and list all of the ads in Bangalore, India that include an ethnicity in the ad text. In the answer field note the ethnicity for each ad. If there are multiple answers separate them with a comma. Return the least frequently occurring ethnicity.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ethnicity  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads) WHERE { ?ad a qpr:Ad ; qpr:location 'Bangalore, India' ; qpr:ethnicity ?ethnicity . } GROUP BY ?ethnicity ORDER BY ?count LIMIT 1"
+        }, 
+        "1564": {
+            "query": "1564 - Please find and list all of the ads in Flagstaff, AZ that mention a review site via link, text or image. In the answer field note what review site was mentioned (examples of review sites include, but are not limited to eccie, TER, or preferred411). If there are multiple answers separate them with a comma. Return the least frequently occurring review site.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?review_site  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads) WHERE { ?ad a qpr:Ad ; qpr:location 'Flagstaff, AZ' ; qpr:review_site ?review_site . } GROUP BY ?review_site ORDER BY ?count LIMIT 1"
+        }, 
+        "1566": {
+            "query": "1566 - Please find and list all of the ads in Fayetteville, AR that mention a review site via link, text or image. In the answer field note what review site was mentioned (examples of review sites include, but are not limited to eccie, TER, or preferred411) If there are multiple answers separate them with a comma. Return the most frequently occurring review site.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?review_site  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads) WHERE { ?ad a qpr:Ad ; qpr:location 'Fayetteville, AR' ; qpr:review_site ?review_site . } GROUP BY ?review_site ORDER BY DESC(?count) LIMIT 1"
+        }, 
+        "1567": {
+            "query": "1567 - Please find and list all of the ads in Capetown, South Africa that mention a review site via link, text or image. In the answer field note what review site was mentioned. (Examples of review sites include, but are not limited to eccie, TER, or preferred411). Return the most frequently occurring review site.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?review_site  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads) WHERE { ?ad a qpr:Ad ; qpr:location 'Capetown, South Africa' ; qpr:review_site ?review_site . } GROUP BY ?review_site ORDER BY DESC(?count) LIMIT 1"
+        }, 
+        "1575": {
+            "query": "1575 - Please find and list all of the ads in Dubai, UAE that mention an escort being from a foreign country. In the answer field note the name of that country for each ad. If there are multiple answers separate them with a comma. Return the most frequently occurring country.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?nationality  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads) WHERE { ?ad a qpr:Ad ; qpr:location 'Dubai, UAE'; qpr: nationality ?nationality . FILTER(?nationality != 'Emirati') } GROUP BY ?nationality ORDER BY DESC(?count) LIMIT 1"
+        }, 
+        "1577": {
+            "query": "1577 - Please find and list all of the ads in Galveston, TX that mention an escort being from a foreign country. In the answer field note the name of that country for each ad. If there are multiple answers separate them with a comma. Return the least frequently occurring country.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?nationality  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads) WHERE { ?ad a qpr:Ad ; qpr:location 'Galveston, TX' ; qpr:nationality ?nationality . FILTER(?nationality != 'American') } GROUP BY ?nationality ORDER BY ?count LIMIT 1"
+        }, 
+        "1582": {
+            "query": "1582 - Please find and list all of the ads in Vermont for Spas or Massage Parlors that offer sex services. In the answer field note the full name of the spa and/or the street address for each ad. If both address and business name are provided, note each separated by a comma. Return the most frequently occurring business.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?business  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads) WHERE { ?ad a qpr:Ad ; qpr:location 'Vermont' ; qpr: business_type ?bt . FILTER(?bt = 'Spa' || ?bt = 'Massage Parlor') ?ad qpr:services 'sex' . OPTIONAL { ?ad qpr:business_name ?business_name} OPTIONAL { ?ad qpr:physical_address ?physical_address } BIND( IF(BOUND(?business_name) && BOUND(?physical_address), CONCAT(?business_name, \",\", ?physical_address), IF(BOUND(?business_name), ?business_name, ?physical_address)) AS ?business) } GROUP BY ?business ORDER BY DESC(?count) LIMIT 1"
+        }, 
+        "1584": {
+            "query": "1584 - Please find and list all of the ads in Philadelphia, PA for Spas or Massage Parlors that offer sex services. In the answer field note the full name of the spa and/or the street address for each ad. If both address and business name are provided, note each separated by a comma. Return the most frequently occurring business.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?business  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads) WHERE { ?ad a qpr:Ad ; qpr:location 'Philadelphia, PA' ; qpr:business_type ?bt . FILTER(?bt = 'Spa' || ?bt = 'Massage Parlor') ?ad qpr:services 'sex' . OPTIONAL { ?ad qpr:business_name ?business_name} OPTIONAL { ?ad qpr:physical_address ?physical_address } BIND( IF(BOUND(?business_name) && BOUND(?physical_address), CONCAT(?business_name, \",\", ?physical_address), IF(BOUND(?business_name), ?business_name, ?physical_address)) AS ?business) } GROUP BY ?business ORDER BY DESC(?count) LIMIT 1"
+        }, 
+        "1592": {
+            "query": "1592 - Please find and list all of the ads in Fargo, ND for Spas or Massage Parlors that offer sex services. In the answer field note the full name of the spa and/or the street address for each ad. If both address and business name are provided, note each separated by a comma. Return the least frequently occurring business.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?business  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads)   WHERE { ?ad a qpr:Ad ; qpr:location 'Fargo, ND' ; qpr:business_type ?bt . FILTER(?bt = 'Spa' || ?bt = 'Massage Parlor') ?ad qpr:services 'sex' . OPTIONAL { ?ad qpr:business_name ?business_name} OPTIONAL { ?ad qpr:physical_address ?physical_address } BIND( IF(BOUND(?business_name) && BOUND(?physical_address), CONCAT(?business_name, \",\", ?physical_address), IF(BOUND(?business_name), ?business_name, ?physical_address)) AS ?business) } GROUP BY ?business ORDER BY ?count LIMIT 1"
+        }, 
+        "1595": {
+            "query": "1595 - Please find and list all of the ads in Delhi, India that include hair color in the ad text. In the answer field note the hair color for each ad. If there are multiple answers separate them with a comma. Return the least frequently occurring hair color.", 
+            "sparql": "PREFIX:<http://istresearch.com/qpr> SELECT ?ad (group_concat(distinct ?hair_color;separator=\",\") AS ?hair_colors) WHERE { ?ad a :Ad ; qpr:location 'Delhi, India' ; qpr:hair_color ?hair_color . } GROUP BY ?ad"
+        }, 
+        "1602": {
+            "query": "1602 - Please find and list all of the ads in Bangkok, Thailand that include hair color in the ad text. In the answer field note the hair color for each ad. If there are multiple answers separate them with a comma. Return the most frequently occurring hair color.", 
+            "sparql": "PREFIX:<http://istresearch.com/qpr> SELECT ?ad (group_concat(distinct ?hair_color;separator=\",\") AS ?hair_colors) WHERE { ?ad a :Ad ; qpr:location 'Bangkok,Thailand' ; qpr:hair_color ?hair_color . } GROUP BY ?ad"
+        }, 
+        "1608": {
+            "query": "1608 - Please find and list all of the ads in Vancouver, BC, Canada that advertise for an escort agency. In the answer field please note the name of the escort agency. If there are multiple answers separate them with a comma. Return the most frequently occurring escort agency.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?business_name (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads) WHERE { ?ad a qpr:Ad ; qpr:location 'Vancouver, BC, Canada' ; qpr:business_type 'escort agency' ; qpr:business_name ?business_name .  } GROUP BY ?business_name ORDER BY DESC(?count) LIMIT 1"
+        }, 
+        "1612": {
+            "query": "1612 - Please find and list all of the ads in Glasgow, Scotland that advertise for an escort agency. In the answer field please note the name of the escort agency. If there are multiple answers separate them with a comma. Return the most frequently occurring escort agency.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?business_name (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads) WHERE { ?ad a qpr:Ad ; qpr:location 'Glasgow, Scotland' ; qpr:business_type 'escort agency' ; qpr:business_name ?business_name . } GROUP BY ?business_name ORDER BY DESC(?count) LIMIT 1"
+        }, 
+        "1633.1837": {
+            "query": "1633.1837 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 5105124396 that have also incorporated a phone number or email address from the ad into the images associated with the ad. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 5105124396.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {    ?cluster a qpr:cluster ; qpr:seed '5105124396' . qpr:ad ?ad . OPTIONAL { ?ad qpr:image_with_phone ?iwp } OPTIONAL { ?ad qpr:image_with_email ?iwe } FILTER(bound(?iwp) || bound(?iwe)) }"
+        }, 
+        "1634.1818": {
+            "query": "1634.1818 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 2131743855 that feature a white escort. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 2131743855.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed: '2131743855' ; qpr:ethnicity: 'white' ; qpr:ad ?ad . }"
+        }, 
+        "1636.1818": {
+            "query": "1636.1818 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 9177362938 that feature a cuban escort. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 9177362938.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '9177362938' ; qpr:ethnicity 'cuban' ; qpr:ad ?ad . }"
+        }, 
+        "1638.1822": {
+            "query": "1638.1822 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 0607354362 that feature a white escort. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 0607354362.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '0607354362' ; qpr:ethnicity 'white' ; qpr:ad ?ad . }"
+        }, 
+        "1646.1842": {
+            "query": "1646.1842 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 380685070797 that feature a female escort. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 380685070797.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '380685070797' ; qpr:gender 'female' ; qpr:ad ?ad . }"
+        }, 
+        "1657.1825": {
+            "query": "1657.1825 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 9714002633 that feature a male escort. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 9714002633.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '9714002633' ; qpr:gender 'male' ; qpr:ad ?ad . }"
+        }, 
+        "1661.1856": {
+            "query": "1661.1856 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 6464809094 that feature a male escort. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 6464809094.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '6464809094' ; qpr:gender 'male' ; qpr:ad ?ad . }"
+        }, 
+        "1664.1857": {
+            "query": "1664.1857 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 11991066691 that also use the name Samanta in the ad text. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 11991066691.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '11991066691' ; qpr:name 'Samanta' ; qpr:ad ?ad . }"
+        }, 
+        "1668.1828": {
+            "query": "1668.1828 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 2508130801 that also use the name Co Co in the ad text. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 2508130801.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '2508130801' ; qpr:name 'Co Co' ; qpr:ad ?ad . }"
+        }, 
+        "1674.1832": {
+            "query": "1674.1832 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 21967404017 that feature a trans gender escort. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 21967404017.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '21967404017' ; qpr:gender 'trans' ; qpr:ad ?ad . }"
+        }, 
+        "1676.1864": {
+            "query": "1676.1864 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 0765701222 that feature a trans gender escort. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 0765701222.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '0765701222' ; qpr:gender 'trans' ; qpr:ad ?ad . }"
+        }, 
+        "1682.1834": {
+            "query": "1682.1834 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 6476877096 that have also incorporated a phone number or email address from the ad into the images associated with the ad. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 6476877096.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '6476877096' ; qpr:ad ?ad . OPTIONAL { ?ad qpr:image_with_phone ?iwp } OPTIONAL { ?ad qpr:image_with_email ?iwe } FILTER(bound(?iwp) || bound(?iwe)) }"
+        }, 
+        "1684.1836": {
+            "query": "1684.1836 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 7865064729 that have also incorporated a phone number or email address from the ad into the images associated with the ad. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 7865064729.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '7865064729' ; qpr:ad ?ad . OPTIONAL { ?ad qpr:image_with_phone ?iwp } OPTIONAL { ?ad qpr:image_with_email ?iwe } FILTER(bound(?iwp) || bound(?iwe)) }"
+        }, 
+        "1686.1869": {
+            "query": "1686.1869 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 9253051222 that have also incorporated a phone number or email address from the ad into the images associated with the ad. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 9253051222.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '9253051222' ; qpr:ad ?ad . OPTIONAL { ?ad qpr:image_with_phone ?iwp } OPTIONAL { ?ad qpr:image_with_email ?iwe } FILTER(bound(?iwp) || bound(?iwe)) }"
+        }, 
+        "1694.1887": {
+            "query": "1694.1887 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 3863346213 that feature some form of phone number obfuscation (spelled out, formatted oddly, or only used in images and not in the text). The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 3863346213.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '3863346213' ; qpr:ofuscation ?ofuscation ; qpr:ad ?ad . }"
+        }, 
+        "1699.1889": {
+            "query": "1699.1889 - Please find and list all of the ads connected via a shared phone number, email, or street address to the email easytoremember@mail.ua. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains a phone number that appeared in a different ad with a street address, which in yet another ad that street address appeared with the email easytoremember@mail.ua.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed 'easytoremember@mail.ua' ; qpr:ad ?ad . }"
+        }, 
+        "1701.1891": {
+            "query": "1701.1891 - Please find and list all of the ads connected via a shared phone number, email, or street address to the email mojoentertainment@outlook.com. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains a phone number that appeared in a different ad with a street address, which in yet another ad that street address appeared with the email mojoentertainment@outlook.com.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed 'mojoentertainment@outlook.com' ; qpr:ad ?ad . }  **Point Fact**"
+        }, 
+        "20": {
+            "query": "20 - What is the ad with the earliest post date available online that contains the phone number 7075610282?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad WHERE { ?ad a qpr:Ad ; qpr:phone '7075610282' ; qpr:posting_date ?posting_date . } ORDER BY ?posting_date LIMIT 1"
+        }, 
+        "22": {
+            "query": "22 - What is the ad with the earliest post date available online that contains the phone number 4784201625?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad WHERE { ?ad a qpr:Ad ; qpr:phone '4784201625' ; qpr:posting_date ?posting_date . } ORDER BY ?posting_date LIMIT 1"
+        }, 
+        "24": {
+            "query": "24 - What is the ad with the earliest post date available online that contains the phone number 13222255761?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad WHERE { ?ad a qpr:Ad ; qpr:phone '13222255761' ; qpr:posting_date ?posting_date . } ORDER BY ?posting_date LIMIT 1"
+        }, 
+        "28": {
+            "query": "28 - What is the eye color of the escort(s) advertised on GFEMonkey with the email address Phoenix01skye@gmail.com?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?eye_color WHERE { ?ad a qpr:Ad ; qpr:top_level_domain 'GFEMonkey.com' ; qpr:email 'Phoenix01skye@gmail.com' ; qpr:eye_color ?eye_color . }"
+        }, 
+        "30": {
+            "query": "30 - What is the eye color of the escort(s) advertised on GFEMonkey with the email address Abigail.in.SF@gmail.com", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?eye_color WHERE { ?ad a qpr:Ad ; qpr:top_level_domain 'GFEMonkey.com' ; qpr:email 'Abigail.in.SF@gmail.com' ; qpr:eye_color ?eye_color . }"
+        }, 
+        "41": {
+            "query": "41 - What are the prices associated with the ad posted on May 7, 2016 with the phone number 02 4961 3444?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?price WHERE { ?ad a qpr:Ad ; qpr:phone '0249613444' ; qpr:posting_date 'May 7, 2016' ; qpr:price ?price . }"
+        }, 
+        "43": {
+            "query": "43 - What are the prices associated with the ad posted on February 18, 2016 with the phone number 718-504-8742?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?price WHERE { ?ad a qpr:Ad ; qpr:phone '7185048742' ; qpr:posting_date 'February 18, 2016' ; qpr:price ?price . }"
+        }, 
+        "50": {
+            "query": "50 - What is the email address of the escort(s) advertised on April 1, 2016 with the phone number 653511537?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '653511537' ; qpr:posting_date 'April 1, 2016' ; qpr:email ?email . }"
+        }, 
+        "52": {
+            "query": "52 - What is the email address of the escort(s) advertised on April 25, 2014 with the phone number 631307055", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '631307055' ; qpr:posting_date 'April 25, 2014' ; qpr:email ?email . }"
+        }, 
+        "54": {
+            "query": "54 - What is the email address of the escort(s) advertised on June 28, 2016 with the phone number 697940099?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '697940099' ; qpr:posting_date 'June 28, 2016' ; qpr:email ?email . }"
+        }, 
+        "58": {
+            "query": "58 - What is the ethnicity of the escort(s) advertised in an ad on January 9, 2016 with the phone number (334) 384-3063?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '3343843063' ; qpr:posting_date 'January 9, 2016' ; qpr:ethnicity ?ethnicity . }"
+        }, 
+        "61": {
+            "query": "61 - What is the ethnicity of the escort(s) advertised in an ad on January 17, 2015 with the phone number 06 56 85 20 11?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '0656852011' ; qpr:posting_date 'January 17, 2015' ; qpr:ethnicity ?ethnicity . }"
+        }, 
+        "63": {
+            "query": "63 - What is the ethnicity of the escort(s) advertised in an ad on June 29, 2016 with the phone number 919594087952?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '919594087952' ; qpr:posting_date 'June 29, 2016' ; qpr:ethnicity ?ethnicity . }"
+        }, 
+        "77": {
+            "query": "77 - What are the review site IDs in the ad located in Midtown East, New York City, NY with the ad title \"Stunning Ebony International Companion available for extended trysts and fun times!\" that advertises with the name Vivian?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?review_site WHERE { ?ad a qpr:Ad ; qpr:location 'Midtown East, New York City, NY' ; qpr:title 'Stunning Ebony International Companion available for extended trysts and fun times!' ; qpr:name 'Vivian' ; qpr:review_site ?review_site . }"
+        }, 
+        "82": {
+            "query": "82 - What are the review site IDs in the ad located in Chicago, IL with the ad title \"Porn Star, Chicago, Illinois Female Escort & Limited GFE & GFE available for Incall and Outcall.\" that advertises with the name VIP Desire", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?review_site WHERE { ?ad a qpr:Ad ; qpr:location 'Chicago, IL' ; qpr:title 'Porn Star, Chicago, Illinois Female Escort & Limited GFE & GFE available for Incall and Outcall' ; qpr:name 'VIP Desire' ; qpr:review_site ?review_site . }"
+        }, 
+        "83": {
+            "query": "83 - What are the review site IDs in the ad located in Los Angeles, CA with the ad title \"Los Angeles, California Female Escort & GFE available for Outcall.\" that advertises with the name Layla?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?review_site WHERE { ?ad a qpr:Ad ; qpr:location 'Los Angeles, CA' ; qpr:title 'Los Angeles, California Female Escort & GFE available for Outcall.' ; qpr:name 'Layla' ; qpr:review_iste ?review_site . }"
+        }, 
+        "88": {
+            "query": "88 - What are the two phone numbers in the ad posted on June 30th in Bengaluru, India with the name Vishwas advertising 5 individuals?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone ?multiple_phone WHERE { ?ad a qpr:Ad ; qpr:posting_date 'June 30' ; qpr:location 'Bengaluru, India' ; qpr:name 'Vishwas' ; qpr:number_of_individuals \"5\"^^xsd:integer ; qpr:phone ?phone ; qpr:multiple_phone ?multiple_phone . }"
+        }
+    }, 
+    "Cluster": {
+        "1633.1837": {
+            "query": "1633.1837 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 5105124396 that have also incorporated a phone number or email address from the ad into the images associated with the ad. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 5105124396.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {    ?cluster a qpr:cluster ; qpr:seed '5105124396' . qpr:ad ?ad . OPTIONAL { ?ad qpr:image_with_phone ?iwp } OPTIONAL { ?ad qpr:image_with_email ?iwe } FILTER(bound(?iwp) || bound(?iwe)) }"
+        }, 
+        "1634.1818": {
+            "query": "1634.1818 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 2131743855 that feature a white escort. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 2131743855.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed: '2131743855' ; qpr:ethnicity: 'white' ; qpr:ad ?ad . }"
+        }, 
+        "1636.1818": {
+            "query": "1636.1818 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 9177362938 that feature a cuban escort. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 9177362938.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '9177362938' ; qpr:ethnicity 'cuban' ; qpr:ad ?ad . }"
+        }, 
+        "1638.1822": {
+            "query": "1638.1822 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 0607354362 that feature a white escort. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 0607354362.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '0607354362' ; qpr:ethnicity 'white' ; qpr:ad ?ad . }"
+        }, 
+        "1646.1842": {
+            "query": "1646.1842 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 380685070797 that feature a female escort. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 380685070797.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '380685070797' ; qpr:gender 'female' ; qpr:ad ?ad . }"
+        }, 
+        "1657.1825": {
+            "query": "1657.1825 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 9714002633 that feature a male escort. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 9714002633.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '9714002633' ; qpr:gender 'male' ; qpr:ad ?ad . }"
+        }, 
+        "1661.1856": {
+            "query": "1661.1856 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 6464809094 that feature a male escort. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 6464809094.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '6464809094' ; qpr:gender 'male' ; qpr:ad ?ad . }"
+        }, 
+        "1664.1857": {
+            "query": "1664.1857 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 11991066691 that also use the name Samanta in the ad text. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 11991066691.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '11991066691' ; qpr:name 'Samanta' ; qpr:ad ?ad . }"
+        }, 
+        "1668.1828": {
+            "query": "1668.1828 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 2508130801 that also use the name Co Co in the ad text. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 2508130801.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '2508130801' ; qpr:name 'Co Co' ; qpr:ad ?ad . }"
+        }, 
+        "1674.1832": {
+            "query": "1674.1832 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 21967404017 that feature a trans gender escort. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 21967404017.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '21967404017' ; qpr:gender 'trans' ; qpr:ad ?ad . }"
+        }, 
+        "1676.1864": {
+            "query": "1676.1864 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 0765701222 that feature a trans gender escort. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 0765701222.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '0765701222' ; qpr:gender 'trans' ; qpr:ad ?ad . }"
+        }, 
+        "1682.1834": {
+            "query": "1682.1834 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 6476877096 that have also incorporated a phone number or email address from the ad into the images associated with the ad. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 6476877096.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '6476877096' ; qpr:ad ?ad . OPTIONAL { ?ad qpr:image_with_phone ?iwp } OPTIONAL { ?ad qpr:image_with_email ?iwe } FILTER(bound(?iwp) || bound(?iwe)) }"
+        }, 
+        "1684.1836": {
+            "query": "1684.1836 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 7865064729 that have also incorporated a phone number or email address from the ad into the images associated with the ad. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 7865064729.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '7865064729' ; qpr:ad ?ad . OPTIONAL { ?ad qpr:image_with_phone ?iwp } OPTIONAL { ?ad qpr:image_with_email ?iwe } FILTER(bound(?iwp) || bound(?iwe)) }"
+        }, 
+        "1686.1869": {
+            "query": "1686.1869 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 9253051222 that have also incorporated a phone number or email address from the ad into the images associated with the ad. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 9253051222.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '9253051222' ; qpr:ad ?ad . OPTIONAL { ?ad qpr:image_with_phone ?iwp } OPTIONAL { ?ad qpr:image_with_email ?iwe } FILTER(bound(?iwp) || bound(?iwe)) }"
+        }, 
+        "1694.1887": {
+            "query": "1694.1887 - Please find and list all of the ads connected via a shared phone number, email, or street address to the phone number 3863346213 that feature some form of phone number obfuscation (spelled out, formatted oddly, or only used in images and not in the text). The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains an email that appeared in a different ad with a street address, which in yet another ad that street address appeared with the phone number 3863346213.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed '3863346213' ; qpr:ofuscation ?ofuscation ; qpr:ad ?ad . }"
+        }, 
+        "1699.1889": {
+            "query": "1699.1889 - Please find and list all of the ads connected via a shared phone number, email, or street address to the email easytoremember@mail.ua. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains a phone number that appeared in a different ad with a street address, which in yet another ad that street address appeared with the email easytoremember@mail.ua.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed 'easytoremember@mail.ua' ; qpr:ad ?ad . }"
+        }, 
+        "1701.1891": {
+            "query": "1701.1891 - Please find and list all of the ads connected via a shared phone number, email, or street address to the email mojoentertainment@outlook.com. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains a phone number that appeared in a different ad with a street address, which in yet another ad that street address appeared with the email mojoentertainment@outlook.com.", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed 'mojoentertainment@outlook.com' ; qpr:ad ?ad . }  **Point Fact**"
+        }, 
+        "20": {
+            "query": "20 - What is the ad with the earliest post date available online that contains the phone number 7075610282?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad WHERE { ?ad a qpr:Ad ; qpr:phone '7075610282' ; qpr:posting_date ?posting_date . } ORDER BY ?posting_date LIMIT 1"
+        }, 
+        "22": {
+            "query": "22 - What is the ad with the earliest post date available online that contains the phone number 4784201625?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad WHERE { ?ad a qpr:Ad ; qpr:phone '4784201625' ; qpr:posting_date ?posting_date . } ORDER BY ?posting_date LIMIT 1"
+        }, 
+        "24": {
+            "query": "24 - What is the ad with the earliest post date available online that contains the phone number 13222255761?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad WHERE { ?ad a qpr:Ad ; qpr:phone '13222255761' ; qpr:posting_date ?posting_date . } ORDER BY ?posting_date LIMIT 1"
+        }, 
+        "28": {
+            "query": "28 - What is the eye color of the escort(s) advertised on GFEMonkey with the email address Phoenix01skye@gmail.com?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?eye_color WHERE { ?ad a qpr:Ad ; qpr:top_level_domain 'GFEMonkey.com' ; qpr:email 'Phoenix01skye@gmail.com' ; qpr:eye_color ?eye_color . }"
+        }, 
+        "30": {
+            "query": "30 - What is the eye color of the escort(s) advertised on GFEMonkey with the email address Abigail.in.SF@gmail.com", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?eye_color WHERE { ?ad a qpr:Ad ; qpr:top_level_domain 'GFEMonkey.com' ; qpr:email 'Abigail.in.SF@gmail.com' ; qpr:eye_color ?eye_color . }"
+        }, 
+        "41": {
+            "query": "41 - What are the prices associated with the ad posted on May 7, 2016 with the phone number 02 4961 3444?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?price WHERE { ?ad a qpr:Ad ; qpr:phone '0249613444' ; qpr:posting_date 'May 7, 2016' ; qpr:price ?price . }"
+        }, 
+        "43": {
+            "query": "43 - What are the prices associated with the ad posted on February 18, 2016 with the phone number 718-504-8742?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?price WHERE { ?ad a qpr:Ad ; qpr:phone '7185048742' ; qpr:posting_date 'February 18, 2016' ; qpr:price ?price . }"
+        }, 
+        "50": {
+            "query": "50 - What is the email address of the escort(s) advertised on April 1, 2016 with the phone number 653511537?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '653511537' ; qpr:posting_date 'April 1, 2016' ; qpr:email ?email . }"
+        }, 
+        "52": {
+            "query": "52 - What is the email address of the escort(s) advertised on April 25, 2014 with the phone number 631307055", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '631307055' ; qpr:posting_date 'April 25, 2014' ; qpr:email ?email . }"
+        }, 
+        "54": {
+            "query": "54 - What is the email address of the escort(s) advertised on June 28, 2016 with the phone number 697940099?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '697940099' ; qpr:posting_date 'June 28, 2016' ; qpr:email ?email . }"
+        }, 
+        "58": {
+            "query": "58 - What is the ethnicity of the escort(s) advertised in an ad on January 9, 2016 with the phone number (334) 384-3063?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '3343843063' ; qpr:posting_date 'January 9, 2016' ; qpr:ethnicity ?ethnicity . }"
+        }, 
+        "61": {
+            "query": "61 - What is the ethnicity of the escort(s) advertised in an ad on January 17, 2015 with the phone number 06 56 85 20 11?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '0656852011' ; qpr:posting_date 'January 17, 2015' ; qpr:ethnicity ?ethnicity . }"
+        }, 
+        "63": {
+            "query": "63 - What is the ethnicity of the escort(s) advertised in an ad on June 29, 2016 with the phone number 919594087952?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '919594087952' ; qpr:posting_date 'June 29, 2016' ; qpr:ethnicity ?ethnicity . }"
+        }, 
+        "77": {
+            "query": "77 - What are the review site IDs in the ad located in Midtown East, New York City, NY with the ad title \"Stunning Ebony International Companion available for extended trysts and fun times!\" that advertises with the name Vivian?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?review_site WHERE { ?ad a qpr:Ad ; qpr:location 'Midtown East, New York City, NY' ; qpr:title 'Stunning Ebony International Companion available for extended trysts and fun times!' ; qpr:name 'Vivian' ; qpr:review_site ?review_site . }"
+        }, 
+        "82": {
+            "query": "82 - What are the review site IDs in the ad located in Chicago, IL with the ad title \"Porn Star, Chicago, Illinois Female Escort & Limited GFE & GFE available for Incall and Outcall.\" that advertises with the name VIP Desire", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?review_site WHERE { ?ad a qpr:Ad ; qpr:location 'Chicago, IL' ; qpr:title 'Porn Star, Chicago, Illinois Female Escort & Limited GFE & GFE available for Incall and Outcall' ; qpr:name 'VIP Desire' ; qpr:review_site ?review_site . }"
+        }, 
+        "83": {
+            "query": "83 - What are the review site IDs in the ad located in Los Angeles, CA with the ad title \"Los Angeles, California Female Escort & GFE available for Outcall.\" that advertises with the name Layla?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?review_site WHERE { ?ad a qpr:Ad ; qpr:location 'Los Angeles, CA' ; qpr:title 'Los Angeles, California Female Escort & GFE available for Outcall.' ; qpr:name 'Layla' ; qpr:review_iste ?review_site . }"
+        }, 
+        "88": {
+            "query": "88 - What are the two phone numbers in the ad posted on June 30th in Bengaluru, India with the name Vishwas advertising 5 individuals?", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone ?multiple_phone WHERE { ?ad a qpr:Ad ; qpr:posting_date 'June 30' ; qpr:location 'Bengaluru, India' ; qpr:name 'Vishwas' ; qpr:number_of_individuals \"5\"^^xsd:integer ; qpr:phone ?phone ; qpr:multiple_phone ?multiple_phone . }"
+        }
+    }
+}
