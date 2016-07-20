@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 09:43:48
+# @Last Modified time: 2016-07-20 09:46:07
 
 import re
 import json
@@ -92,7 +92,7 @@ re_statement_split = re.compile(r'.*?(?=;|\s\.\s)')
 re_statement_a = re.compile(r'(?<=[a-zA-Z])\s+?\ba\b\s+?(?=[:a-zA-Z])')
 # re_statement_a_split = re.compile(r'(?<=[a-zA-Z])\s+?\ba\b\s+?(?=[a-zA-Z])')
 re_statement_variable = re.compile(r'(?:^|\s])\?[a-zA-Z]+\b')
-re_statement_qpr = re.compile(r'\b(?<=qpr\:)[a-zA-Z]+\b')
+re_statement_qpr = re.compile(r'\b(?:(?<=qpr\:)|\b(?<=\:))[a-zA-Z]+\b')
 re_statement_content = re.compile(r'(?<=qpr\:).+(?=\s|$)')
 
 
