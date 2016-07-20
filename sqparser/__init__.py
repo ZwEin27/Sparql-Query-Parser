@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 00:37:46
+# @Last Modified time: 2016-07-20 07:31:58
 
 import re
 import json
@@ -11,6 +11,7 @@ import json
 #   Constant
 ######################################################################
 
+# keyword
 SQ_KEYWORD_SELECT = 'SELECT'
 SQ_KEYWORD_PREFIX = 'PREFIX'
 SQ_KEYWORD_WHERE = 'WHERE'
@@ -20,12 +21,20 @@ SQ_KEYWORD_LIMIT = 'LIMIT'
 SQ_KEYWORD_FILTER = 'FILTER'
 SQ_KEYWORD_OPTIONAL = 'OPTIONAL'
 
+# operator
+SQ_OPERATOR_OR = '||'
+SQ_OPERATOR_AND = '&&'
 
 SQ_OUTER_KEYWORDS = ['SELECT','PREFIX','WHERE','ORDER', 'GROUP', 'LIMIT']
 SQ_INNER_KEYWORDS = ['FILTER', 'OPTIONAL', 'BIND']
 
-SQ_OUTER_OPERATOR = ['||', '&&']
+SQ_OUTER_OPERATOR = [SQ_OPERATOR_OR, SQ_OPERATOR_AND]
 SQ_INNER_OPERATOR = ['!=', '<=', '>=', '<', '>', '==']
+
+SQ_OPERATOR_MAPPING = {
+    SQ_OPERATOR_OR: 'OR',
+    SQ_OPERATOR_AND: 'AND'
+}
 
 # SQ_KEYWORDS = ['SELECT','CONSTRUCT','DESCRIBE','ASK','BASE','PREFIX','LIMIT','OFFSET','DISTINCT','REDUCED','ORDER','BY','ASC','DESC','FROM','NAMED','WHERE','GRAPH','OPTIONAL','UNION','FILTER']
 
@@ -39,6 +48,7 @@ SQ_EXT_PREDICATE = 'predicate'
 SQ_EXT_CONSTAINT = 'constraint'
 SQ_EXT_FILTERS = 'filters'
 SQ_EXT_OPTIONAL_FLAG = 'isOptional'
+SQ_EXT_OPERATOR = 'operator'
 
 ######################################################################
 #   Regular Expression
@@ -96,7 +106,6 @@ class SQParser(object):
         statements = re_statement_split.split(text)
         for statement in statements:
             SQParser.parse_statement(ans, statement.strip())
-
         return ans
 
     OUTER_COMPONENT_FUNC = {
@@ -114,9 +123,19 @@ class SQParser(object):
 
     def __cp_func_filter(text):
         # print text
+        ans = {}
+        for op in SQ_OUTER_OPERATOR:
+            if op in text:
+                ans.setdefault(SQ_EXT_OPERATOR, [])
+                ans[SQ_EXT_OPERATOR].append(op)
+
         component = [_.strip() for _ in re_outer_operator_split.split(text) if _ != '']
+
+
+
         # content = re_statement_content.search(text).group(0)
         print component
+        return ans
 
     def __cp_func_optional(text):
         content = re_statement_content.search(text).group(0)
@@ -166,7 +185,13 @@ class SQParser(object):
                 else:
                     content = component
 
-                ans[SQ_EXT_CLAUSES].append(SQParser.INNER_COMPONENT_FUNC[keyword](content))
+                icf_rtn = SQParser.INNER_COMPONENT_FUNC[keyword](content)
+                if keyword == SQ_KEYWORD_OPTIONAL:
+                    ans.setdefault(SQ_EXT_CLAUSES, [])
+                    ans[SQ_EXT_CLAUSES].append(icf_rtn)
+                elif keyword == SQ_KEYWORD_FILTER:
+                    ans.setdefault(SQ_EXT_FILTERS, [])
+                    ans[SQ_EXT_FILTERS].append(icf_rtn)
         else:
             content = re_statement_content.search(text)
             if not content:
