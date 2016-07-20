@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 16:24:30
+# @Last Modified time: 2016-07-20 16:56:25
 
 
 """
@@ -80,13 +80,16 @@ SQ_FUNCTION_BIND = 'bind'
 SQ_FUNCTION_BOUND = 'bound'
 SQ_FUNCTION_ASC = 'asc'
 SQ_FUNCTION_DESC = 'desc'
-
+SQ_FUNCTION_COUNT = 'count'
+SQ_FUNCTION_GROUP_CONCAT = 'group_concat'
 
 SQ_FUNCTIONS = [    # modify SQ_FUNCTION_FUNC also, if update
     SQ_FUNCTION_BIND,
     SQ_FUNCTION_BOUND,
     SQ_FUNCTION_ASC,
-    SQ_FUNCTION_DESC
+    SQ_FUNCTION_DESC,
+    SQ_FUNCTION_COUNT,
+    SQ_FUNCTION_GROUP_CONCAT
 ]
 
 ######################################################################
@@ -140,7 +143,8 @@ re_select_variables = re.compile(r'[\{\(](?:\(.*?\)|[\s\w!\"#\$%&()\*+\,-\./:;<=
 def re_functions_content(func_name):
     return re.compile(r'(?<='+func_name+r'\().*?(?=\))', re.IGNORECASE)
 re_functions_content = {_:re_functions_content(_) for _ in SQ_FUNCTIONS}
-
+re_function_dependent_variable = re.compile(r'(?<=as)\s+.*(?=\))', re.IGNORECASE)
+re_function_distinct = re.compile(r'distinct', re.IGNORECASE)
 
 ######################################################################
 #   Main Function
@@ -166,11 +170,46 @@ class SQParser(object):
         ans.setdefault(SQ_FUNCTION_BIND.lower(), content)
         return ans
 
-        
+    def __sqf_func_asc(text):
+        pass
+
+    def __sqf_func_desc(text):
+        pass
+
+    def __sqf_func_count(text):
+        # ?ethnicity  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads)
+        ans = {}
+        ans['variable'] = re_functions_content[SQ_FUNCTION_COUNT].search(text).group(0)
+        ans['dependent-variable'] = re_function_dependent_variable.search(text).group(0)
+        ans['type'] = 'count'
+        return ans
+
+    def __sqf_func_group_concat(text):
+        ans = {}
+        values = re_functions_content[SQ_FUNCTION_GROUP_CONCAT].search(text).group(0)
+        ans['distinct'] = False
+        if re_function_distinct.search(values):
+            ans['distinct'] = True
+            values = values.replace('distinct').strip()
+        values = values.split(';')
+        for value in values:
+            if '=' not in value:
+                ans['variable'] = value.strip()
+            else:
+                ov = value.split('=')
+                ans[ov[0]] = ov[1][1:-1] if '\'' in ov[1] else ov[1]
+        ans['dependent-variable'] = re_function_dependent_variable.search(text).group(0)
+        ans['type'] = 'group-concat'
+        return ans
+
 
     SQ_FUNCTIONS_FUNC = {
         SQ_FUNCTION_BIND: __sqf_func_bind,
-        SQ_FUNCTION_BOUND: __sqf_func_bound
+        SQ_FUNCTION_BOUND: __sqf_func_bound,
+        SQ_FUNCTION_ASC: __sqf_func_asc,
+        SQ_FUNCTION_DESC: __sqf_func_desc,
+        SQ_FUNCTION_COUNT: __sqf_func_count,
+        SQ_FUNCTION_GROUP_CONCAT: __sqf_func_group_concat
     }
     
     ####################################################
@@ -184,24 +223,26 @@ class SQParser(object):
         # SELECT ?cluster ?ad
         # SELECT ?business  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads)
         text = ' '.join(text.strip().split(' ', 1)[1:]) # remove keyword
-        print text
+        # print text
         ans = {}
         ans['variables'] = []
         variable_fileds = re_select_variables.findall(text)
         for variable_filed in variable_fileds:
             text = text.replace(variable_filed, '').strip()
         variable_fileds += text.split(' ')
+
         for variable_filed in variable_fileds:
             # variables in function 
             for func_name in SQ_FUNCTIONS:
                 if func_name in variable_filed:
-                    return SQParser.SQ_FUNCTIONS_FUNC[func_name](text)
+                    func_rtn = SQParser.SQ_FUNCTIONS_FUNC[func_name](variable_filed)
+                    ans['variables'].append(func_rtn)
 
             # simple variables
             print variable_filed
         
 
-        parent_ans.setdefault(SQ_KEYWORD_SELECT, ans)
+        parent_ans.setdefault(SQ_KEYWORD_SELECT.lower(), ans)
 
     def __cp_func_where(parent_ans, text):
         ans = {}
