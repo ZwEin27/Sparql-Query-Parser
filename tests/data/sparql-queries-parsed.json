@@ -11,7 +11,7 @@
                 "select": {
                     "variables": [
                         {
-                            "dependent-variable": " ?count", 
+                            "dependent-variable": "?count", 
                             "type": "count", 
                             "variable": "?ad"
                         }, 
@@ -20,7 +20,7 @@
                             "variable": "(count(?ad) AS ?count)"
                         }, 
                         {
-                            "dependent-variable": " ?ads", 
+                            "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
@@ -42,11 +42,6 @@
                             "constraint": "Eugene, OR", 
                             "isOptional": false, 
                             "predicate": "location"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "number_of_individuals", 
-                            "variable": "?number_of_individuals"
                         }
                     ], 
                     "type": "Ad", 
@@ -66,7 +61,7 @@
                 "select": {
                     "variables": [
                         {
-                            "dependent-variable": " ?count", 
+                            "dependent-variable": "?count", 
                             "type": "count", 
                             "variable": "?ad"
                         }, 
@@ -75,7 +70,7 @@
                             "variable": "(count(?ad) AS ?count)"
                         }, 
                         {
-                            "dependent-variable": " ?ads", 
+                            "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
@@ -97,11 +92,6 @@
                             "constraint": "Rochester, NY", 
                             "isOptional": false, 
                             "predicate": "location"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "number_of_individuals", 
-                            "variable": "?number_of_individuals"
                         }
                     ], 
                     "type": "Ad", 
@@ -122,7 +112,7 @@
                 "select": {
                     "variables": [
                         {
-                            "dependent-variable": " ?count", 
+                            "dependent-variable": "?count", 
                             "type": "count", 
                             "variable": "?ad"
                         }, 
@@ -131,7 +121,7 @@
                             "variable": "(count(?ad) AS ?count)"
                         }, 
                         {
-                            "dependent-variable": " ?ads", 
+                            "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
@@ -153,11 +143,6 @@
                             "constraint": "Seattle, WA", 
                             "isOptional": false, 
                             "predicate": "location"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ethnicity", 
-                            "variable": "?ethnicity"
                         }
                     ], 
                     "type": "Ad", 
@@ -177,7 +162,7 @@
                 "select": {
                     "variables": [
                         {
-                            "dependent-variable": " ?count", 
+                            "dependent-variable": "?count", 
                             "type": "count", 
                             "variable": "?ad"
                         }, 
@@ -186,7 +171,7 @@
                             "variable": "(count(?ad) AS ?count)"
                         }, 
                         {
-                            "dependent-variable": " ?ads", 
+                            "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
@@ -208,11 +193,6 @@
                             "constraint": "Bangalore, India", 
                             "isOptional": false, 
                             "predicate": "location"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ethnicity", 
-                            "variable": "?ethnicity"
                         }
                     ], 
                     "type": "Ad", 
@@ -232,7 +212,7 @@
                 "select": {
                     "variables": [
                         {
-                            "dependent-variable": " ?count", 
+                            "dependent-variable": "?count", 
                             "type": "count", 
                             "variable": "?ad"
                         }, 
@@ -241,7 +221,7 @@
                             "variable": "(count(?ad) AS ?count)"
                         }, 
                         {
-                            "dependent-variable": " ?ads", 
+                            "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
@@ -263,11 +243,6 @@
                             "constraint": "Flagstaff, AZ", 
                             "isOptional": false, 
                             "predicate": "location"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "review_site", 
-                            "variable": "?review_site"
                         }
                     ], 
                     "type": "Ad", 
@@ -288,7 +263,7 @@
                 "select": {
                     "variables": [
                         {
-                            "dependent-variable": " ?count", 
+                            "dependent-variable": "?count", 
                             "type": "count", 
                             "variable": "?ad"
                         }, 
@@ -297,7 +272,7 @@
                             "variable": "(count(?ad) AS ?count)"
                         }, 
                         {
-                            "dependent-variable": " ?ads", 
+                            "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
@@ -319,11 +294,6 @@
                             "constraint": "Fayetteville, AR", 
                             "isOptional": false, 
                             "predicate": "location"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "review_site", 
-                            "variable": "?review_site"
                         }
                     ], 
                     "type": "Ad", 
@@ -344,7 +314,7 @@
                 "select": {
                     "variables": [
                         {
-                            "dependent-variable": " ?count", 
+                            "dependent-variable": "?count", 
                             "type": "count", 
                             "variable": "?ad"
                         }, 
@@ -353,7 +323,7 @@
                             "variable": "(count(?ad) AS ?count)"
                         }, 
                         {
-                            "dependent-variable": " ?ads", 
+                            "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
@@ -375,11 +345,6 @@
                             "constraint": "Capetown, South Africa", 
                             "isOptional": false, 
                             "predicate": "location"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "review_site", 
-                            "variable": "?review_site"
                         }
                     ], 
                     "type": "Ad", 
@@ -400,7 +365,7 @@
                 "select": {
                     "variables": [
                         {
-                            "dependent-variable": " ?count", 
+                            "dependent-variable": "?count", 
                             "type": "count", 
                             "variable": "?ad"
                         }, 
@@ -409,7 +374,7 @@
                             "variable": "(count(?ad) AS ?count)"
                         }, 
                         {
-                            "dependent-variable": " ?ads", 
+                            "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
@@ -455,7 +420,7 @@
                 "select": {
                     "variables": [
                         {
-                            "dependent-variable": " ?count", 
+                            "dependent-variable": "?count", 
                             "type": "count", 
                             "variable": "?ad"
                         }, 
@@ -464,7 +429,7 @@
                             "variable": "(count(?ad) AS ?count)"
                         }, 
                         {
-                            "dependent-variable": " ?ads", 
+                            "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
@@ -511,7 +476,7 @@
                 "select": {
                     "variables": [
                         {
-                            "dependent-variable": " ?count", 
+                            "dependent-variable": "?count", 
                             "type": "count", 
                             "variable": "?ad"
                         }, 
@@ -520,7 +485,7 @@
                             "variable": "(count(?ad) AS ?count)"
                         }, 
                         {
-                            "dependent-variable": " ?ads", 
+                            "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
@@ -596,7 +561,7 @@
                 "select": {
                     "variables": [
                         {
-                            "dependent-variable": " ?count", 
+                            "dependent-variable": "?count", 
                             "type": "count", 
                             "variable": "?ad"
                         }, 
@@ -605,7 +570,7 @@
                             "variable": "(count(?ad) AS ?count)"
                         }, 
                         {
-                            "dependent-variable": " ?ads", 
+                            "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
@@ -680,7 +645,7 @@
                 "select": {
                     "variables": [
                         {
-                            "dependent-variable": " ?count", 
+                            "dependent-variable": "?count", 
                             "type": "count", 
                             "variable": "?ad"
                         }, 
@@ -689,7 +654,7 @@
                             "variable": "(count(?ad) AS ?count)"
                         }, 
                         {
-                            "dependent-variable": " ?ads", 
+                            "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
@@ -765,7 +730,7 @@
                 "select": {
                     "variables": [
                         {
-                            "dependent-variable": " ?count", 
+                            "dependent-variable": "?count", 
                             "type": "count", 
                             "variable": "?ad"
                         }, 
@@ -774,7 +739,7 @@
                             "variable": "(count(?ad) AS ?count)"
                         }, 
                         {
-                            "dependent-variable": " ?ads", 
+                            "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": "\",\"", 
                             "type": "group-concat", 
@@ -796,11 +761,6 @@
                             "constraint": "Delhi, India", 
                             "isOptional": false, 
                             "predicate": "location"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "hair_color", 
-                            "variable": "?hair_color"
                         }
                     ], 
                     "type": "Ad", 
@@ -821,7 +781,7 @@
                 "select": {
                     "variables": [
                         {
-                            "dependent-variable": " ?count", 
+                            "dependent-variable": "?count", 
                             "type": "count", 
                             "variable": "?ad"
                         }, 
@@ -830,7 +790,7 @@
                             "variable": "(count(?ad) AS ?count)"
                         }, 
                         {
-                            "dependent-variable": " ?ads", 
+                            "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": "\",\"", 
                             "type": "group-concat", 
@@ -852,11 +812,6 @@
                             "constraint": "Bangkok,Thailand", 
                             "isOptional": false, 
                             "predicate": "location"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "hair_color", 
-                            "variable": "?hair_color"
                         }
                     ], 
                     "type": "Ad", 
@@ -877,7 +832,7 @@
                 "select": {
                     "variables": [
                         {
-                            "dependent-variable": " ?count", 
+                            "dependent-variable": "?count", 
                             "type": "count", 
                             "variable": "?ad"
                         }, 
@@ -886,7 +841,7 @@
                             "variable": "(count(?ad) AS ?count)"
                         }, 
                         {
-                            "dependent-variable": " ?ads", 
+                            "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
@@ -913,11 +868,6 @@
                             "constraint": "escort agency", 
                             "isOptional": false, 
                             "predicate": "business_type"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "business_name", 
-                            "variable": "?business_name"
                         }
                     ], 
                     "type": "Ad", 
@@ -938,7 +888,7 @@
                 "select": {
                     "variables": [
                         {
-                            "dependent-variable": " ?count", 
+                            "dependent-variable": "?count", 
                             "type": "count", 
                             "variable": "?ad"
                         }, 
@@ -947,7 +897,7 @@
                             "variable": "(count(?ad) AS ?count)"
                         }, 
                         {
-                            "dependent-variable": " ?ads", 
+                            "dependent-variable": "?ads", 
                             "distinct": false, 
                             "separator": ",", 
                             "type": "group-concat", 
@@ -974,11 +924,6 @@
                             "constraint": "escort agency", 
                             "isOptional": false, 
                             "predicate": "business_type"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "business_name", 
-                            "variable": "?business_name"
                         }
                     ], 
                     "type": "Ad", 
@@ -1072,11 +1017,6 @@
                             "constraint": "white", 
                             "isOptional": false, 
                             "predicate": "ethnicity:"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1111,11 +1051,6 @@
                             "constraint": "cuban", 
                             "isOptional": false, 
                             "predicate": "ethnicity"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1150,11 +1085,6 @@
                             "constraint": "white", 
                             "isOptional": false, 
                             "predicate": "ethnicity"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1189,11 +1119,6 @@
                             "constraint": "female", 
                             "isOptional": false, 
                             "predicate": "gender"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1228,11 +1153,6 @@
                             "constraint": "male", 
                             "isOptional": false, 
                             "predicate": "gender"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1267,11 +1187,6 @@
                             "constraint": "male", 
                             "isOptional": false, 
                             "predicate": "gender"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1306,11 +1221,6 @@
                             "constraint": "Samanta", 
                             "isOptional": false, 
                             "predicate": "name"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1345,11 +1255,6 @@
                             "constraint": "Co Co", 
                             "isOptional": false, 
                             "predicate": "name"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1384,11 +1289,6 @@
                             "constraint": "trans", 
                             "isOptional": false, 
                             "predicate": "gender"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1423,11 +1323,6 @@
                             "constraint": "trans", 
                             "isOptional": false, 
                             "predicate": "gender"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1639,11 +1534,6 @@
                             "isOptional": false, 
                             "predicate": "ofuscation", 
                             "variable": "?ofuscation"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1673,11 +1563,6 @@
                             "constraint": "easytoremember@mail.ua", 
                             "isOptional": false, 
                             "predicate": "seed"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1707,11 +1592,6 @@
                             "constraint": "mojoentertainment@outlook.com", 
                             "isOptional": false, 
                             "predicate": "seed"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1719,689 +1599,7 @@
                 }
             }, 
             "query": "1701.1891 - Please find and list all of the ads connected via a shared phone number, email, or street address to the email mojoentertainment@outlook.com. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains a phone number that appeared in a different ad with a street address, which in yet another ad that street address appeared with the email mojoentertainment@outlook.com.", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed 'mojoentertainment@outlook.com' ; qpr:ad ?ad . }  **Point Fact**"
-        }, 
-        "20": {
-            "parsed": {
-                "group-by": {
-                    "limit": 1, 
-                    "order-variable": "?posting_date"
-                }, 
-                "select": {
-                    "variables": [
-                        {
-                            "type": "simple", 
-                            "variable": "?ad"
-                        }
-                    ]
-                }, 
-                "where": {
-                    "clauses": [
-                        {
-                            "constraint": "7075610282", 
-                            "isOptional": false, 
-                            "predicate": "phone"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "posting_date", 
-                            "variable": "?posting_date"
-                        }
-                    ], 
-                    "type": "Ad", 
-                    "variable": "?ad"
-                }
-            }, 
-            "query": "20 - What is the ad with the earliest post date available online that contains the phone number 7075610282?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad WHERE { ?ad a qpr:Ad ; qpr:phone '7075610282' ; qpr:posting_date ?posting_date . } ORDER BY ?posting_date LIMIT 1"
-        }, 
-        "22": {
-            "parsed": {
-                "group-by": {
-                    "limit": 1, 
-                    "order-variable": "?posting_date"
-                }, 
-                "select": {
-                    "variables": [
-                        {
-                            "type": "simple", 
-                            "variable": "?ad"
-                        }
-                    ]
-                }, 
-                "where": {
-                    "clauses": [
-                        {
-                            "constraint": "4784201625", 
-                            "isOptional": false, 
-                            "predicate": "phone"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "posting_date", 
-                            "variable": "?posting_date"
-                        }
-                    ], 
-                    "type": "Ad", 
-                    "variable": "?ad"
-                }
-            }, 
-            "query": "22 - What is the ad with the earliest post date available online that contains the phone number 4784201625?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad WHERE { ?ad a qpr:Ad ; qpr:phone '4784201625' ; qpr:posting_date ?posting_date . } ORDER BY ?posting_date LIMIT 1"
-        }, 
-        "24": {
-            "parsed": {
-                "group-by": {
-                    "limit": 1, 
-                    "order-variable": "?posting_date"
-                }, 
-                "select": {
-                    "variables": [
-                        {
-                            "type": "simple", 
-                            "variable": "?ad"
-                        }
-                    ]
-                }, 
-                "where": {
-                    "clauses": [
-                        {
-                            "constraint": "13222255761", 
-                            "isOptional": false, 
-                            "predicate": "phone"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "posting_date", 
-                            "variable": "?posting_date"
-                        }
-                    ], 
-                    "type": "Ad", 
-                    "variable": "?ad"
-                }
-            }, 
-            "query": "24 - What is the ad with the earliest post date available online that contains the phone number 13222255761?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad WHERE { ?ad a qpr:Ad ; qpr:phone '13222255761' ; qpr:posting_date ?posting_date . } ORDER BY ?posting_date LIMIT 1"
-        }, 
-        "28": {
-            "parsed": {
-                "select": {
-                    "variables": [
-                        {
-                            "type": "simple", 
-                            "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "?eye_color"
-                        }
-                    ]
-                }, 
-                "where": {
-                    "clauses": [
-                        {
-                            "constraint": "GFEMonkey.com", 
-                            "isOptional": false, 
-                            "predicate": "top_level_domain"
-                        }, 
-                        {
-                            "constraint": "Phoenix01skye@gmail.com", 
-                            "isOptional": false, 
-                            "predicate": "email"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "eye_color", 
-                            "variable": "?eye_color"
-                        }
-                    ], 
-                    "type": "Ad", 
-                    "variable": "?ad"
-                }
-            }, 
-            "query": "28 - What is the eye color of the escort(s) advertised on GFEMonkey with the email address Phoenix01skye@gmail.com?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?eye_color WHERE { ?ad a qpr:Ad ; qpr:top_level_domain 'GFEMonkey.com' ; qpr:email 'Phoenix01skye@gmail.com' ; qpr:eye_color ?eye_color . }"
-        }, 
-        "30": {
-            "parsed": {
-                "select": {
-                    "variables": [
-                        {
-                            "type": "simple", 
-                            "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "?eye_color"
-                        }
-                    ]
-                }, 
-                "where": {
-                    "clauses": [
-                        {
-                            "constraint": "GFEMonkey.com", 
-                            "isOptional": false, 
-                            "predicate": "top_level_domain"
-                        }, 
-                        {
-                            "constraint": "Abigail.in.SF@gmail.com", 
-                            "isOptional": false, 
-                            "predicate": "email"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "eye_color", 
-                            "variable": "?eye_color"
-                        }
-                    ], 
-                    "type": "Ad", 
-                    "variable": "?ad"
-                }
-            }, 
-            "query": "30 - What is the eye color of the escort(s) advertised on GFEMonkey with the email address Abigail.in.SF@gmail.com", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?eye_color WHERE { ?ad a qpr:Ad ; qpr:top_level_domain 'GFEMonkey.com' ; qpr:email 'Abigail.in.SF@gmail.com' ; qpr:eye_color ?eye_color . }"
-        }, 
-        "41": {
-            "parsed": {
-                "select": {
-                    "variables": [
-                        {
-                            "type": "simple", 
-                            "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "?price"
-                        }
-                    ]
-                }, 
-                "where": {
-                    "clauses": [
-                        {
-                            "constraint": "0249613444", 
-                            "isOptional": false, 
-                            "predicate": "phone"
-                        }, 
-                        {
-                            "constraint": "\u20182016-05-07\u2019", 
-                            "isOptional": false, 
-                            "predicate": "posting_date"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "price", 
-                            "variable": "?price"
-                        }
-                    ], 
-                    "type": "Ad", 
-                    "variable": "?ad"
-                }
-            }, 
-            "query": "41 - What are the prices associated with the ad posted on May 7, 2016 with the phone number 02 4961 3444?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?price WHERE { ?ad a qpr:Ad ; qpr:phone '0249613444' ; qpr:posting_date \u20182016-05-07\u2019 ; qpr:price ?price . }"
-        }, 
-        "43": {
-            "parsed": {
-                "select": {
-                    "variables": [
-                        {
-                            "type": "simple", 
-                            "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "?price"
-                        }
-                    ]
-                }, 
-                "where": {
-                    "clauses": [
-                        {
-                            "constraint": "7185048742", 
-                            "isOptional": false, 
-                            "predicate": "phone"
-                        }, 
-                        {
-                            "constraint": "\u20192016-02-18\u2019", 
-                            "isOptional": false, 
-                            "predicate": "posting_date"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "price", 
-                            "variable": "?price"
-                        }
-                    ], 
-                    "type": "Ad", 
-                    "variable": "?ad"
-                }
-            }, 
-            "query": "43 - What are the prices associated with the ad posted on February 18, 2016 with the phone number 718-504-8742?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?price WHERE { ?ad a qpr:Ad ; qpr:phone '7185048742' ; qpr:posting_date \u20192016-02-18\u2019 ; qpr:price ?price . }"
-        }, 
-        "50": {
-            "parsed": {
-                "select": {
-                    "variables": [
-                        {
-                            "type": "simple", 
-                            "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "?email"
-                        }
-                    ]
-                }, 
-                "where": {
-                    "clauses": [
-                        {
-                            "constraint": "653511537", 
-                            "isOptional": false, 
-                            "predicate": "phone"
-                        }, 
-                        {
-                            "constraint": "\u20182016-04-01\u2019", 
-                            "isOptional": false, 
-                            "predicate": "posting_date"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "email", 
-                            "variable": "?email"
-                        }
-                    ], 
-                    "type": "Ad", 
-                    "variable": "?ad"
-                }
-            }, 
-            "query": "50 - What is the email address of the escort(s) advertised on April 1, 2016 with the phone number 653511537?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '653511537' ; qpr:posting_date \u20182016-04-01\u2019 ; qpr:email ?email . }"
-        }, 
-        "52": {
-            "parsed": {
-                "select": {
-                    "variables": [
-                        {
-                            "type": "simple", 
-                            "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "?email"
-                        }
-                    ]
-                }, 
-                "where": {
-                    "clauses": [
-                        {
-                            "constraint": "631307055", 
-                            "isOptional": false, 
-                            "predicate": "phone"
-                        }, 
-                        {
-                            "constraint": "\u20182014-04-25\u2019", 
-                            "isOptional": false, 
-                            "predicate": "posting_date"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "email", 
-                            "variable": "?email"
-                        }
-                    ], 
-                    "type": "Ad", 
-                    "variable": "?ad"
-                }
-            }, 
-            "query": "52 - What is the email address of the escort(s) advertised on April 25, 2014 with the phone number 631307055", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '631307055' ; qpr:posting_date \u20182014-04-25\u2019 ; qpr:email ?email . }"
-        }, 
-        "54": {
-            "parsed": {
-                "select": {
-                    "variables": [
-                        {
-                            "type": "simple", 
-                            "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "?email"
-                        }
-                    ]
-                }, 
-                "where": {
-                    "clauses": [
-                        {
-                            "constraint": "697940099", 
-                            "isOptional": false, 
-                            "predicate": "phone"
-                        }, 
-                        {
-                            "constraint": "\u20192016-06-28\u2019", 
-                            "isOptional": false, 
-                            "predicate": "posting_date"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "email", 
-                            "variable": "?email"
-                        }
-                    ], 
-                    "type": "Ad", 
-                    "variable": "?ad"
-                }
-            }, 
-            "query": "54 - What is the email address of the escort(s) advertised on June 28, 2016 with the phone number 697940099?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '697940099' ; qpr:posting_date \u20192016-06-28\u2019 ; qpr:email ?email . }"
-        }, 
-        "58": {
-            "parsed": {
-                "select": {
-                    "variables": [
-                        {
-                            "type": "simple", 
-                            "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "?ethnicity"
-                        }
-                    ]
-                }, 
-                "where": {
-                    "clauses": [
-                        {
-                            "constraint": "3343843063", 
-                            "isOptional": false, 
-                            "predicate": "phone"
-                        }, 
-                        {
-                            "constraint": "\u20182016-01-09\u2019", 
-                            "isOptional": false, 
-                            "predicate": "posting_date"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ethnicity", 
-                            "variable": "?ethnicity"
-                        }
-                    ], 
-                    "type": "Ad", 
-                    "variable": "?ad"
-                }
-            }, 
-            "query": "58 - What is the ethnicity of the escort(s) advertised in an ad on January 9, 2016 with the phone number (334) 384-3063?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '3343843063' ; qpr:posting_date \u20182016-01-09\u2019 ; qpr:ethnicity ?ethnicity . }"
-        }, 
-        "61": {
-            "parsed": {
-                "select": {
-                    "variables": [
-                        {
-                            "type": "simple", 
-                            "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "?ethnicity"
-                        }
-                    ]
-                }, 
-                "where": {
-                    "clauses": [
-                        {
-                            "constraint": "0656852011", 
-                            "isOptional": false, 
-                            "predicate": "phone"
-                        }, 
-                        {
-                            "constraint": "\u20192015-01-17\u2019", 
-                            "isOptional": false, 
-                            "predicate": "posting_date"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ethnicity", 
-                            "variable": "?ethnicity"
-                        }
-                    ], 
-                    "type": "Ad", 
-                    "variable": "?ad"
-                }
-            }, 
-            "query": "61 - What is the ethnicity of the escort(s) advertised in an ad on January 17, 2015 with the phone number 06 56 85 20 11?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '0656852011' ; qpr:posting_date \u20192015-01-17\u2019 ; qpr:ethnicity ?ethnicity . }"
-        }, 
-        "63": {
-            "parsed": {
-                "select": {
-                    "variables": [
-                        {
-                            "type": "simple", 
-                            "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "?ethnicity"
-                        }
-                    ]
-                }, 
-                "where": {
-                    "clauses": [
-                        {
-                            "constraint": "919594087952", 
-                            "isOptional": false, 
-                            "predicate": "phone"
-                        }, 
-                        {
-                            "constraint": "\u20182016-06-29\u2019", 
-                            "isOptional": false, 
-                            "predicate": "posting_date"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ethnicity", 
-                            "variable": "?ethnicity"
-                        }
-                    ], 
-                    "type": "Ad", 
-                    "variable": "?ad"
-                }
-            }, 
-            "query": "63 - What is the ethnicity of the escort(s) advertised in an ad on June 29, 2016 with the phone number 919594087952?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '919594087952' ; qpr:posting_date \u20182016-06-29\u2019 ; qpr:ethnicity ?ethnicity . }"
-        }, 
-        "77": {
-            "parsed": {
-                "select": {
-                    "variables": [
-                        {
-                            "type": "simple", 
-                            "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "?review_site"
-                        }
-                    ]
-                }, 
-                "where": {
-                    "clauses": [
-                        {
-                            "constraint": "Midtown East, New York City, NY", 
-                            "isOptional": false, 
-                            "predicate": "location"
-                        }, 
-                        {
-                            "constraint": "Stunning Ebony International Companion available for extended trysts and fun times!", 
-                            "isOptional": false, 
-                            "predicate": "title"
-                        }, 
-                        {
-                            "constraint": "Vivian", 
-                            "isOptional": false, 
-                            "predicate": "name"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "review_site", 
-                            "variable": "?review_site"
-                        }
-                    ], 
-                    "type": "Ad", 
-                    "variable": "?ad"
-                }
-            }, 
-            "query": "77 - What are the review site IDs in the ad located in Midtown East, New York City, NY with the ad title \"Stunning Ebony International Companion available for extended trysts and fun times!\" that advertises with the name Vivian?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?review_site WHERE { ?ad a qpr:Ad ; qpr:location 'Midtown East, New York City, NY' ; qpr:title 'Stunning Ebony International Companion available for extended trysts and fun times!' ; qpr:name 'Vivian' ; qpr:review_site ?review_site . }"
-        }, 
-        "82": {
-            "parsed": {
-                "select": {
-                    "variables": [
-                        {
-                            "type": "simple", 
-                            "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "?review_site"
-                        }
-                    ]
-                }, 
-                "where": {
-                    "clauses": [
-                        {
-                            "constraint": "Chicago, IL", 
-                            "isOptional": false, 
-                            "predicate": "location"
-                        }, 
-                        {
-                            "constraint": "Porn Star, Chicago, Illinois Female Escort & Limited GFE & GFE available for Incall and Outcall", 
-                            "isOptional": false, 
-                            "predicate": "title"
-                        }, 
-                        {
-                            "constraint": "VIP Desire", 
-                            "isOptional": false, 
-                            "predicate": "name"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "review_site", 
-                            "variable": "?review_site"
-                        }
-                    ], 
-                    "type": "Ad", 
-                    "variable": "?ad"
-                }
-            }, 
-            "query": "82 - What are the review site IDs in the ad located in Chicago, IL with the ad title \"Porn Star, Chicago, Illinois Female Escort & Limited GFE & GFE available for Incall and Outcall.\" that advertises with the name VIP Desire", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?review_site WHERE { ?ad a qpr:Ad ; qpr:location 'Chicago, IL' ; qpr:title 'Porn Star, Chicago, Illinois Female Escort & Limited GFE & GFE available for Incall and Outcall' ; qpr:name 'VIP Desire' ; qpr:review_site ?review_site . }"
-        }, 
-        "83": {
-            "parsed": {
-                "select": {
-                    "variables": [
-                        {
-                            "type": "simple", 
-                            "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "?review_site"
-                        }
-                    ]
-                }, 
-                "where": {
-                    "clauses": [
-                        {
-                            "constraint": "Los Angeles, CA", 
-                            "isOptional": false, 
-                            "predicate": "location"
-                        }, 
-                        {
-                            "constraint": "Los Angeles, California Female Escort & GFE available for Outcall.", 
-                            "isOptional": false, 
-                            "predicate": "title"
-                        }, 
-                        {
-                            "constraint": "Layla", 
-                            "isOptional": false, 
-                            "predicate": "name"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "review_iste", 
-                            "variable": "?review_site"
-                        }
-                    ], 
-                    "type": "Ad", 
-                    "variable": "?ad"
-                }
-            }, 
-            "query": "83 - What are the review site IDs in the ad located in Los Angeles, CA with the ad title \"Los Angeles, California Female Escort & GFE available for Outcall.\" that advertises with the name Layla?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?review_site WHERE { ?ad a qpr:Ad ; qpr:location 'Los Angeles, CA' ; qpr:title 'Los Angeles, California Female Escort & GFE available for Outcall.' ; qpr:name 'Layla' ; qpr:review_iste ?review_site . }"
-        }, 
-        "88": {
-            "parsed": {
-                "select": {
-                    "variables": [
-                        {
-                            "type": "simple", 
-                            "variable": "?ad"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "?phone"
-                        }, 
-                        {
-                            "type": "simple", 
-                            "variable": "?multiple_phone"
-                        }
-                    ]
-                }, 
-                "where": {
-                    "clauses": [
-                        {
-                            "constraint": "\u201806-30\u2019", 
-                            "isOptional": false, 
-                            "predicate": "posting_date"
-                        }, 
-                        {
-                            "constraint": "Bengaluru, India", 
-                            "isOptional": false, 
-                            "predicate": "location"
-                        }, 
-                        {
-                            "constraint": "Vishwas", 
-                            "isOptional": false, 
-                            "predicate": "name"
-                        }, 
-                        {
-                            "constraint": "\"5\"^^xsd:integer", 
-                            "isOptional": false, 
-                            "predicate": "number_of_individuals"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "phone", 
-                            "variable": "?phone"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "multiple_phone", 
-                            "variable": "?multiple_phone"
-                        }
-                    ], 
-                    "type": "Ad", 
-                    "variable": "?ad"
-                }
-            }, 
-            "query": "88 - What are the two phone numbers in the ad posted on June 30th in Bengaluru, India with the name Vishwas advertising 5 individuals?", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone ?multiple_phone WHERE { ?ad a qpr:Ad ; qpr:posting_date \u201806-30\u2019 ; qpr:location 'Bengaluru, India' ; qpr:name 'Vishwas' ; qpr:number_of_individuals \"5\"^^xsd:integer ; qpr:phone ?phone ; qpr:multiple_phone ?multiple_phone . }"
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed 'mojoentertainment@outlook.com' ; qpr:ad ?ad . }"
         }
     }, 
     "Cluster": {
@@ -2489,11 +1687,6 @@
                             "constraint": "white", 
                             "isOptional": false, 
                             "predicate": "ethnicity:"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -2528,11 +1721,6 @@
                             "constraint": "cuban", 
                             "isOptional": false, 
                             "predicate": "ethnicity"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -2567,11 +1755,6 @@
                             "constraint": "white", 
                             "isOptional": false, 
                             "predicate": "ethnicity"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -2606,11 +1789,6 @@
                             "constraint": "female", 
                             "isOptional": false, 
                             "predicate": "gender"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -2645,11 +1823,6 @@
                             "constraint": "male", 
                             "isOptional": false, 
                             "predicate": "gender"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -2684,11 +1857,6 @@
                             "constraint": "male", 
                             "isOptional": false, 
                             "predicate": "gender"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -2723,11 +1891,6 @@
                             "constraint": "Samanta", 
                             "isOptional": false, 
                             "predicate": "name"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -2762,11 +1925,6 @@
                             "constraint": "Co Co", 
                             "isOptional": false, 
                             "predicate": "name"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -2801,11 +1959,6 @@
                             "constraint": "trans", 
                             "isOptional": false, 
                             "predicate": "gender"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -2840,11 +1993,6 @@
                             "constraint": "trans", 
                             "isOptional": false, 
                             "predicate": "gender"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -3056,11 +2204,6 @@
                             "isOptional": false, 
                             "predicate": "ofuscation", 
                             "variable": "?ofuscation"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -3090,11 +2233,6 @@
                             "constraint": "easytoremember@mail.ua", 
                             "isOptional": false, 
                             "predicate": "seed"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -3124,11 +2262,6 @@
                             "constraint": "mojoentertainment@outlook.com", 
                             "isOptional": false, 
                             "predicate": "seed"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ad", 
-                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -3136,8 +2269,10 @@
                 }
             }, 
             "query": "1701.1891 - Please find and list all of the ads connected via a shared phone number, email, or street address to the email mojoentertainment@outlook.com. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains a phone number that appeared in a different ad with a street address, which in yet another ad that street address appeared with the email mojoentertainment@outlook.com.", 
-            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed 'mojoentertainment@outlook.com' ; qpr:ad ?ad . }  **Point Fact**"
-        }, 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed 'mojoentertainment@outlook.com' ; qpr:ad ?ad . }"
+        }
+    }, 
+    "Point Fact": {
         "20": {
             "parsed": {
                 "group-by": {
@@ -3158,11 +2293,6 @@
                             "constraint": "7075610282", 
                             "isOptional": false, 
                             "predicate": "phone"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "posting_date", 
-                            "variable": "?posting_date"
                         }
                     ], 
                     "type": "Ad", 
@@ -3192,11 +2322,6 @@
                             "constraint": "4784201625", 
                             "isOptional": false, 
                             "predicate": "phone"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "posting_date", 
-                            "variable": "?posting_date"
                         }
                     ], 
                     "type": "Ad", 
@@ -3226,11 +2351,6 @@
                             "constraint": "13222255761", 
                             "isOptional": false, 
                             "predicate": "phone"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "posting_date", 
-                            "variable": "?posting_date"
                         }
                     ], 
                     "type": "Ad", 
@@ -3265,11 +2385,6 @@
                             "constraint": "Phoenix01skye@gmail.com", 
                             "isOptional": false, 
                             "predicate": "email"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "eye_color", 
-                            "variable": "?eye_color"
                         }
                     ], 
                     "type": "Ad", 
@@ -3304,11 +2419,6 @@
                             "constraint": "Abigail.in.SF@gmail.com", 
                             "isOptional": false, 
                             "predicate": "email"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "eye_color", 
-                            "variable": "?eye_color"
                         }
                     ], 
                     "type": "Ad", 
@@ -3343,11 +2453,6 @@
                             "constraint": "\u20192016-05-07\u2019", 
                             "isOptional": false, 
                             "predicate": "posting_date"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "price", 
-                            "variable": "?price"
                         }
                     ], 
                     "type": "Ad", 
@@ -3382,11 +2487,6 @@
                             "constraint": "\u20192016\u201402-18\u2019", 
                             "isOptional": false, 
                             "predicate": "posting_date"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "price", 
-                            "variable": "?price"
                         }
                     ], 
                     "type": "Ad", 
@@ -3421,11 +2521,6 @@
                             "constraint": "\u20182016-04-01\u2019", 
                             "isOptional": false, 
                             "predicate": "posting_date"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "email", 
-                            "variable": "?email"
                         }
                     ], 
                     "type": "Ad", 
@@ -3460,11 +2555,6 @@
                             "constraint": "\u20182016-04-01\u2019", 
                             "isOptional": false, 
                             "predicate": "posting_date"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "email", 
-                            "variable": "?email"
                         }
                     ], 
                     "type": "Ad", 
@@ -3499,11 +2589,6 @@
                             "constraint": "\u20182016-06-28\u2019", 
                             "isOptional": false, 
                             "predicate": "posting_date"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "email", 
-                            "variable": "?email"
                         }
                     ], 
                     "type": "Ad", 
@@ -3538,11 +2623,6 @@
                             "constraint": "\u20182016-01-09\u2019", 
                             "isOptional": false, 
                             "predicate": "posting_date"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ethnicity", 
-                            "variable": "?ethnicity"
                         }
                     ], 
                     "type": "Ad", 
@@ -3577,11 +2657,6 @@
                             "constraint": "\u20182015-01-17\u2019", 
                             "isOptional": false, 
                             "predicate": "posting_date"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ethnicity", 
-                            "variable": "?ethnicity"
                         }
                     ], 
                     "type": "Ad", 
@@ -3616,11 +2691,6 @@
                             "constraint": "\u20182016-06-29\u2019", 
                             "isOptional": false, 
                             "predicate": "posting_date"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "ethnicity", 
-                            "variable": "?ethnicity"
                         }
                     ], 
                     "type": "Ad", 
@@ -3660,11 +2730,6 @@
                             "constraint": "Vivian", 
                             "isOptional": false, 
                             "predicate": "name"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "review_site", 
-                            "variable": "?review_site"
                         }
                     ], 
                     "type": "Ad", 
@@ -3704,11 +2769,6 @@
                             "constraint": "VIP Desire", 
                             "isOptional": false, 
                             "predicate": "name"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "review_site", 
-                            "variable": "?review_site"
                         }
                     ], 
                     "type": "Ad", 
@@ -3748,11 +2808,6 @@
                             "constraint": "Layla", 
                             "isOptional": false, 
                             "predicate": "name"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "review_iste", 
-                            "variable": "?review_site"
                         }
                     ], 
                     "type": "Ad", 
@@ -3806,11 +2861,6 @@
                             "isOptional": false, 
                             "predicate": "phone", 
                             "variable": "?phone"
-                        }, 
-                        {
-                            "isOptional": false, 
-                            "predicate": "multiple_phone", 
-                            "variable": "?multiple_phone"
                         }
                     ], 
                     "type": "Ad", 

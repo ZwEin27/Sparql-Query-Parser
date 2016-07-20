@@ -130,10 +130,8 @@
     },
     "1701.1891": {
       "query": "1701.1891 - Please find and list all of the ads connected via a shared phone number, email, or street address to the email mojoentertainment@outlook.com. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains a phone number that appeared in a different ad with a street address, which in yet another ad that street address appeared with the email mojoentertainment@outlook.com.",
-      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed 'mojoentertainment@outlook.com' ; qpr:ad ?ad . }"
-    }
-  },
-  "Point Fact": {
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed 'mojoentertainment@outlook.com' ; qpr:ad ?ad . }  **Point Fact**"
+    },
     "20": {
       "query": "20 - What is the ad with the earliest post date available online that contains the phone number 7075610282?",
       "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad WHERE { ?ad a qpr:Ad ; qpr:phone '7075610282' ; qpr:posting_date ?posting_date . } ORDER BY ?posting_date LIMIT 1"
@@ -156,11 +154,11 @@
     },
     "41": {
       "query": "41 - What are the prices associated with the ad posted on May 7, 2016 with the phone number 02 4961 3444?",
-      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?price WHERE { ?ad a qpr:Ad ; qpr:phone '0249613444' ; qpr:posting_date ’2016-05-07’ ; qpr:price ?price . }"
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?price WHERE { ?ad a qpr:Ad ; qpr:phone '0249613444' ; qpr:posting_date ‘2016-05-07’ ; qpr:price ?price . }"
     },
     "43": {
       "query": "43 - What are the prices associated with the ad posted on February 18, 2016 with the phone number 718-504-8742?",
-      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?price WHERE { ?ad a qpr:Ad ; qpr:phone '7185048742' ; qpr:posting_date ’2016—02-18’ ; qpr:price ?price . }"
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?price WHERE { ?ad a qpr:Ad ; qpr:phone '7185048742' ; qpr:posting_date ’2016-02-18’ ; qpr:price ?price . }"
     },
     "50": {
       "query": "50 - What is the email address of the escort(s) advertised on April 1, 2016 with the phone number 653511537?",
@@ -168,11 +166,11 @@
     },
     "52": {
       "query": "52 - What is the email address of the escort(s) advertised on April 25, 2014 with the phone number 631307055",
-      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '631307055' ; qpr:posting_date ‘2016-04-01’ ; qpr:email ?email . }"
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '631307055' ; qpr:posting_date ‘2014-04-25’ ; qpr:email ?email . }"
     },
     "54": {
       "query": "54 - What is the email address of the escort(s) advertised on June 28, 2016 with the phone number 697940099?",
-      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '697940099' ; qpr:posting_date ‘2016-06-28’ ; qpr:email ?email . }"
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '697940099' ; qpr:posting_date ’2016-06-28’ ; qpr:email ?email . }"
     },
     "58": {
       "query": "58 - What is the ethnicity of the escort(s) advertised in an ad on January 9, 2016 with the phone number (334) 384-3063?",
@@ -180,7 +178,7 @@
     },
     "61": {
       "query": "61 - What is the ethnicity of the escort(s) advertised in an ad on January 17, 2015 with the phone number 06 56 85 20 11?",
-      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '0656852011' ; qpr:posting_date ‘2015-01-17’ ; qpr:ethnicity ?ethnicity . }"
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '0656852011' ; qpr:posting_date ’2015-01-17’ ; qpr:ethnicity ?ethnicity . }"
     },
     "63": {
       "query": "63 - What is the ethnicity of the escort(s) advertised in an ad on June 29, 2016 with the phone number 919594087952?",
@@ -200,7 +198,7 @@
     },
     "88": {
       "query": "88 - What are the two phone numbers in the ad posted on June 30th in Bengaluru, India with the name Vishwas advertising 5 individuals?",
-      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone ?multiple_phone WHERE { ?ad a qpr:Ad ; qpr:posting_date ’06-30’ ; qpr:location 'Bengaluru, India' ; qpr:name 'Vishwas' ; qpr:number_of_individuals \"5\"^^xsd:integer ; qpr:phone ?phone ; qpr:multiple_phone ?multiple_phone . }"
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone ?multiple_phone WHERE { ?ad a qpr:Ad ; qpr:posting_date ‘06-30’ ; qpr:location 'Bengaluru, India' ; qpr:name 'Vishwas' ; qpr:number_of_individuals \"5\"^^xsd:integer ; qpr:phone ?phone ; qpr:multiple_phone ?multiple_phone . }"
     }
   },
   "Cluster": {
@@ -270,7 +268,75 @@
     },
     "1701.1891": {
       "query": "1701.1891 - Please find and list all of the ads connected via a shared phone number, email, or street address to the email mojoentertainment@outlook.com. The connection between ads can be multiple steps removed as long as there is a connection back to the original attribute via one of the listed attributes. For example, an ad could be considered connected if it contains a phone number that appeared in a different ad with a street address, which in yet another ad that street address appeared with the email mojoentertainment@outlook.com.",
-      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed 'mojoentertainment@outlook.com' ; qpr:ad ?ad . }"
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE {   ?cluster a qpr:cluster ; qpr:seed 'mojoentertainment@outlook.com' ; qpr:ad ?ad . }  **Point Fact**"
+    },
+    "20": {
+      "query": "20 - What is the ad with the earliest post date available online that contains the phone number 7075610282?",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad WHERE { ?ad a qpr:Ad ; qpr:phone '7075610282' ; qpr:posting_date ?posting_date . } ORDER BY ?posting_date LIMIT 1"
+    },
+    "22": {
+      "query": "22 - What is the ad with the earliest post date available online that contains the phone number 4784201625?",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad WHERE { ?ad a qpr:Ad ; qpr:phone '4784201625' ; qpr:posting_date ?posting_date . } ORDER BY ?posting_date LIMIT 1"
+    },
+    "24": {
+      "query": "24 - What is the ad with the earliest post date available online that contains the phone number 13222255761?",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad WHERE { ?ad a qpr:Ad ; qpr:phone '13222255761' ; qpr:posting_date ?posting_date . } ORDER BY ?posting_date LIMIT 1"
+    },
+    "28": {
+      "query": "28 - What is the eye color of the escort(s) advertised on GFEMonkey with the email address Phoenix01skye@gmail.com?",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?eye_color WHERE { ?ad a qpr:Ad ; qpr:top_level_domain 'GFEMonkey.com' ; qpr:email 'Phoenix01skye@gmail.com' ; qpr:eye_color ?eye_color . }"
+    },
+    "30": {
+      "query": "30 - What is the eye color of the escort(s) advertised on GFEMonkey with the email address Abigail.in.SF@gmail.com",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?eye_color WHERE { ?ad a qpr:Ad ; qpr:top_level_domain 'GFEMonkey.com' ; qpr:email 'Abigail.in.SF@gmail.com' ; qpr:eye_color ?eye_color . }"
+    },
+    "41": {
+      "query": "41 - What are the prices associated with the ad posted on May 7, 2016 with the phone number 02 4961 3444?",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?price WHERE { ?ad a qpr:Ad ; qpr:phone '0249613444' ; qpr:posting_date ’2016-05-07’ ; qpr:price ?price . }"
+    },
+    "43": {
+      "query": "43 - What are the prices associated with the ad posted on February 18, 2016 with the phone number 718-504-8742?",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?price WHERE { ?ad a qpr:Ad ; qpr:phone '7185048742' ; qpr:posting_date ’2016—02-18’ ; qpr:price ?price . }"
+    },
+    "50": {
+      "query": "50 - What is the email address of the escort(s) advertised on April 1, 2016 with the phone number 653511537?",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '653511537' ; qpr:posting_date ‘2016-04-01’ ; qpr:email ?email . }"
+    },
+    "52": {
+      "query": "52 - What is the email address of the escort(s) advertised on April 25, 2014 with the phone number 631307055",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '631307055' ; qpr:posting_date ‘2016-04-01’ ; qpr:email ?email . }"
+    },
+    "54": {
+      "query": "54 - What is the email address of the escort(s) advertised on June 28, 2016 with the phone number 697940099?",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?email WHERE { ?ad a qpr:Ad ; qpr:phone '697940099' ; qpr:posting_date ‘2016-06-28’ ; qpr:email ?email . }"
+    },
+    "58": {
+      "query": "58 - What is the ethnicity of the escort(s) advertised in an ad on January 9, 2016 with the phone number (334) 384-3063?",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '3343843063' ; qpr:posting_date ‘2016-01-09’ ; qpr:ethnicity ?ethnicity . }"
+    },
+    "61": {
+      "query": "61 - What is the ethnicity of the escort(s) advertised in an ad on January 17, 2015 with the phone number 06 56 85 20 11?",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '0656852011' ; qpr:posting_date ‘2015-01-17’ ; qpr:ethnicity ?ethnicity . }"
+    },
+    "63": {
+      "query": "63 - What is the ethnicity of the escort(s) advertised in an ad on June 29, 2016 with the phone number 919594087952?",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '919594087952' ; qpr:posting_date ‘2016-06-29’ ; qpr:ethnicity ?ethnicity . }"
+    },
+    "77": {
+      "query": "77 - What are the review site IDs in the ad located in Midtown East, New York City, NY with the ad title \"Stunning Ebony International Companion available for extended trysts and fun times!\" that advertises with the name Vivian?",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?review_site WHERE { ?ad a qpr:Ad ; qpr:location 'Midtown East, New York City, NY' ; qpr:title 'Stunning Ebony International Companion available for extended trysts and fun times!' ; qpr:name 'Vivian' ; qpr:review_site ?review_site . }"
+    },
+    "82": {
+      "query": "82 - What are the review site IDs in the ad located in Chicago, IL with the ad title \"Porn Star, Chicago, Illinois Female Escort & Limited GFE & GFE available for Incall and Outcall.\" that advertises with the name VIP Desire",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?review_site WHERE { ?ad a qpr:Ad ; qpr:location 'Chicago, IL' ; qpr:title 'Porn Star, Chicago, Illinois Female Escort & Limited GFE & GFE available for Incall and Outcall' ; qpr:name 'VIP Desire' ; qpr:review_site ?review_site . }"
+    },
+    "83": {
+      "query": "83 - What are the review site IDs in the ad located in Los Angeles, CA with the ad title \"Los Angeles, California Female Escort & GFE available for Outcall.\" that advertises with the name Layla?",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?review_site WHERE { ?ad a qpr:Ad ; qpr:location 'Los Angeles, CA' ; qpr:title 'Los Angeles, California Female Escort & GFE available for Outcall.' ; qpr:name 'Layla' ; qpr:review_iste ?review_site . }"
+    },
+    "88": {
+      "query": "88 - What are the two phone numbers in the ad posted on June 30th in Bengaluru, India with the name Vishwas advertising 5 individuals?",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone ?multiple_phone WHERE { ?ad a qpr:Ad ; qpr:posting_date ’06-30’ ; qpr:location 'Bengaluru, India' ; qpr:name 'Vishwas' ; qpr:number_of_individuals \"5\"^^xsd:integer ; qpr:phone ?phone ; qpr:multiple_phone ?multiple_phone . }"
     }
   }
 }

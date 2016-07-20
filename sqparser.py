@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 17:06:57
+# @Last Modified time: 2016-07-20 17:26:22
 
 
 """
@@ -166,7 +166,7 @@ class SQParser(object):
         content = re_functions_content[SQ_FUNCTION_BOUND].search(text)
         if not content:
             raise Exception('Sparql Format Error')
-        content = content.group(0)
+        content = content.group(0).strip()
         ans.setdefault(SQ_FUNCTION_BIND.lower(), content)
         return ans
 
@@ -179,16 +179,16 @@ class SQParser(object):
     def __sqf_func_count(text):
         # ?ethnicity  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads)
         ans = {}
-        ans['variable'] = re_functions_content[SQ_FUNCTION_COUNT].search(text).group(0)
+        ans['variable'] = re_functions_content[SQ_FUNCTION_COUNT].search(text).group(0).strip()
         dependent_variable = re_function_dependent_variable.search(text)
         if dependent_variable:
-            ans['dependent-variable'] = dependent_variable.group(0)
+            ans['dependent-variable'] = dependent_variable.group(0).strip()
         ans['type'] = 'count'
         return ans
 
     def __sqf_func_group_concat(text):
         ans = {}
-        values = re_functions_content[SQ_FUNCTION_GROUP_CONCAT].search(text).group(0)
+        values = re_functions_content[SQ_FUNCTION_GROUP_CONCAT].search(text).group(0).strip()
         ans['distinct'] = False
         if re_function_distinct.search(values):
             ans['distinct'] = True
@@ -202,7 +202,7 @@ class SQParser(object):
                 ans[ov[0]] = ov[1][1:-1] if '\'' in ov[1] else ov[1]
         dependent_variable = re_function_dependent_variable.search(text)
         if dependent_variable:
-            ans['dependent-variable'] = dependent_variable.group(0)
+            ans['dependent-variable'] = dependent_variable.group(0).strip()
         ans['type'] = 'group-concat'
         return ans
 
@@ -265,7 +265,7 @@ class SQParser(object):
     
     def __cp_func_order(parent_ans, text):
         parent_ans.setdefault(SQ_EXT_GOL, {})
-        parent_ans[SQ_EXT_GOL][SQ_EXT_ORDER_VARIABLE] = re_variable.search(text).group(0)
+        parent_ans[SQ_EXT_GOL][SQ_EXT_ORDER_VARIABLE] = re_variable.search(text).group(0).strip()
 
         if re_functions_content[SQ_FUNCTION_ASC].search(text):
             parent_ans[SQ_EXT_GOL][SQ_EXT_SORTED_ORDER] = SQ_FUNCTION_ASC.lower()
@@ -274,12 +274,12 @@ class SQParser(object):
 
     def __cp_func_group(parent_ans, text):
         parent_ans.setdefault(SQ_EXT_GOL, {})
-        parent_ans[SQ_EXT_GOL][SQ_EXT_GROUP_VARIABLE] = re_variable.search(text).group(0)
+        parent_ans[SQ_EXT_GOL][SQ_EXT_GROUP_VARIABLE] = re_variable.search(text).group(0).strip()
 
     def __cp_func_limit(parent_ans, text):
         parent_ans.setdefault(SQ_EXT_GOL, {})
         if re_continues_digits.search(text):
-            digits = int(re_continues_digits.search(text).group(0))
+            digits = int(re_continues_digits.search(text).group(0).strip())
             if digits > 0:
                 parent_ans[SQ_EXT_GOL][SQ_EXT_LIMIT] = digits
 
@@ -311,12 +311,12 @@ class SQParser(object):
             ans.setdefault(SQ_EXT_CLAUSES, [])
             ans[SQ_EXT_CLAUSES] += subc_rtn
             
-        # content = re_statement_content.search(text).group(0)
+        # content = re_statement_content.search(text).group(0).strip()
         # print component
         return ans
 
     def __cp_func_optional(text):
-        content = re_statement_content.search(text).group(0)
+        content = re_statement_content.search(text).group(0).strip()
         if not content:
             raise Exception('Sparql Format Error')
         clause = SQParser.parse_content(content)
@@ -343,8 +343,8 @@ class SQParser(object):
         # print 'parse_content: ', text.strip()
         text = text.strip().split(' ', 1)
 
-        # predicate = re_statement_qpr.search(text).group(0)
-        # constraint = re_statement_qpr_constaint.search(text).group(0)
+        # predicate = re_statement_qpr.search(text).group(0).strip()
+        # constraint = re_statement_qpr_constaint.search(text).group(0).strip()
         predicate = text[0]
         constraint = text[1]
         
@@ -362,16 +362,16 @@ class SQParser(object):
         # print re_statement_a.findall(text)
         if re_statement_a.search(text):
             # print text
-            ans[SQ_EXT_TYPE] = re_statement_qpr.search(text).group(0)
-            ans[SQ_EXT_VARIABLE] = re_statement_variable.search(text).group(0)
+            ans[SQ_EXT_TYPE] = re_statement_qpr.search(text).group(0).strip()
+            ans[SQ_EXT_VARIABLE] = re_statement_variable.search(text).group(0).strip()
         elif len(re_inner.findall(text)) > 0:
             for component in re_inner.findall(text):
-                keyword = re_keyword.match(component).group(0)
+                keyword = re_keyword.match(component).group(0).strip()
 
                 if re_brackets_most_b.search(component):
-                    content = re_brackets_most_b.search(component).group(0)
+                    content = re_brackets_most_b.search(component).group(0).strip()
                 elif re_brackets_most_s.search(component):
-                    content = re_brackets_most_s.search(component).group(0)
+                    content = re_brackets_most_s.search(component).group(0).strip()
                 else:
                     content = component
 
@@ -387,7 +387,7 @@ class SQParser(object):
             content = re_statement_content.search(text)
             if not content:
                 raise Exception('Sparql Format Error')
-            content = content.group(0)
+            content = content.group(0).strip()
             ans.setdefault(SQ_EXT_CLAUSES, [])
             ans[SQ_EXT_CLAUSES].append(SQParser.parse_content(content))
 
@@ -439,7 +439,7 @@ class SQParser(object):
 
     @staticmethod
     def parse(text, target_component=None):
-        components = {re_keyword.match(_).group(0):re_brackets_most_b.search(_).group(0) if re_brackets_most_b.search(_) else _ for _ in re_outer.findall(text)}
+        components = {re_keyword.match(_).group(0).strip():re_brackets_most_b.search(_).group(0).strip() if re_brackets_most_b.search(_) else _ for _ in re_outer.findall(text)}
         # print components
         
         # if target_component:
