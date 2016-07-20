@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 10:23:02
+# @Last Modified time: 2016-07-20 11:00:27
 
 import re
 import json
@@ -20,6 +20,7 @@ SQ_KEYWORD_GROUP = 'GROUP'
 SQ_KEYWORD_LIMIT = 'LIMIT'
 SQ_KEYWORD_FILTER = 'FILTER'
 SQ_KEYWORD_OPTIONAL = 'OPTIONAL'
+SQ_KEYWORD_BIND = 'BIND'
 
 # operator
 SQ_OPERATOR_OR = '||'
@@ -89,6 +90,8 @@ re_inner_operator = re.compile(reg_inner_operator)
 # statement
 # re_statement_split = re.compile(r'[;\.]')
 re_statement_split = re.compile(r'.*?(?=;|\s\.\s)')
+re_statement_inner_keyword = re.compile(r'(?:'+r'|'.join(SQ_INNER_KEYWORDS)+r')\s*?[\{\(](?:\(.*?\)|[\s\w!\"#\$%&()\*+\,-\./:;<=>\?@[\]\^_`{|}~])+?[\}\)]')
+re_statement_others = re.compile(r'.*?(?=;|\s\.\s)')
 re_statement_a = re.compile(r'(?<=[a-zA-Z])\s+?\ba\b\s+?(?=[:a-zA-Z])')
 # re_statement_a_split = re.compile(r'(?<=[a-zA-Z])\s+?\ba\b\s+?(?=[a-zA-Z])')
 re_statement_variable = re.compile(r'(?:^|\s])\?[a-zA-Z]+\b')
@@ -147,9 +150,16 @@ class SQParser(object):
 
     def __cp_func_where(text):
         ans = {}
-        statements = re_statement_split.split(text)
-        statements = [_.strip() for _ in re_statement_split.findall(text) if _ != '']
+        
+        statements = [_.strip() for _ in re_statement_inner_keyword.findall(text)]
         for statement in statements:
+            text = text.replace(statement, '')
+        statements += [_.strip() for _ in re_statement_others.findall(text) if _.strip() != '']
+
+        # statements = re_statement_split.split(text)
+        # statements = [_.strip() for _ in re_statement_split.findall(text) if _ != '']
+        for statement in statements:
+            print 'statement:', statement
             SQParser.parse_statement(ans, statement.strip())
         return ans
 
@@ -193,9 +203,13 @@ class SQParser(object):
         clause[SQ_EXT_OPTIONAL_FLAG] = True
         return clause
 
+    def __cp_func_bind(text):
+        pass
+
     INNER_COMPONENT_FUNC = {
         SQ_KEYWORD_FILTER: __cp_func_filter,
-        SQ_KEYWORD_OPTIONAL: __cp_func_optional
+        SQ_KEYWORD_OPTIONAL: __cp_func_optional,
+        SQ_KEYWORD_BIND: __cp_func_bind
     }
 
     ####################################################
@@ -295,6 +309,8 @@ class SQParser(object):
     def parse_components(components):
         ans = {}
         for (key, content) in components.iteritems():
+            # print 'key:', key
+            # print 'content:', content
             ans[key] = SQParser.OUTER_COMPONENT_FUNC[key](content)
         return ans
 

@@ -166,6 +166,16 @@
             "parsed": {
                 "clauses": [
                     {
+                        "isOptional": true, 
+                        "predicate": "business_name", 
+                        "variable": "?business_name"
+                    }, 
+                    {
+                        "isOptional": true, 
+                        "predicate": "physical_address", 
+                        "variable": "?physical_address "
+                    }, 
+                    {
                         "constraint": "'Vermont'", 
                         "predicate": "location"
                     }, 
@@ -203,6 +213,16 @@
             "parsed": {
                 "clauses": [
                     {
+                        "isOptional": true, 
+                        "predicate": "business_name", 
+                        "variable": "?business_name"
+                    }, 
+                    {
+                        "isOptional": true, 
+                        "predicate": "physical_address", 
+                        "variable": "?physical_address "
+                    }, 
+                    {
                         "constraint": "'Philadelphia, PA'", 
                         "predicate": "location"
                     }, 
@@ -239,6 +259,16 @@
         "1592": {
             "parsed": {
                 "clauses": [
+                    {
+                        "isOptional": true, 
+                        "predicate": "business_name", 
+                        "variable": "?business_name"
+                    }, 
+                    {
+                        "isOptional": true, 
+                        "predicate": "physical_address", 
+                        "variable": "?physical_address "
+                    }, 
                     {
                         "constraint": "'Fargo, ND'", 
                         "predicate": "location"
@@ -357,12 +387,37 @@
             "parsed": {
                 "clauses": [
                     {
+                        "isOptional": true, 
+                        "predicate": "image_with_phone", 
+                        "variable": "?iwp "
+                    }, 
+                    {
+                        "isOptional": true, 
+                        "predicate": "image_with_email", 
+                        "variable": "?iwe "
+                    }, 
+                    {
                         "constraint": "'5105124396'", 
                         "predicate": "seed"
                     }, 
                     {
                         "predicate": "ad", 
                         "variable": "?ad"
+                    }
+                ], 
+                "filters": [
+                    {
+                        "clauses": [
+                            {
+                                "bind": "?iwp"
+                            }, 
+                            {
+                                "bind": "?iwe"
+                            }
+                        ], 
+                        "operator": [
+                            "||"
+                        ]
                     }
                 ], 
                 "type": "cluster", 
@@ -595,12 +650,37 @@
             "parsed": {
                 "clauses": [
                     {
+                        "isOptional": true, 
+                        "predicate": "image_with_phone", 
+                        "variable": "?iwp "
+                    }, 
+                    {
+                        "isOptional": true, 
+                        "predicate": "image_with_email", 
+                        "variable": "?iwe "
+                    }, 
+                    {
                         "constraint": "'6476877096'", 
                         "predicate": "seed"
                     }, 
                     {
                         "predicate": "ad", 
                         "variable": "?ad"
+                    }
+                ], 
+                "filters": [
+                    {
+                        "clauses": [
+                            {
+                                "bind": "?iwp"
+                            }, 
+                            {
+                                "bind": "?iwe"
+                            }
+                        ], 
+                        "operator": [
+                            "||"
+                        ]
                     }
                 ], 
                 "type": "cluster", 
@@ -613,12 +693,37 @@
             "parsed": {
                 "clauses": [
                     {
+                        "isOptional": true, 
+                        "predicate": "image_with_phone", 
+                        "variable": "?iwp "
+                    }, 
+                    {
+                        "isOptional": true, 
+                        "predicate": "image_with_email", 
+                        "variable": "?iwe "
+                    }, 
+                    {
                         "constraint": "'7865064729'", 
                         "predicate": "seed"
                     }, 
                     {
                         "predicate": "ad", 
                         "variable": "?ad"
+                    }
+                ], 
+                "filters": [
+                    {
+                        "clauses": [
+                            {
+                                "bind": "?iwp"
+                            }, 
+                            {
+                                "bind": "?iwe"
+                            }
+                        ], 
+                        "operator": [
+                            "||"
+                        ]
                     }
                 ], 
                 "type": "cluster", 
@@ -631,12 +736,37 @@
             "parsed": {
                 "clauses": [
                     {
+                        "isOptional": true, 
+                        "predicate": "image_with_phone", 
+                        "variable": "?iwp "
+                    }, 
+                    {
+                        "isOptional": true, 
+                        "predicate": "image_with_email", 
+                        "variable": "?iwe "
+                    }, 
+                    {
                         "constraint": "'9253051222'", 
                         "predicate": "seed"
                     }, 
                     {
                         "predicate": "ad", 
                         "variable": "?ad"
+                    }
+                ], 
+                "filters": [
+                    {
+                        "clauses": [
+                            {
+                                "bind": "?iwp"
+                            }, 
+                            {
+                                "bind": "?iwe"
+                            }
+                        ], 
+                        "operator": [
+                            "||"
+                        ]
                     }
                 ], 
                 "type": "cluster", 
@@ -1095,12 +1225,37 @@
             "parsed": {
                 "clauses": [
                     {
+                        "isOptional": true, 
+                        "predicate": "image_with_phone", 
+                        "variable": "?iwp "
+                    }, 
+                    {
+                        "isOptional": true, 
+                        "predicate": "image_with_email", 
+                        "variable": "?iwe "
+                    }, 
+                    {
                         "constraint": "'5105124396'", 
                         "predicate": "seed"
                     }, 
                     {
                         "predicate": "ad", 
                         "variable": "?ad"
+                    }
+                ], 
+                "filters": [
+                    {
+                        "clauses": [
+                            {
+                                "bind": "?iwp"
+                            }, 
+                            {
+                                "bind": "?iwe"
+                            }
+                        ], 
+                        "operator": [
+                            "||"
+                        ]
                     }
                 ], 
                 "type": "cluster", 
@@ -1333,12 +1488,37 @@
             "parsed": {
                 "clauses": [
                     {
+                        "isOptional": true, 
+                        "predicate": "image_with_phone", 
+                        "variable": "?iwp "
+                    }, 
+                    {
+                        "isOptional": true, 
+                        "predicate": "image_with_email", 
+                        "variable": "?iwe "
+                    }, 
+                    {
                         "constraint": "'6476877096'", 
                         "predicate": "seed"
                     }, 
                     {
                         "predicate": "ad", 
                         "variable": "?ad"
+                    }
+                ], 
+                "filters": [
+                    {
+                        "clauses": [
+                            {
+                                "bind": "?iwp"
+                            }, 
+                            {
+                                "bind": "?iwe"
+                            }
+                        ], 
+                        "operator": [
+                            "||"
+                        ]
                     }
                 ], 
                 "type": "cluster", 
@@ -1351,12 +1531,37 @@
             "parsed": {
                 "clauses": [
                     {
+                        "isOptional": true, 
+                        "predicate": "image_with_phone", 
+                        "variable": "?iwp "
+                    }, 
+                    {
+                        "isOptional": true, 
+                        "predicate": "image_with_email", 
+                        "variable": "?iwe "
+                    }, 
+                    {
                         "constraint": "'7865064729'", 
                         "predicate": "seed"
                     }, 
                     {
                         "predicate": "ad", 
                         "variable": "?ad"
+                    }
+                ], 
+                "filters": [
+                    {
+                        "clauses": [
+                            {
+                                "bind": "?iwp"
+                            }, 
+                            {
+                                "bind": "?iwe"
+                            }
+                        ], 
+                        "operator": [
+                            "||"
+                        ]
                     }
                 ], 
                 "type": "cluster", 
@@ -1369,12 +1574,37 @@
             "parsed": {
                 "clauses": [
                     {
+                        "isOptional": true, 
+                        "predicate": "image_with_phone", 
+                        "variable": "?iwp "
+                    }, 
+                    {
+                        "isOptional": true, 
+                        "predicate": "image_with_email", 
+                        "variable": "?iwe "
+                    }, 
+                    {
                         "constraint": "'9253051222'", 
                         "predicate": "seed"
                     }, 
                     {
                         "predicate": "ad", 
                         "variable": "?ad"
+                    }
+                ], 
+                "filters": [
+                    {
+                        "clauses": [
+                            {
+                                "bind": "?iwp"
+                            }, 
+                            {
+                                "bind": "?iwe"
+                            }
+                        ], 
+                        "operator": [
+                            "||"
+                        ]
                     }
                 ], 
                 "type": "cluster", 
