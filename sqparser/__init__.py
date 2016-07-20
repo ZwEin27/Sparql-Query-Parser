@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 08:18:25
+# @Last Modified time: 2016-07-20 08:57:26
 
 import re
 import json
@@ -202,6 +202,7 @@ class SQParser(object):
     def parse_content(text):
         ans = {}
         text = text.split(' ')
+        print 'parse_content: ', text
         cv = text[1]
         ans[SQ_EXT_PREDICATE] = text[0]
         if '?' in cv:
@@ -234,6 +235,7 @@ class SQParser(object):
                     ans.setdefault(SQ_EXT_FILTERS, [])
                     ans[SQ_EXT_FILTERS].append(icf_rtn)
         else:
+            print 'parse_statement',text
             content = re_statement_content.search(text)
             if not content:
                 raise Exception('Sparql Format Error')
@@ -293,7 +295,37 @@ class SQParser(object):
         #     print t
 
         ans = SQParser.parse_components(components)[target_component]
-        print json.dumps(ans, indent=4)
+        return json.dumps(ans, indent=4)
+
+    @staticmethod
+    def parse_sq_json(input_path, output_path=None, target_component='WHERE', has_title=True):
+        with open(input_path, 'rb') as file_handler:
+            # lines = file_handler.readlines()
+            json_obj = json.load(file_handler)
+            # contents = []
+            # if has_title: 
+            #     for value in json_obj.values():
+            #         for (k, v) in value.iteritems():
+            #             contents.append(v['sparql'])
+            # else:
+            #     for (k, v) in json_obj.iteritems():
+            #         contents.append(v['sparql'])
+            
+            if has_title: 
+                for value in json_obj.values():
+                    for (k, v) in value.iteritems():
+                        k['parsed'] = SQParser.parse(v['sparql'], target_component=target_component)
+            else:
+                for (k, v) in json_obj.iteritems():
+                    k['parsed'] = SQParser.parse(v['sparql'], target_component=target_component)
+
+        # for content in contents:
+        #     SQParser.parse(content, target_component=target_component)
+
+        if output_path:
+            file_handler = open(output_path, 'wb')
+            file_handler.write(json.dumps(json_obj, sort_keys=True, indent=4))
+            file_handler.close()
 
 
 
@@ -302,24 +334,43 @@ class SQParser(object):
 
 
 if __name__ == '__main__':
-    # """
+
+    """
     text = "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE { ?cluster a qpr:cluster ; qpr:seed '5105124396' ; qpr:ad ?ad . OPTIONAL { ?ad qpr:image_with_phone ?iwp } OPTIONAL { ?ad qpr:image_with_email ?iwe } FILTER(bound(?iwp) || bound(?iwe) || ?bt = 'Spa') }"
     
     SQParser.parse(text)
+    
+
+    # import sys
+    # import argparse
+
+    # arg_parser = argparse.ArgumentParser()
+    # arg_parser.add_argument('-t','--text', required=True)
+
+    # args = arg_parser.parse_args()
+
+    # text = str(args.text)
+    # print SQParser.parse(text)
     """
 
     import sys
     import argparse
 
     arg_parser = argparse.ArgumentParser()
-    arg_parser.add_argument('-t','--text', required=True)
+    arg_parser.add_argument('-i','--input_file', required=True)
+    arg_parser.add_argument('-o','--output_file')
+    arg_parser.add_argument('-c','--target_component', required=False)
+    arg_parser.add_argument('-t','--has_title', required=False)
 
     args = arg_parser.parse_args()
 
-    text = str(args.text)
-    print SQParser.parse(text)
+    input_file = str(args.input_file)
+    output_file = str(args.output_file)
+    target_component = str(args.target_component)
+    has_title = args.has_title if args.has_title else False
+    SQParser.parse_sq_json(input_file, output_path=output_file, target_component=target_component, has_title=has_title)
 
-    """
+    
 
 
 
