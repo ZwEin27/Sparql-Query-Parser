@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 14:18:28
+# @Last Modified time: 2016-07-20 15:21:46
 
 
 """
@@ -69,19 +69,30 @@ SQ_EXT_CONSTAINT = 'constraint'
 SQ_EXT_FILTERS = 'filters'
 SQ_EXT_OPTIONAL_FLAG = 'isOptional'
 SQ_EXT_OPERATOR = 'operator'
+SQ_EXT_GOL = 'group-by'
+SQ_EXT_GROUP_VARIABLE = 'group-variable'
+SQ_EXT_ORDER_VARIABLE = 'order-variable'
+SQ_EXT_SORTED_ORDER = 'sorted-order'
+SQ_EXT_LIMIT = 'limit'
 
 # functions
 SQ_FUNCTION_BIND = 'bind'
 SQ_FUNCTION_BOUND = 'bound'
+SQ_FUNCTION_ASC = 'asc'
+SQ_FUNCTION_DESC = 'desc'
 
 SQ_FUNCTIONS = [    # modify SQ_FUNCTION_FUNC also, if update
     SQ_FUNCTION_BIND,
-    SQ_FUNCTION_BOUND
+    SQ_FUNCTION_BOUND,
+    SQ_FUNCTION_ASC,
+    SQ_FUNCTION_DESC
 ]
 
 ######################################################################
 #   Regular Expression
 ######################################################################
+
+re_continues_digits = re.compile(r'\d+')
 
 re_brackets_most_b = re.compile(r'(?<={).*(?=})')
 re_brackets_least_b = re.compile(r'(?<={).*?(?=})')
@@ -89,6 +100,8 @@ re_brackets_most_m = re.compile(r'(?<=\[).*(?=\])')
 re_brackets_least_m = re.compile(r'(?<=\[).*?(?=\])')
 re_brackets_most_s = re.compile(r'(?<=\().*(?=\))')
 re_brackets_least_s = re.compile(r'(?<=\().*?(?=\))')
+
+re_variable = re.compile(r'(?<=[\(\b\s])\?[\-_a-zA-Z]+(?=[\)\b\s\Z]|$)')
 
 # keyword
 reg_outer = r'(?:'+r'|'.join(SQ_OUTER_KEYWORDS)+r').*?(?='+r'|'.join(SQ_OUTER_KEYWORDS)+r'|\s*$)'
@@ -113,7 +126,7 @@ re_statement_inner_keyword = re.compile(r'(?:'+r'|'.join(SQ_INNER_KEYWORDS)+r')\
 re_statement_others = re.compile(r'.*?(?=;|\s\.\s)')
 re_statement_a = re.compile(r'(?<=[a-zA-Z])\s+?\ba\b\s+?(?=[:a-zA-Z])')
 # re_statement_a_split = re.compile(r'(?<=[a-zA-Z])\s+?\ba\b\s+?(?=[a-zA-Z])')
-re_statement_variable = re.compile(r'(?:^|\s])\?[a-zA-Z]+\b')
+re_statement_variable = re.compile(r'(?:^|\s|\b])\?[a-zA-Z]+\b')
 re_statement_qpr = re.compile(r'\b(?:(?<=qpr\:)|(?<=\:))[_a-zA-Z]+\b')
 re_statement_qpr_constaint = re.compile(r'(?<=\').+(?=\')')
 re_statement_content = re.compile(r'(?<=qpr\:).+(?=\s|$)')
@@ -121,9 +134,9 @@ re_statement_content = re.compile(r'(?<=qpr\:).+(?=\s|$)')
 
 
 # function
-re_function_content = re.compile(r'(?:'+r'|'.join(SQ_FUNCTIONS)+r')'+r'.*', re.IGNORECASE)
+# re_function_content = re.compile(r'(?:'+r'|'.join(SQ_FUNCTIONS)+r')'+r'.*', re.IGNORECASE)
 def re_functions_content(func_name):
-    return re.compile(r'(?<='+func_name+r'\().*?(?=\))')
+    return re.compile(r'(?<='+func_name+r'\().*?(?=\))', re.IGNORECASE)
 re_functions_content = {_:re_functions_content(_) for _ in SQ_FUNCTIONS}
 
 
@@ -183,14 +196,34 @@ class SQParser(object):
             SQParser.parse_statement(ans, statement.strip())
         parent_ans.setdefault(SQ_KEYWORD_WHERE, ans)
         # return ans
+    
+    def __cp_func_order(parent_ans, text):
+        parent_ans.setdefault(SQ_EXT_GOL, {})
+        parent_ans[SQ_EXT_GOL][SQ_EXT_ORDER_VARIABLE] = re_variable.search(text).group(0)
+
+        if re_functions_content[SQ_FUNCTION_ASC].search(text):
+            parent_ans[SQ_EXT_GOL][SQ_EXT_SORTED_ORDER] = 'asc'
+        elif re_functions_content[SQ_FUNCTION_DESC].search(text):
+            parent_ans[SQ_EXT_GOL][SQ_EXT_SORTED_ORDER] = 'desc'
+
+    def __cp_func_group(parent_ans, text):
+        parent_ans.setdefault(SQ_EXT_GOL, {})
+        parent_ans[SQ_EXT_GOL][SQ_EXT_GROUP_VARIABLE] = re_variable.search(text).group(0)
+
+    def __cp_func_limit(parent_ans, text):
+        parent_ans.setdefault(SQ_EXT_GOL, {})
+        if re_continues_digits.search(text):
+            digits = re_continues_digits.search(text).group(0)
+            if int(digits) > 0:
+                parent_ans[SQ_EXT_GOL][SQ_EXT_LIMIT] = digits
 
     OUTER_COMPONENT_FUNC = {
         SQ_KEYWORD_PREFIX: __cp_func_prefix,
         SQ_KEYWORD_SELECT: __cp_func_select,
         SQ_KEYWORD_WHERE: __cp_func_where,
-        SQ_KEYWORD_ORDER: lambda x, y: None,
-        SQ_KEYWORD_GROUP: lambda x, y: None,
-        SQ_KEYWORD_LIMIT: lambda x, y: None
+        SQ_KEYWORD_ORDER: __cp_func_order,
+        SQ_KEYWORD_GROUP: __cp_func_group,
+        SQ_KEYWORD_LIMIT: __cp_func_limit
     }
 
     ####################################################
@@ -331,14 +364,14 @@ class SQParser(object):
     def parse_components(components):
         ans = {}
         for (key, content) in components.iteritems():
-            print 'key:', key
-            print 'content:', content
+            # print 'key:', key
+            # print 'content:', content.encode('ascii', 'ignore')
             # ans[key] = SQParser.OUTER_COMPONENT_FUNC[key](content)
             SQParser.OUTER_COMPONENT_FUNC[key](ans, content)
         return ans
 
     @staticmethod
-    def parse(text, target_component='WHERE'):
+    def parse(text, target_component=None):
         components = {re_keyword.match(_).group(0):re_brackets_most_b.search(_).group(0) if re_brackets_most_b.search(_) else _ for _ in re_outer.findall(text)}
         # print components
         
@@ -346,12 +379,15 @@ class SQParser(object):
         #     t = components[target_component]
         #     print t
 
-        ans = SQParser.parse_components(components)[target_component]
+        ans = SQParser.parse_components(components)
+        if target_component:
+            ans = ans[target_component]
+        # ans = SQParser.parse_components(components)[target_component]
         # return json.dumps(ans, indent=4)
         return ans
 
     @staticmethod
-    def parse_sq_json(input_path, output_path=None, target_component='WHERE', has_title=True):
+    def parse_sq_json(input_path, output_path=None, target_component=None, has_title=True):
         with open(input_path, 'rb') as file_handler:
             # lines = file_handler.readlines()
             json_obj = json.load(file_handler)

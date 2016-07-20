@@ -21,7 +21,7 @@ class TestSQParserMethods(unittest.TestCase):
         pass
 
     def test_parse_json(self):
-        target_component = 'WHERE'
+        target_component = None
         has_title = True
         SQParser.parse_sq_json(input_, output_path=output_, target_component=target_component, has_title=has_title)
 
@@ -36,8 +36,8 @@ if __name__ == '__main__':
 
     def run_main_test():
         suite = unittest.TestSuite()
-        # suite.addTest(TestSQParserMethods('test_parse_json'))
-        suite.addTest(TestSQParserMethods('test_parse'))
+        suite.addTest(TestSQParserMethods('test_parse_json'))
+        # suite.addTest(TestSQParserMethods('test_parse'))
         runner = unittest.TextTestRunner()
         runner.run(suite)
 
