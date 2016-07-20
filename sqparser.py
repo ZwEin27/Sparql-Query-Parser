@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 16:01:34
+# @Last Modified time: 2016-07-20 16:24:30
 
 
 """
@@ -81,6 +81,7 @@ SQ_FUNCTION_BOUND = 'bound'
 SQ_FUNCTION_ASC = 'asc'
 SQ_FUNCTION_DESC = 'desc'
 
+
 SQ_FUNCTIONS = [    # modify SQ_FUNCTION_FUNC also, if update
     SQ_FUNCTION_BIND,
     SQ_FUNCTION_BOUND,
@@ -132,6 +133,7 @@ re_statement_qpr_constaint = re.compile(r'(?<=\').+(?=\')')
 re_statement_content = re.compile(r'(?<=qpr\:).+(?=\s|$)')
 # re_statement_content = re.compile(r'qpr\:.+(?=\s|$)')
 
+re_select_variables = re.compile(r'[\{\(](?:\(.*?\)|[\s\w!\"#\$%&()\*+\,-\./:;<=>\?@[\]\^_`{|}~])+?[\}\)]')
 
 # function
 # re_function_content = re.compile(r'(?:'+r'|'.join(SQ_FUNCTIONS)+r')'+r'.*', re.IGNORECASE)
@@ -179,15 +181,31 @@ class SQParser(object):
         pass
 
     def __cp_func_select(parent_ans, text):
+        # SELECT ?cluster ?ad
+        # SELECT ?business  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads)
+        text = ' '.join(text.strip().split(' ', 1)[1:]) # remove keyword
+        print text
         ans = {}
         ans['variables'] = []
+        variable_fileds = re_select_variables.findall(text)
+        for variable_filed in variable_fileds:
+            text = text.replace(variable_filed, '').strip()
+        variable_fileds += text.split(' ')
+        for variable_filed in variable_fileds:
+            # variables in function 
+            for func_name in SQ_FUNCTIONS:
+                if func_name in variable_filed:
+                    return SQParser.SQ_FUNCTIONS_FUNC[func_name](text)
 
+            # simple variables
+            print variable_filed
+        
 
         parent_ans.setdefault(SQ_KEYWORD_SELECT, ans)
 
     def __cp_func_where(parent_ans, text):
         ans = {}
-        
+
         statements = [_.strip() for _ in re_statement_inner_keyword.findall(text)]
         for statement in statements:
             text = text.replace(statement, '')
