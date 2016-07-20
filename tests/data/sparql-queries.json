@@ -54,7 +54,7 @@
     },
     "1602": {
       "query": "1602 - Please find and list all of the ads in Bangkok, Thailand that include hair color in the ad text. In the answer field note the hair color for each ad. If there are multiple answers separate them with a comma. Return the most frequently occurring hair color.",
-      "sparql": "PREFIX qpr:<http://istresearch.com/qpr> SELECT ?hair_color (count(?ad)) AS ?count)(group_concat(?ad;separator=\",\") AS ?ads) WHERE { ?ad a :Ad ; qpr:location 'Bangkok,Thailand' ; qpr:hair_color ?hair_color . } GROUP BY ?ad ORDER BY DESC(?count) LIMIT 1"
+      "sparql": "PREFIX qpr:<http://istresearch.com/qpr> SELECT ?hair_color (count(?ad) AS ?count)(group_concat(?ad;separator=\",\") AS ?ads) WHERE { ?ad a :Ad ; qpr:location 'Bangkok,Thailand' ; qpr:hair_color ?hair_color . } GROUP BY ?ad ORDER BY DESC(?count) LIMIT 1"
     },
     "1608": {
       "query": "1608 - Please find and list all of the ads in Vancouver, BC, Canada that advertise for an escort agency. In the answer field please note the name of the escort agency. If there are multiple answers separate them with a comma. Return the most frequently occurring escort agency.",

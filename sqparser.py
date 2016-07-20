@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 16:56:25
+# @Last Modified time: 2016-07-20 17:02:08
 
 
 """
@@ -180,7 +180,9 @@ class SQParser(object):
         # ?ethnicity  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads)
         ans = {}
         ans['variable'] = re_functions_content[SQ_FUNCTION_COUNT].search(text).group(0)
-        ans['dependent-variable'] = re_function_dependent_variable.search(text).group(0)
+        dependent_variable = re_function_dependent_variable.search(text)
+        if dependent_variable:
+            ans['dependent-variable'] = dependent_variable.group(0)
         ans['type'] = 'count'
         return ans
 
@@ -198,7 +200,9 @@ class SQParser(object):
             else:
                 ov = value.split('=')
                 ans[ov[0]] = ov[1][1:-1] if '\'' in ov[1] else ov[1]
-        ans['dependent-variable'] = re_function_dependent_variable.search(text).group(0)
+        dependent_variable = re_function_dependent_variable.search(text)
+        if dependent_variable:
+            ans['dependent-variable'] = dependent_variable.group(0)
         ans['type'] = 'group-concat'
         return ans
 
@@ -223,7 +227,6 @@ class SQParser(object):
         # SELECT ?cluster ?ad
         # SELECT ?business  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads)
         text = ' '.join(text.strip().split(' ', 1)[1:]) # remove keyword
-        # print text
         ans = {}
         ans['variables'] = []
         variable_fileds = re_select_variables.findall(text)
@@ -238,8 +241,8 @@ class SQParser(object):
                     func_rtn = SQParser.SQ_FUNCTIONS_FUNC[func_name](variable_filed)
                     ans['variables'].append(func_rtn)
 
-            # simple variables
-            print variable_filed
+            ans['variables'].append({'variable': variable_filed.strip(), 'type': 'simple'})
+            
         
 
         parent_ans.setdefault(SQ_KEYWORD_SELECT.lower(), ans)

@@ -2,14 +2,39 @@
     "Aggregate": {
         "1486": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
-                }, 
                 "group-by": {
                     "group-variable": "?number_of_individuals", 
                     "limit": "1", 
                     "order-variable": "?count", 
                     "sorted-order": "desc"
+                }, 
+                "select": {
+                    "variables": [
+                        {
+                            "dependent-variable": " ?count", 
+                            "type": "count", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(count(?ad) AS ?count)"
+                        }, 
+                        {
+                            "dependent-variable": " ?ads", 
+                            "distinct": false, 
+                            "separator": ",", 
+                            "type": "group-concat", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?number_of_individuals"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -31,13 +56,38 @@
         }, 
         "1493": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
-                }, 
                 "group-by": {
                     "group-variable": "?number_of_individuals", 
                     "limit": "1", 
                     "order-variable": "?count"
+                }, 
+                "select": {
+                    "variables": [
+                        {
+                            "dependent-variable": " ?count", 
+                            "type": "count", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(count(?ad) AS ?count)"
+                        }, 
+                        {
+                            "dependent-variable": " ?ads", 
+                            "distinct": false, 
+                            "separator": ",", 
+                            "type": "group-concat", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?number_of_individuals"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -59,14 +109,39 @@
         }, 
         "1505": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
-                }, 
                 "group-by": {
                     "group-variable": "?ethnicity", 
                     "limit": "1", 
                     "order-variable": "?count", 
                     "sorted-order": "desc"
+                }, 
+                "select": {
+                    "variables": [
+                        {
+                            "dependent-variable": " ?count", 
+                            "type": "count", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(count(?ad) AS ?count)"
+                        }, 
+                        {
+                            "dependent-variable": " ?ads", 
+                            "distinct": false, 
+                            "separator": ",", 
+                            "type": "group-concat", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ethnicity"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -88,13 +163,38 @@
         }, 
         "1519": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
-                }, 
                 "group-by": {
                     "group-variable": "?ethnicity", 
                     "limit": "1", 
                     "order-variable": "?count"
+                }, 
+                "select": {
+                    "variables": [
+                        {
+                            "dependent-variable": " ?count", 
+                            "type": "count", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(count(?ad) AS ?count)"
+                        }, 
+                        {
+                            "dependent-variable": " ?ads", 
+                            "distinct": false, 
+                            "separator": ",", 
+                            "type": "group-concat", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ethnicity"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -116,13 +216,38 @@
         }, 
         "1564": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
-                }, 
                 "group-by": {
                     "group-variable": "?review_site", 
                     "limit": "1", 
                     "order-variable": "?count"
+                }, 
+                "select": {
+                    "variables": [
+                        {
+                            "dependent-variable": " ?count", 
+                            "type": "count", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(count(?ad) AS ?count)"
+                        }, 
+                        {
+                            "dependent-variable": " ?ads", 
+                            "distinct": false, 
+                            "separator": ",", 
+                            "type": "group-concat", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?review_site"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -144,14 +269,39 @@
         }, 
         "1566": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
-                }, 
                 "group-by": {
                     "group-variable": "?review_site", 
                     "limit": "1", 
                     "order-variable": "?count", 
                     "sorted-order": "desc"
+                }, 
+                "select": {
+                    "variables": [
+                        {
+                            "dependent-variable": " ?count", 
+                            "type": "count", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(count(?ad) AS ?count)"
+                        }, 
+                        {
+                            "dependent-variable": " ?ads", 
+                            "distinct": false, 
+                            "separator": ",", 
+                            "type": "group-concat", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?review_site"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -173,14 +323,39 @@
         }, 
         "1567": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
-                }, 
                 "group-by": {
                     "group-variable": "?review_site", 
                     "limit": "1", 
                     "order-variable": "?count", 
                     "sorted-order": "desc"
+                }, 
+                "select": {
+                    "variables": [
+                        {
+                            "dependent-variable": " ?count", 
+                            "type": "count", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(count(?ad) AS ?count)"
+                        }, 
+                        {
+                            "dependent-variable": " ?ads", 
+                            "distinct": false, 
+                            "separator": ",", 
+                            "type": "group-concat", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?review_site"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -202,14 +377,39 @@
         }, 
         "1575": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
-                }, 
                 "group-by": {
                     "group-variable": "?nationality", 
                     "limit": "1", 
                     "order-variable": "?count", 
                     "sorted-order": "desc"
+                }, 
+                "select": {
+                    "variables": [
+                        {
+                            "dependent-variable": " ?count", 
+                            "type": "count", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(count(?ad) AS ?count)"
+                        }, 
+                        {
+                            "dependent-variable": " ?ads", 
+                            "distinct": false, 
+                            "separator": ",", 
+                            "type": "group-concat", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?nationality"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -231,13 +431,38 @@
         }, 
         "1577": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
-                }, 
                 "group-by": {
                     "group-variable": "?nationality", 
                     "limit": "1", 
                     "order-variable": "?count"
+                }, 
+                "select": {
+                    "variables": [
+                        {
+                            "dependent-variable": " ?count", 
+                            "type": "count", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(count(?ad) AS ?count)"
+                        }, 
+                        {
+                            "dependent-variable": " ?ads", 
+                            "distinct": false, 
+                            "separator": ",", 
+                            "type": "group-concat", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?nationality"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -259,14 +484,39 @@
         }, 
         "1582": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
-                }, 
                 "group-by": {
                     "group-variable": "?business", 
                     "limit": "1", 
                     "order-variable": "?count", 
                     "sorted-order": "desc"
+                }, 
+                "select": {
+                    "variables": [
+                        {
+                            "dependent-variable": " ?count", 
+                            "type": "count", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(count(?ad) AS ?count)"
+                        }, 
+                        {
+                            "dependent-variable": " ?ads", 
+                            "distinct": false, 
+                            "separator": ",", 
+                            "type": "group-concat", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?business"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -317,14 +567,39 @@
         }, 
         "1584": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
-                }, 
                 "group-by": {
                     "group-variable": "?business", 
                     "limit": "1", 
                     "order-variable": "?count", 
                     "sorted-order": "desc"
+                }, 
+                "select": {
+                    "variables": [
+                        {
+                            "dependent-variable": " ?count", 
+                            "type": "count", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(count(?ad) AS ?count)"
+                        }, 
+                        {
+                            "dependent-variable": " ?ads", 
+                            "distinct": false, 
+                            "separator": ",", 
+                            "type": "group-concat", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?business"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -375,13 +650,38 @@
         }, 
         "1592": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
-                }, 
                 "group-by": {
                     "group-variable": "?business", 
                     "limit": "1", 
                     "order-variable": "?count"
+                }, 
+                "select": {
+                    "variables": [
+                        {
+                            "dependent-variable": " ?count", 
+                            "type": "count", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(count(?ad) AS ?count)"
+                        }, 
+                        {
+                            "dependent-variable": " ?ads", 
+                            "distinct": false, 
+                            "separator": ",", 
+                            "type": "group-concat", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?business"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -432,14 +732,39 @@
         }, 
         "1595": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
-                }, 
                 "group-by": {
                     "group-variable": "?ad", 
                     "limit": "1", 
                     "order-variable": "?count", 
                     "sorted-order": "desc"
+                }, 
+                "select": {
+                    "variables": [
+                        {
+                            "dependent-variable": " ?count", 
+                            "type": "count", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(count(?ad) AS ?count)"
+                        }, 
+                        {
+                            "dependent-variable": " ?ads", 
+                            "distinct": false, 
+                            "separator": "\",\"", 
+                            "type": "group-concat", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(group_concat(?ad;separator=\",\") AS ?ads)"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?hair_color"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -461,14 +786,39 @@
         }, 
         "1602": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
-                }, 
                 "group-by": {
                     "group-variable": "?ad", 
                     "limit": "1", 
                     "order-variable": "?count", 
                     "sorted-order": "desc"
+                }, 
+                "select": {
+                    "variables": [
+                        {
+                            "dependent-variable": " ?count", 
+                            "type": "count", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(count(?ad) AS ?count)"
+                        }, 
+                        {
+                            "dependent-variable": " ?ads", 
+                            "distinct": false, 
+                            "separator": "\",\"", 
+                            "type": "group-concat", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(group_concat(?ad;separator=\",\") AS ?ads)"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?hair_color"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -486,18 +836,43 @@
                 }
             }, 
             "query": "1602 - Please find and list all of the ads in Bangkok, Thailand that include hair color in the ad text. In the answer field note the hair color for each ad. If there are multiple answers separate them with a comma. Return the most frequently occurring hair color.", 
-            "sparql": "PREFIX qpr:<http://istresearch.com/qpr> SELECT ?hair_color (count(?ad)) AS ?count)(group_concat(?ad;separator=\",\") AS ?ads) WHERE { ?ad a :Ad ; qpr:location 'Bangkok,Thailand' ; qpr:hair_color ?hair_color . } GROUP BY ?ad ORDER BY DESC(?count) LIMIT 1"
+            "sparql": "PREFIX qpr:<http://istresearch.com/qpr> SELECT ?hair_color (count(?ad) AS ?count)(group_concat(?ad;separator=\",\") AS ?ads) WHERE { ?ad a :Ad ; qpr:location 'Bangkok,Thailand' ; qpr:hair_color ?hair_color . } GROUP BY ?ad ORDER BY DESC(?count) LIMIT 1"
         }, 
         "1608": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
-                }, 
                 "group-by": {
                     "group-variable": "?business_name", 
                     "limit": "1", 
                     "order-variable": "?count", 
                     "sorted-order": "desc"
+                }, 
+                "select": {
+                    "variables": [
+                        {
+                            "dependent-variable": " ?count", 
+                            "type": "count", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(count(?ad) AS ?count)"
+                        }, 
+                        {
+                            "dependent-variable": " ?ads", 
+                            "distinct": false, 
+                            "separator": ",", 
+                            "type": "group-concat", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?business_name"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -523,14 +898,39 @@
         }, 
         "1612": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
-                }, 
                 "group-by": {
                     "group-variable": "?business_name", 
                     "limit": "1", 
                     "order-variable": "?count", 
                     "sorted-order": "desc"
+                }, 
+                "select": {
+                    "variables": [
+                        {
+                            "dependent-variable": " ?count", 
+                            "type": "count", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(count(?ad) AS ?count)"
+                        }, 
+                        {
+                            "dependent-variable": " ?ads", 
+                            "distinct": false, 
+                            "separator": ",", 
+                            "type": "group-concat", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "(group_concat(?ad;separator=',') AS ?ads)"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?business_name"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -556,8 +956,17 @@
         }, 
         "1633.1837": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -604,8 +1013,17 @@
         }, 
         "1634.1818": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -631,8 +1049,17 @@
         }, 
         "1636.1818": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -658,8 +1085,17 @@
         }, 
         "1638.1822": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -685,8 +1121,17 @@
         }, 
         "1646.1842": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -712,8 +1157,17 @@
         }, 
         "1657.1825": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -739,8 +1193,17 @@
         }, 
         "1661.1856": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -766,8 +1229,17 @@
         }, 
         "1664.1857": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -793,8 +1265,17 @@
         }, 
         "1668.1828": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -820,8 +1301,17 @@
         }, 
         "1674.1832": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -847,8 +1337,17 @@
         }, 
         "1676.1864": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -874,8 +1373,17 @@
         }, 
         "1682.1834": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -922,8 +1430,17 @@
         }, 
         "1684.1836": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -970,8 +1487,17 @@
         }, 
         "1686.1869": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1018,8 +1544,17 @@
         }, 
         "1694.1887": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1045,8 +1580,17 @@
         }, 
         "1699.1889": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1068,8 +1612,17 @@
         }, 
         "1701.1891": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1091,12 +1644,17 @@
         }, 
         "20": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
-                }, 
                 "group-by": {
                     "limit": "1", 
                     "order-variable": "?posting_date"
+                }, 
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1118,12 +1676,17 @@
         }, 
         "22": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
-                }, 
                 "group-by": {
                     "limit": "1", 
                     "order-variable": "?posting_date"
+                }, 
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1145,12 +1708,17 @@
         }, 
         "24": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
-                }, 
                 "group-by": {
                     "limit": "1", 
                     "order-variable": "?posting_date"
+                }, 
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1172,8 +1740,17 @@
         }, 
         "28": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?eye_color"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1199,8 +1776,17 @@
         }, 
         "30": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?eye_color"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1226,8 +1812,17 @@
         }, 
         "41": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?price"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1253,8 +1848,17 @@
         }, 
         "43": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?price"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1280,8 +1884,17 @@
         }, 
         "50": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?email"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1307,8 +1920,17 @@
         }, 
         "52": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?email"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1334,8 +1956,17 @@
         }, 
         "54": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?email"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1361,8 +1992,17 @@
         }, 
         "58": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ethnicity"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1388,8 +2028,17 @@
         }, 
         "61": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ethnicity"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1415,8 +2064,17 @@
         }, 
         "63": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ethnicity"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1442,8 +2100,17 @@
         }, 
         "77": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?review_site"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1473,8 +2140,17 @@
         }, 
         "82": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?review_site"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1504,8 +2180,17 @@
         }, 
         "83": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?review_site"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1535,8 +2220,21 @@
         }, 
         "88": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?phone"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?multiple_phone"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1576,8 +2274,17 @@
     "Cluster": {
         "1633.1837": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1624,8 +2331,17 @@
         }, 
         "1634.1818": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1651,8 +2367,17 @@
         }, 
         "1636.1818": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1678,8 +2403,17 @@
         }, 
         "1638.1822": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1705,8 +2439,17 @@
         }, 
         "1646.1842": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1732,8 +2475,17 @@
         }, 
         "1657.1825": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1759,8 +2511,17 @@
         }, 
         "1661.1856": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1786,8 +2547,17 @@
         }, 
         "1664.1857": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1813,8 +2583,17 @@
         }, 
         "1668.1828": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1840,8 +2619,17 @@
         }, 
         "1674.1832": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1867,8 +2655,17 @@
         }, 
         "1676.1864": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1894,8 +2691,17 @@
         }, 
         "1682.1834": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1942,8 +2748,17 @@
         }, 
         "1684.1836": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -1990,8 +2805,17 @@
         }, 
         "1686.1869": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -2038,8 +2862,17 @@
         }, 
         "1694.1887": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -2065,8 +2898,17 @@
         }, 
         "1699.1889": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -2088,8 +2930,17 @@
         }, 
         "1701.1891": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?cluster"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -2111,12 +2962,17 @@
         }, 
         "20": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
-                }, 
                 "group-by": {
                     "limit": "1", 
                     "order-variable": "?posting_date"
+                }, 
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -2138,12 +2994,17 @@
         }, 
         "22": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
-                }, 
                 "group-by": {
                     "limit": "1", 
                     "order-variable": "?posting_date"
+                }, 
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -2165,12 +3026,17 @@
         }, 
         "24": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
-                }, 
                 "group-by": {
                     "limit": "1", 
                     "order-variable": "?posting_date"
+                }, 
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -2192,8 +3058,17 @@
         }, 
         "28": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?eye_color"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -2219,8 +3094,17 @@
         }, 
         "30": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?eye_color"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -2246,8 +3130,17 @@
         }, 
         "41": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?price"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -2273,8 +3166,17 @@
         }, 
         "43": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?price"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -2300,8 +3202,17 @@
         }, 
         "50": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?email"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -2327,8 +3238,17 @@
         }, 
         "52": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?email"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -2354,8 +3274,17 @@
         }, 
         "54": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?email"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -2381,8 +3310,17 @@
         }, 
         "58": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ethnicity"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -2408,8 +3346,17 @@
         }, 
         "61": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ethnicity"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -2435,8 +3382,17 @@
         }, 
         "63": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ethnicity"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -2462,8 +3418,17 @@
         }, 
         "77": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?review_site"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -2493,8 +3458,17 @@
         }, 
         "82": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?review_site"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -2524,8 +3498,17 @@
         }, 
         "83": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?review_site"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [
@@ -2555,8 +3538,21 @@
         }, 
         "88": {
             "parsed": {
-                "SELECT": {
-                    "variables": []
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?phone"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?multiple_phone"
+                        }
+                    ]
                 }, 
                 "where": {
                     "clauses": [

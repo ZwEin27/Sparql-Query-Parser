@@ -38,8 +38,8 @@ if __name__ == '__main__':
 
     def run_main_test():
         suite = unittest.TestSuite()
-        # suite.addTest(TestSQParserMethods('test_parse_json'))
-        suite.addTest(TestSQParserMethods('test_parse'))
+        suite.addTest(TestSQParserMethods('test_parse_json'))
+        # suite.addTest(TestSQParserMethods('test_parse'))
         runner = unittest.TextTestRunner()
         runner.run(suite)
 
