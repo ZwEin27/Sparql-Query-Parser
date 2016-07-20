@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 07:43:35
+# @Last Modified time: 2016-07-20 07:44:22
 
 import re
 import json
@@ -49,6 +49,13 @@ SQ_EXT_CONSTAINT = 'constraint'
 SQ_EXT_FILTERS = 'filters'
 SQ_EXT_OPTIONAL_FLAG = 'isOptional'
 SQ_EXT_OPERATOR = 'operator'
+
+# functions
+SQ_FUNCTION_BIND = 'bind'
+
+SQ_FUNCTIONS = [
+    SQ_FUNCTION_BIND
+]
 
 ######################################################################
 #   Regular Expression
