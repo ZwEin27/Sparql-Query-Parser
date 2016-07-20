@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 00:04:42
+# @Last Modified time: 2016-07-20 00:05:50
 
 import re
 import json
@@ -71,11 +71,6 @@ class SQParser(object):
     def __cp_func_select(text):
         pass
 
-    # [' ?ad a qpr:Ad ', 
-    # " qpr:location 'Fargo, ND' ", 
-    # ' qpr:business_type ?bt ', 
-    # " FILTER(?bt = 'Spa' || ?bt = 'Massage Parlor') ?ad qpr:services 'sex' ", 
-    # ' OPTIONAL { ?ad qpr:business_name ?business_name} OPTIONAL { ?ad qpr:physical_address ?physical_address } BIND( IF(BOUND(?business_name) && BOUND(?physical_address), CONCAT(?business_name, ",", ?physical_address), IF(BOUND(?business_name), ?business_name, ?physical_address)) AS ?business) ']
     def __cp_func_where(text):
         ans = {}
         statements = re_statement_split.split(text)
@@ -111,14 +106,9 @@ class SQParser(object):
     @staticmethod
     def parse_statement(ans, text):
         if re_statement_a.search(text):
-            print 'a'
-            # for a
             ans[SQ_EXT_TYPE] = re_statement_qpr.search(text).group(0)
             ans[SQ_EXT_VARIABLE] = re_statement_variable.search(text).group(0)
         elif len(re_inner.findall(text)) > 0:
-            print 'b'
-            # components = {re_keyword.match(_).group(0):re_brackets_most.search(_).group(0) if re_brackets_most.search(_) else _ for _ in re_inner.findall(statement)}
-
             for component in re_inner.findall(text):
                 keyword = re_keyword.match(component).group(0)
                 content = re_brackets_most.search(component).group(0) if re_brackets_most.search(component) else component
@@ -134,7 +124,6 @@ class SQParser(object):
                 else:
                     pass
         else:
-            print 'c'
             content = re_statement_content.search(text)
             if not content:
                 raise Exception('Sparql Format Error')
@@ -169,7 +158,7 @@ class SQParser(object):
 
 
 if __name__ == '__main__':
-    """
+    # """
     text = "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE { ?cluster a qpr:cluster ; qpr:seed '5105124396' ; qpr:ad ?ad . OPTIONAL { ?ad qpr:image_with_phone ?iwp } OPTIONAL { ?ad qpr:image_with_email ?iwe } FILTER(bound(?iwp) || bound(?iwe) || ?bt = 'Spa') }"
     
     SQParser.parse(text)
