@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-19 23:22:40
+# @Last Modified time: 2016-07-19 23:29:01
 
 import re
 
@@ -88,6 +88,19 @@ class SQParser(object):
         SQ_KEYWORD_LIMIT: lambda x: None
     }
 
+    @staticmethod
+    def parse_content(text):
+        ans = {}
+        # content = content.group(0).split(' ')
+        text = text.split(' ')
+        cv = text[1]
+        ans[SQ_EXT_PREDICATE] = text[0]
+        if '?' in cv:
+            ans[SQ_EXT_VARIABLE] = cv
+        else:
+            ans[SQ_EXT_CONSTAINT] = cv
+        return ans
+
 
     @staticmethod
     def parse_statement(ans, text):
@@ -99,22 +112,15 @@ class SQParser(object):
             pass
         elif SQ_KEYWORD_OPTIONAL in text:
             pass
+            # re_brackets_most.search(_).group(0) if re_brackets_most.search(_) else _
         else:
             content = re_statement_content.search(text)
-            print content.group()
+            # print content.group()
             if not content:
                 raise Exception('Sparql Format Error')
-            content = content.group(0).split(' ')
-            predicate = content[0]
-            cv = content[1]
-            tmp = {}
-            tmp[SQ_EXT_PREDICATE] = content[0]
-            if '?' in cv:
-                tmp[SQ_EXT_VARIABLE] = cv
-            else:
-                tmp[SQ_EXT_CONSTAINT] = cv
+            content = content.group(0)
             ans.setdefault(SQ_EXT_CLAUSES, [])
-            ans[SQ_EXT_CLAUSES].append(tmp)
+            ans[SQ_EXT_CLAUSES].append(SQParser.parse_content(content))
 
 
     @staticmethod
