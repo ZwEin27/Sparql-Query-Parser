@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 08:10:13
+# @Last Modified time: 2016-07-20 08:18:25
 
 import re
 import json
@@ -29,7 +29,7 @@ SQ_OUTER_KEYWORDS = ['SELECT','PREFIX','WHERE','ORDER', 'GROUP', 'LIMIT']
 SQ_INNER_KEYWORDS = ['FILTER', 'OPTIONAL', 'BIND']
 
 SQ_OUTER_OPERATOR = [SQ_OPERATOR_OR, SQ_OPERATOR_AND]
-SQ_INNER_OPERATOR = ['!=', '<=', '>=', '<', '>', '==']
+SQ_INNER_OPERATOR = ['!=', '<=', '>=', '<', '>', '==', '='] # keep in this order
 
 SQ_OPERATOR_MAPPING = {
     SQ_OPERATOR_OR: 'OR',
@@ -242,16 +242,29 @@ class SQParser(object):
             ans[SQ_EXT_CLAUSES].append(SQParser.parse_content(content))
 
     @staticmethod
-    def parse_function(text):
+    def parse_inner_operator(text):
         ans = {}
+        items = text.strip().split(' ')
+        ans.setdefault(SQ_EXT_VARIABLE, items[0])
+        ans.setdefault(SQ_EXT_OPERATOR, items[1])
+        ans.setdefault(SQ_EXT_CONSTAINT, items[2])
         return ans
 
     @staticmethod
     def parse_subcomponent(text):
         # functions or condition statement
+        
+        # handle functions
         for func_name in SQ_FUNCTIONS:
             if func_name in text:
                 return SQParser.SQ_FUNCTIONS_FUNC[func_name](text)
+
+        # else handle conditions
+        for op_name in SQ_INNER_OPERATOR:
+            if op_name in text:
+                return SQParser.parse_inner_operator(text)
+
+        raise Exception('Sparql Format Error')
          
 
 
