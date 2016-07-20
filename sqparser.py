@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 15:21:46
+# @Last Modified time: 2016-07-20 15:25:43
 
 
 """
@@ -456,7 +456,7 @@ if __name__ == '__main__':
 
     input_file = str(args.input_file)
     output_file = str(args.output_file)
-    target_component = str(args.target_component) if args.target_component else 'WHERE'
+    target_component = str(args.target_component) if args.target_component else None
     has_title = args.has_title if args.has_title else True
     str_input = args.str_input
 
