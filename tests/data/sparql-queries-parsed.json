@@ -40,9 +40,11 @@
                     "clauses": [
                         {
                             "constraint": "Eugene, OR", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "number_of_individuals", 
                             "variable": "?number_of_individuals"
                         }
@@ -93,9 +95,11 @@
                     "clauses": [
                         {
                             "constraint": "Rochester, NY", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "number_of_individuals", 
                             "variable": "?number_of_individuals"
                         }
@@ -147,9 +151,11 @@
                     "clauses": [
                         {
                             "constraint": "Seattle, WA", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ethnicity", 
                             "variable": "?ethnicity"
                         }
@@ -200,9 +206,11 @@
                     "clauses": [
                         {
                             "constraint": "Bangalore, India", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ethnicity", 
                             "variable": "?ethnicity"
                         }
@@ -253,9 +261,11 @@
                     "clauses": [
                         {
                             "constraint": "Flagstaff, AZ", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "review_site", 
                             "variable": "?review_site"
                         }
@@ -307,9 +317,11 @@
                     "clauses": [
                         {
                             "constraint": "Fayetteville, AR", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "review_site", 
                             "variable": "?review_site"
                         }
@@ -361,9 +373,11 @@
                     "clauses": [
                         {
                             "constraint": "Capetown, South Africa", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "review_site", 
                             "variable": "?review_site"
                         }
@@ -415,9 +429,11 @@
                     "clauses": [
                         {
                             "constraint": "Dubai, UAE", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "nationality", 
                             "variable": "?nationality"
                         }
@@ -468,9 +484,11 @@
                     "clauses": [
                         {
                             "constraint": "Galveston, TX", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "nationality", 
                             "variable": "?nationality"
                         }
@@ -532,9 +550,11 @@
                         }, 
                         {
                             "constraint": "Vermont", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "business_type", 
                             "variable": "?bt"
                         }
@@ -615,9 +635,11 @@
                         }, 
                         {
                             "constraint": "Philadelphia, PA", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "business_type", 
                             "variable": "?bt"
                         }
@@ -697,9 +719,11 @@
                         }, 
                         {
                             "constraint": "Fargo, ND", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "business_type", 
                             "variable": "?bt"
                         }
@@ -770,9 +794,11 @@
                     "clauses": [
                         {
                             "constraint": "Delhi, India", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "hair_color", 
                             "variable": "?hair_color"
                         }
@@ -824,9 +850,11 @@
                     "clauses": [
                         {
                             "constraint": "Bangkok,Thailand", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "hair_color", 
                             "variable": "?hair_color"
                         }
@@ -878,13 +906,16 @@
                     "clauses": [
                         {
                             "constraint": "Vancouver, BC, Canada", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
                             "constraint": "escort agency", 
+                            "isOptional": false, 
                             "predicate": "business_type"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "business_name", 
                             "variable": "?business_name"
                         }
@@ -936,13 +967,16 @@
                     "clauses": [
                         {
                             "constraint": "Glasgow, Scotland", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
                             "constraint": "escort agency", 
+                            "isOptional": false, 
                             "predicate": "business_type"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "business_name", 
                             "variable": "?business_name"
                         }
@@ -982,9 +1016,11 @@
                         }, 
                         {
                             "constraint": "5105124396", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -1029,13 +1065,16 @@
                     "clauses": [
                         {
                             "constraint": "2131743855", 
+                            "isOptional": false, 
                             "predicate": "seed:"
                         }, 
                         {
                             "constraint": "white", 
+                            "isOptional": false, 
                             "predicate": "ethnicity:"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -1065,13 +1104,16 @@
                     "clauses": [
                         {
                             "constraint": "9177362938", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
                             "constraint": "cuban", 
+                            "isOptional": false, 
                             "predicate": "ethnicity"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -1101,13 +1143,16 @@
                     "clauses": [
                         {
                             "constraint": "0607354362", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
                             "constraint": "white", 
+                            "isOptional": false, 
                             "predicate": "ethnicity"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -1137,13 +1182,16 @@
                     "clauses": [
                         {
                             "constraint": "380685070797", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
                             "constraint": "female", 
+                            "isOptional": false, 
                             "predicate": "gender"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -1173,13 +1221,16 @@
                     "clauses": [
                         {
                             "constraint": "9714002633", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
                             "constraint": "male", 
+                            "isOptional": false, 
                             "predicate": "gender"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -1209,13 +1260,16 @@
                     "clauses": [
                         {
                             "constraint": "6464809094", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
                             "constraint": "male", 
+                            "isOptional": false, 
                             "predicate": "gender"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -1245,13 +1299,16 @@
                     "clauses": [
                         {
                             "constraint": "11991066691", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
                             "constraint": "Samanta", 
+                            "isOptional": false, 
                             "predicate": "name"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -1281,13 +1338,16 @@
                     "clauses": [
                         {
                             "constraint": "2508130801", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
                             "constraint": "Co Co", 
+                            "isOptional": false, 
                             "predicate": "name"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -1317,13 +1377,16 @@
                     "clauses": [
                         {
                             "constraint": "21967404017", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
                             "constraint": "trans", 
+                            "isOptional": false, 
                             "predicate": "gender"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -1353,13 +1416,16 @@
                     "clauses": [
                         {
                             "constraint": "0765701222", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
                             "constraint": "trans", 
+                            "isOptional": false, 
                             "predicate": "gender"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -1399,9 +1465,11 @@
                         }, 
                         {
                             "constraint": "6476877096", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -1456,9 +1524,11 @@
                         }, 
                         {
                             "constraint": "7865064729", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -1513,9 +1583,11 @@
                         }, 
                         {
                             "constraint": "9253051222", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -1560,13 +1632,16 @@
                     "clauses": [
                         {
                             "constraint": "3863346213", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ofuscation", 
                             "variable": "?ofuscation"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -1596,9 +1671,11 @@
                     "clauses": [
                         {
                             "constraint": "easytoremember@mail.ua", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -1628,9 +1705,11 @@
                     "clauses": [
                         {
                             "constraint": "mojoentertainment@outlook.com", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -1660,9 +1739,11 @@
                     "clauses": [
                         {
                             "constraint": "7075610282", 
+                            "isOptional": false, 
                             "predicate": "phone"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "posting_date", 
                             "variable": "?posting_date"
                         }
@@ -1692,9 +1773,11 @@
                     "clauses": [
                         {
                             "constraint": "4784201625", 
+                            "isOptional": false, 
                             "predicate": "phone"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "posting_date", 
                             "variable": "?posting_date"
                         }
@@ -1724,9 +1807,11 @@
                     "clauses": [
                         {
                             "constraint": "13222255761", 
+                            "isOptional": false, 
                             "predicate": "phone"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "posting_date", 
                             "variable": "?posting_date"
                         }
@@ -1756,13 +1841,16 @@
                     "clauses": [
                         {
                             "constraint": "GFEMonkey.com", 
+                            "isOptional": false, 
                             "predicate": "top_level_domain"
                         }, 
                         {
                             "constraint": "Phoenix01skye@gmail.com", 
+                            "isOptional": false, 
                             "predicate": "email"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "eye_color", 
                             "variable": "?eye_color"
                         }
@@ -1792,13 +1880,16 @@
                     "clauses": [
                         {
                             "constraint": "GFEMonkey.com", 
+                            "isOptional": false, 
                             "predicate": "top_level_domain"
                         }, 
                         {
                             "constraint": "Abigail.in.SF@gmail.com", 
+                            "isOptional": false, 
                             "predicate": "email"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "eye_color", 
                             "variable": "?eye_color"
                         }
@@ -1828,13 +1919,16 @@
                     "clauses": [
                         {
                             "constraint": "0249613444", 
+                            "isOptional": false, 
                             "predicate": "phone"
                         }, 
                         {
                             "constraint": "\u20182016-05-07\u2019", 
+                            "isOptional": false, 
                             "predicate": "posting_date"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "price", 
                             "variable": "?price"
                         }
@@ -1864,13 +1958,16 @@
                     "clauses": [
                         {
                             "constraint": "7185048742", 
+                            "isOptional": false, 
                             "predicate": "phone"
                         }, 
                         {
                             "constraint": "\u20192016-02-18\u2019", 
+                            "isOptional": false, 
                             "predicate": "posting_date"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "price", 
                             "variable": "?price"
                         }
@@ -1900,13 +1997,16 @@
                     "clauses": [
                         {
                             "constraint": "653511537", 
+                            "isOptional": false, 
                             "predicate": "phone"
                         }, 
                         {
                             "constraint": "\u20182016-04-01\u2019", 
+                            "isOptional": false, 
                             "predicate": "posting_date"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "email", 
                             "variable": "?email"
                         }
@@ -1936,13 +2036,16 @@
                     "clauses": [
                         {
                             "constraint": "631307055", 
+                            "isOptional": false, 
                             "predicate": "phone"
                         }, 
                         {
                             "constraint": "\u20182014-04-25\u2019", 
+                            "isOptional": false, 
                             "predicate": "posting_date"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "email", 
                             "variable": "?email"
                         }
@@ -1972,13 +2075,16 @@
                     "clauses": [
                         {
                             "constraint": "697940099", 
+                            "isOptional": false, 
                             "predicate": "phone"
                         }, 
                         {
                             "constraint": "\u20192016-06-28\u2019", 
+                            "isOptional": false, 
                             "predicate": "posting_date"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "email", 
                             "variable": "?email"
                         }
@@ -2008,13 +2114,16 @@
                     "clauses": [
                         {
                             "constraint": "3343843063", 
+                            "isOptional": false, 
                             "predicate": "phone"
                         }, 
                         {
                             "constraint": "\u20182016-01-09\u2019", 
+                            "isOptional": false, 
                             "predicate": "posting_date"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ethnicity", 
                             "variable": "?ethnicity"
                         }
@@ -2044,13 +2153,16 @@
                     "clauses": [
                         {
                             "constraint": "0656852011", 
+                            "isOptional": false, 
                             "predicate": "phone"
                         }, 
                         {
                             "constraint": "\u20192015-01-17\u2019", 
+                            "isOptional": false, 
                             "predicate": "posting_date"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ethnicity", 
                             "variable": "?ethnicity"
                         }
@@ -2080,13 +2192,16 @@
                     "clauses": [
                         {
                             "constraint": "919594087952", 
+                            "isOptional": false, 
                             "predicate": "phone"
                         }, 
                         {
                             "constraint": "\u20182016-06-29\u2019", 
+                            "isOptional": false, 
                             "predicate": "posting_date"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ethnicity", 
                             "variable": "?ethnicity"
                         }
@@ -2116,17 +2231,21 @@
                     "clauses": [
                         {
                             "constraint": "Midtown East, New York City, NY", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
                             "constraint": "Stunning Ebony International Companion available for extended trysts and fun times!", 
+                            "isOptional": false, 
                             "predicate": "title"
                         }, 
                         {
                             "constraint": "Vivian", 
+                            "isOptional": false, 
                             "predicate": "name"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "review_site", 
                             "variable": "?review_site"
                         }
@@ -2156,17 +2275,21 @@
                     "clauses": [
                         {
                             "constraint": "Chicago, IL", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
                             "constraint": "Porn Star, Chicago, Illinois Female Escort & Limited GFE & GFE available for Incall and Outcall", 
+                            "isOptional": false, 
                             "predicate": "title"
                         }, 
                         {
                             "constraint": "VIP Desire", 
+                            "isOptional": false, 
                             "predicate": "name"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "review_site", 
                             "variable": "?review_site"
                         }
@@ -2196,17 +2319,21 @@
                     "clauses": [
                         {
                             "constraint": "Los Angeles, CA", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
                             "constraint": "Los Angeles, California Female Escort & GFE available for Outcall.", 
+                            "isOptional": false, 
                             "predicate": "title"
                         }, 
                         {
                             "constraint": "Layla", 
+                            "isOptional": false, 
                             "predicate": "name"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "review_iste", 
                             "variable": "?review_site"
                         }
@@ -2240,25 +2367,31 @@
                     "clauses": [
                         {
                             "constraint": "\u201806-30\u2019", 
+                            "isOptional": false, 
                             "predicate": "posting_date"
                         }, 
                         {
                             "constraint": "Bengaluru, India", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
                             "constraint": "Vishwas", 
+                            "isOptional": false, 
                             "predicate": "name"
                         }, 
                         {
                             "constraint": "\"5\"^^xsd:integer", 
+                            "isOptional": false, 
                             "predicate": "number_of_individuals"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "phone", 
                             "variable": "?phone"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "multiple_phone", 
                             "variable": "?multiple_phone"
                         }
@@ -2300,9 +2433,11 @@
                         }, 
                         {
                             "constraint": "5105124396", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -2347,13 +2482,16 @@
                     "clauses": [
                         {
                             "constraint": "2131743855", 
+                            "isOptional": false, 
                             "predicate": "seed:"
                         }, 
                         {
                             "constraint": "white", 
+                            "isOptional": false, 
                             "predicate": "ethnicity:"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -2383,13 +2521,16 @@
                     "clauses": [
                         {
                             "constraint": "9177362938", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
                             "constraint": "cuban", 
+                            "isOptional": false, 
                             "predicate": "ethnicity"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -2419,13 +2560,16 @@
                     "clauses": [
                         {
                             "constraint": "0607354362", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
                             "constraint": "white", 
+                            "isOptional": false, 
                             "predicate": "ethnicity"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -2455,13 +2599,16 @@
                     "clauses": [
                         {
                             "constraint": "380685070797", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
                             "constraint": "female", 
+                            "isOptional": false, 
                             "predicate": "gender"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -2491,13 +2638,16 @@
                     "clauses": [
                         {
                             "constraint": "9714002633", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
                             "constraint": "male", 
+                            "isOptional": false, 
                             "predicate": "gender"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -2527,13 +2677,16 @@
                     "clauses": [
                         {
                             "constraint": "6464809094", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
                             "constraint": "male", 
+                            "isOptional": false, 
                             "predicate": "gender"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -2563,13 +2716,16 @@
                     "clauses": [
                         {
                             "constraint": "11991066691", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
                             "constraint": "Samanta", 
+                            "isOptional": false, 
                             "predicate": "name"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -2599,13 +2755,16 @@
                     "clauses": [
                         {
                             "constraint": "2508130801", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
                             "constraint": "Co Co", 
+                            "isOptional": false, 
                             "predicate": "name"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -2635,13 +2794,16 @@
                     "clauses": [
                         {
                             "constraint": "21967404017", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
                             "constraint": "trans", 
+                            "isOptional": false, 
                             "predicate": "gender"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -2671,13 +2833,16 @@
                     "clauses": [
                         {
                             "constraint": "0765701222", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
                             "constraint": "trans", 
+                            "isOptional": false, 
                             "predicate": "gender"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -2717,9 +2882,11 @@
                         }, 
                         {
                             "constraint": "6476877096", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -2774,9 +2941,11 @@
                         }, 
                         {
                             "constraint": "7865064729", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -2831,9 +3000,11 @@
                         }, 
                         {
                             "constraint": "9253051222", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -2878,13 +3049,16 @@
                     "clauses": [
                         {
                             "constraint": "3863346213", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ofuscation", 
                             "variable": "?ofuscation"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -2914,9 +3088,11 @@
                     "clauses": [
                         {
                             "constraint": "easytoremember@mail.ua", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -2946,9 +3122,11 @@
                     "clauses": [
                         {
                             "constraint": "mojoentertainment@outlook.com", 
+                            "isOptional": false, 
                             "predicate": "seed"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ad", 
                             "variable": "?ad"
                         }
@@ -2978,9 +3156,11 @@
                     "clauses": [
                         {
                             "constraint": "7075610282", 
+                            "isOptional": false, 
                             "predicate": "phone"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "posting_date", 
                             "variable": "?posting_date"
                         }
@@ -3010,9 +3190,11 @@
                     "clauses": [
                         {
                             "constraint": "4784201625", 
+                            "isOptional": false, 
                             "predicate": "phone"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "posting_date", 
                             "variable": "?posting_date"
                         }
@@ -3042,9 +3224,11 @@
                     "clauses": [
                         {
                             "constraint": "13222255761", 
+                            "isOptional": false, 
                             "predicate": "phone"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "posting_date", 
                             "variable": "?posting_date"
                         }
@@ -3074,13 +3258,16 @@
                     "clauses": [
                         {
                             "constraint": "GFEMonkey.com", 
+                            "isOptional": false, 
                             "predicate": "top_level_domain"
                         }, 
                         {
                             "constraint": "Phoenix01skye@gmail.com", 
+                            "isOptional": false, 
                             "predicate": "email"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "eye_color", 
                             "variable": "?eye_color"
                         }
@@ -3110,13 +3297,16 @@
                     "clauses": [
                         {
                             "constraint": "GFEMonkey.com", 
+                            "isOptional": false, 
                             "predicate": "top_level_domain"
                         }, 
                         {
                             "constraint": "Abigail.in.SF@gmail.com", 
+                            "isOptional": false, 
                             "predicate": "email"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "eye_color", 
                             "variable": "?eye_color"
                         }
@@ -3146,13 +3336,16 @@
                     "clauses": [
                         {
                             "constraint": "0249613444", 
+                            "isOptional": false, 
                             "predicate": "phone"
                         }, 
                         {
                             "constraint": "\u20192016-05-07\u2019", 
+                            "isOptional": false, 
                             "predicate": "posting_date"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "price", 
                             "variable": "?price"
                         }
@@ -3182,13 +3375,16 @@
                     "clauses": [
                         {
                             "constraint": "7185048742", 
+                            "isOptional": false, 
                             "predicate": "phone"
                         }, 
                         {
                             "constraint": "\u20192016\u201402-18\u2019", 
+                            "isOptional": false, 
                             "predicate": "posting_date"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "price", 
                             "variable": "?price"
                         }
@@ -3218,13 +3414,16 @@
                     "clauses": [
                         {
                             "constraint": "653511537", 
+                            "isOptional": false, 
                             "predicate": "phone"
                         }, 
                         {
                             "constraint": "\u20182016-04-01\u2019", 
+                            "isOptional": false, 
                             "predicate": "posting_date"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "email", 
                             "variable": "?email"
                         }
@@ -3254,13 +3453,16 @@
                     "clauses": [
                         {
                             "constraint": "631307055", 
+                            "isOptional": false, 
                             "predicate": "phone"
                         }, 
                         {
                             "constraint": "\u20182016-04-01\u2019", 
+                            "isOptional": false, 
                             "predicate": "posting_date"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "email", 
                             "variable": "?email"
                         }
@@ -3290,13 +3492,16 @@
                     "clauses": [
                         {
                             "constraint": "697940099", 
+                            "isOptional": false, 
                             "predicate": "phone"
                         }, 
                         {
                             "constraint": "\u20182016-06-28\u2019", 
+                            "isOptional": false, 
                             "predicate": "posting_date"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "email", 
                             "variable": "?email"
                         }
@@ -3326,13 +3531,16 @@
                     "clauses": [
                         {
                             "constraint": "3343843063", 
+                            "isOptional": false, 
                             "predicate": "phone"
                         }, 
                         {
                             "constraint": "\u20182016-01-09\u2019", 
+                            "isOptional": false, 
                             "predicate": "posting_date"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ethnicity", 
                             "variable": "?ethnicity"
                         }
@@ -3362,13 +3570,16 @@
                     "clauses": [
                         {
                             "constraint": "0656852011", 
+                            "isOptional": false, 
                             "predicate": "phone"
                         }, 
                         {
                             "constraint": "\u20182015-01-17\u2019", 
+                            "isOptional": false, 
                             "predicate": "posting_date"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ethnicity", 
                             "variable": "?ethnicity"
                         }
@@ -3398,13 +3609,16 @@
                     "clauses": [
                         {
                             "constraint": "919594087952", 
+                            "isOptional": false, 
                             "predicate": "phone"
                         }, 
                         {
                             "constraint": "\u20182016-06-29\u2019", 
+                            "isOptional": false, 
                             "predicate": "posting_date"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "ethnicity", 
                             "variable": "?ethnicity"
                         }
@@ -3434,17 +3648,21 @@
                     "clauses": [
                         {
                             "constraint": "Midtown East, New York City, NY", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
                             "constraint": "Stunning Ebony International Companion available for extended trysts and fun times!", 
+                            "isOptional": false, 
                             "predicate": "title"
                         }, 
                         {
                             "constraint": "Vivian", 
+                            "isOptional": false, 
                             "predicate": "name"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "review_site", 
                             "variable": "?review_site"
                         }
@@ -3474,17 +3692,21 @@
                     "clauses": [
                         {
                             "constraint": "Chicago, IL", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
                             "constraint": "Porn Star, Chicago, Illinois Female Escort & Limited GFE & GFE available for Incall and Outcall", 
+                            "isOptional": false, 
                             "predicate": "title"
                         }, 
                         {
                             "constraint": "VIP Desire", 
+                            "isOptional": false, 
                             "predicate": "name"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "review_site", 
                             "variable": "?review_site"
                         }
@@ -3514,17 +3736,21 @@
                     "clauses": [
                         {
                             "constraint": "Los Angeles, CA", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
                             "constraint": "Los Angeles, California Female Escort & GFE available for Outcall.", 
+                            "isOptional": false, 
                             "predicate": "title"
                         }, 
                         {
                             "constraint": "Layla", 
+                            "isOptional": false, 
                             "predicate": "name"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "review_iste", 
                             "variable": "?review_site"
                         }
@@ -3558,25 +3784,31 @@
                     "clauses": [
                         {
                             "constraint": "\u201906-30\u2019", 
+                            "isOptional": false, 
                             "predicate": "posting_date"
                         }, 
                         {
                             "constraint": "Bengaluru, India", 
+                            "isOptional": false, 
                             "predicate": "location"
                         }, 
                         {
                             "constraint": "Vishwas", 
+                            "isOptional": false, 
                             "predicate": "name"
                         }, 
                         {
                             "constraint": "\"5\"^^xsd:integer", 
+                            "isOptional": false, 
                             "predicate": "number_of_individuals"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "phone", 
                             "variable": "?phone"
                         }, 
                         {
+                            "isOptional": false, 
                             "predicate": "multiple_phone", 
                             "variable": "?multiple_phone"
                         }

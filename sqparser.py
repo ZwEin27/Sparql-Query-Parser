@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 17:03:05
+# @Last Modified time: 2016-07-20 17:06:57
 
 
 """
@@ -350,6 +350,7 @@ class SQParser(object):
         
         constraint = constraint[1:-1] if '\'' in constraint else constraint
         ans[SQ_EXT_PREDICATE] = predicate
+        ans.setdefault(SQ_EXT_OPTIONAL_FLAG, False)
         if '?' in constraint:
             ans[SQ_EXT_VARIABLE] = constraint
         else:
