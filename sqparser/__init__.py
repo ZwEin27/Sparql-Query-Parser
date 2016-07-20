@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 08:57:26
+# @Last Modified time: 2016-07-20 09:07:07
 
 import re
 import json
@@ -87,7 +87,8 @@ re_inner_operator = re.compile(reg_inner_operator)
 
 
 # statement
-re_statement_split = re.compile(r'[;\.]')
+# re_statement_split = re.compile(r'[;\.]')
+re_statement_split = re.compile(r'.*?(?=$|;|\s\.\s)')
 re_statement_a = re.compile(r'(?<=[a-zA-Z])\s*?\ba\b\s*?(?=[a-zA-Z])')
 # re_statement_a_split = re.compile(r'(?<=[a-zA-Z])\s+?\ba\b\s+?(?=[a-zA-Z])')
 re_statement_variable = re.compile(r'(?:^|\s])\?[a-zA-Z]+\b')
@@ -145,6 +146,7 @@ class SQParser(object):
     def __cp_func_where(text):
         ans = {}
         statements = re_statement_split.split(text)
+        statements = [_.strip() for _ in re_statement_split.findall(text) if _ != '']
         for statement in statements:
             SQParser.parse_statement(ans, statement.strip())
         return ans
@@ -235,7 +237,7 @@ class SQParser(object):
                     ans.setdefault(SQ_EXT_FILTERS, [])
                     ans[SQ_EXT_FILTERS].append(icf_rtn)
         else:
-            print 'parse_statement',text
+            print 'parse_statement', text
             content = re_statement_content.search(text)
             if not content:
                 raise Exception('Sparql Format Error')
