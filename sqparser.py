@@ -2,7 +2,23 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 11:05:45
+# @Last Modified time: 2016-07-20 11:11:31
+
+
+"""
+Usage Example
+
+# parse string
+python sqparser.py -s "<SPARQL_QUERIES_STRING>"
+
+# parse sparql-queries.json that contains title, and only extract WHERE component
+python sqparser.py -i tests/data/sparql-queries.json -o test.json -t True -c "WHERE"
+
+# parse sparql-queries.json that doesn't contain title, and only extract WHERE component
+python sqparser.py -i tests/data/sparql-queries.json -o test.json -t False -c "WHERE"
+
+"""
+
 
 import re
 import json
@@ -388,7 +404,7 @@ if __name__ == '__main__':
     import argparse
 
     arg_parser = argparse.ArgumentParser()
-    arg_parser.add_argument('-i','--input_file', required=True)
+    arg_parser.add_argument('-i','--input_file', required=False)
     arg_parser.add_argument('-o','--output_file')
     arg_parser.add_argument('-c','--target_component', required=False)
     arg_parser.add_argument('-t','--has_title', required=False)
@@ -400,10 +416,10 @@ if __name__ == '__main__':
     output_file = str(args.output_file)
     target_component = str(args.target_component)
     has_title = args.has_title if args.has_title else False
-    str_input = str_input
+    str_input = args.str_input
 
     if str_input:
-        print SQParser.parse(text)
+        print json.dumps(SQParser.parse(str_input), indent=4)
     else:
         SQParser.parse_sq_json(input_file, output_path=output_file, target_component=target_component, has_title=has_title)
 
