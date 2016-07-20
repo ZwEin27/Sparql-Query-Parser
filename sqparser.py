@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 17:02:08
+# @Last Modified time: 2016-07-20 17:03:05
 
 
 """
@@ -279,8 +279,8 @@ class SQParser(object):
     def __cp_func_limit(parent_ans, text):
         parent_ans.setdefault(SQ_EXT_GOL, {})
         if re_continues_digits.search(text):
-            digits = re_continues_digits.search(text).group(0)
-            if int(digits) > 0:
+            digits = int(re_continues_digits.search(text).group(0))
+            if digits > 0:
                 parent_ans[SQ_EXT_GOL][SQ_EXT_LIMIT] = digits
 
     OUTER_COMPONENT_FUNC = {

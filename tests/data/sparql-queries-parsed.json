@@ -4,7 +4,7 @@
             "parsed": {
                 "group-by": {
                     "group-variable": "?number_of_individuals", 
-                    "limit": "1", 
+                    "limit": 1, 
                     "order-variable": "?count", 
                     "sorted-order": "desc"
                 }, 
@@ -58,7 +58,7 @@
             "parsed": {
                 "group-by": {
                     "group-variable": "?number_of_individuals", 
-                    "limit": "1", 
+                    "limit": 1, 
                     "order-variable": "?count"
                 }, 
                 "select": {
@@ -111,7 +111,7 @@
             "parsed": {
                 "group-by": {
                     "group-variable": "?ethnicity", 
-                    "limit": "1", 
+                    "limit": 1, 
                     "order-variable": "?count", 
                     "sorted-order": "desc"
                 }, 
@@ -165,7 +165,7 @@
             "parsed": {
                 "group-by": {
                     "group-variable": "?ethnicity", 
-                    "limit": "1", 
+                    "limit": 1, 
                     "order-variable": "?count"
                 }, 
                 "select": {
@@ -218,7 +218,7 @@
             "parsed": {
                 "group-by": {
                     "group-variable": "?review_site", 
-                    "limit": "1", 
+                    "limit": 1, 
                     "order-variable": "?count"
                 }, 
                 "select": {
@@ -271,7 +271,7 @@
             "parsed": {
                 "group-by": {
                     "group-variable": "?review_site", 
-                    "limit": "1", 
+                    "limit": 1, 
                     "order-variable": "?count", 
                     "sorted-order": "desc"
                 }, 
@@ -325,7 +325,7 @@
             "parsed": {
                 "group-by": {
                     "group-variable": "?review_site", 
-                    "limit": "1", 
+                    "limit": 1, 
                     "order-variable": "?count", 
                     "sorted-order": "desc"
                 }, 
@@ -379,7 +379,7 @@
             "parsed": {
                 "group-by": {
                     "group-variable": "?nationality", 
-                    "limit": "1", 
+                    "limit": 1, 
                     "order-variable": "?count", 
                     "sorted-order": "desc"
                 }, 
@@ -433,7 +433,7 @@
             "parsed": {
                 "group-by": {
                     "group-variable": "?nationality", 
-                    "limit": "1", 
+                    "limit": 1, 
                     "order-variable": "?count"
                 }, 
                 "select": {
@@ -486,7 +486,7 @@
             "parsed": {
                 "group-by": {
                     "group-variable": "?business", 
-                    "limit": "1", 
+                    "limit": 1, 
                     "order-variable": "?count", 
                     "sorted-order": "desc"
                 }, 
@@ -569,7 +569,7 @@
             "parsed": {
                 "group-by": {
                     "group-variable": "?business", 
-                    "limit": "1", 
+                    "limit": 1, 
                     "order-variable": "?count", 
                     "sorted-order": "desc"
                 }, 
@@ -652,7 +652,7 @@
             "parsed": {
                 "group-by": {
                     "group-variable": "?business", 
-                    "limit": "1", 
+                    "limit": 1, 
                     "order-variable": "?count"
                 }, 
                 "select": {
@@ -734,7 +734,7 @@
             "parsed": {
                 "group-by": {
                     "group-variable": "?ad", 
-                    "limit": "1", 
+                    "limit": 1, 
                     "order-variable": "?count", 
                     "sorted-order": "desc"
                 }, 
@@ -788,7 +788,7 @@
             "parsed": {
                 "group-by": {
                     "group-variable": "?ad", 
-                    "limit": "1", 
+                    "limit": 1, 
                     "order-variable": "?count", 
                     "sorted-order": "desc"
                 }, 
@@ -842,7 +842,7 @@
             "parsed": {
                 "group-by": {
                     "group-variable": "?business_name", 
-                    "limit": "1", 
+                    "limit": 1, 
                     "order-variable": "?count", 
                     "sorted-order": "desc"
                 }, 
@@ -900,7 +900,7 @@
             "parsed": {
                 "group-by": {
                     "group-variable": "?business_name", 
-                    "limit": "1", 
+                    "limit": 1, 
                     "order-variable": "?count", 
                     "sorted-order": "desc"
                 }, 
@@ -1645,7 +1645,7 @@
         "20": {
             "parsed": {
                 "group-by": {
-                    "limit": "1", 
+                    "limit": 1, 
                     "order-variable": "?posting_date"
                 }, 
                 "select": {
@@ -1677,7 +1677,7 @@
         "22": {
             "parsed": {
                 "group-by": {
-                    "limit": "1", 
+                    "limit": 1, 
                     "order-variable": "?posting_date"
                 }, 
                 "select": {
@@ -1709,7 +1709,7 @@
         "24": {
             "parsed": {
                 "group-by": {
-                    "limit": "1", 
+                    "limit": 1, 
                     "order-variable": "?posting_date"
                 }, 
                 "select": {
@@ -2963,7 +2963,7 @@
         "20": {
             "parsed": {
                 "group-by": {
-                    "limit": "1", 
+                    "limit": 1, 
                     "order-variable": "?posting_date"
                 }, 
                 "select": {
@@ -2995,7 +2995,7 @@
         "22": {
             "parsed": {
                 "group-by": {
-                    "limit": "1", 
+                    "limit": 1, 
                     "order-variable": "?posting_date"
                 }, 
                 "select": {
@@ -3027,7 +3027,7 @@
         "24": {
             "parsed": {
                 "group-by": {
-                    "limit": "1", 
+                    "limit": 1, 
                     "order-variable": "?posting_date"
                 }, 
                 "select": {
