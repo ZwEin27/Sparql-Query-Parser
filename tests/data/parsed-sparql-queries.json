@@ -4,7 +4,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Eugene,", 
+                        "constraint": "'Eugene, OR'", 
                         "predicate": "location"
                     }, 
                     {
@@ -22,7 +22,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Rochester,", 
+                        "constraint": "'Rochester, NY'", 
                         "predicate": "location"
                     }, 
                     {
@@ -40,7 +40,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Seattle,", 
+                        "constraint": "'Seattle, WA'", 
                         "predicate": "location"
                     }, 
                     {
@@ -58,7 +58,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Bangalore,", 
+                        "constraint": "'Bangalore, India'", 
                         "predicate": "location"
                     }, 
                     {
@@ -76,7 +76,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Flagstaff,", 
+                        "constraint": "'Flagstaff, AZ'", 
                         "predicate": "location"
                     }, 
                     {
@@ -94,7 +94,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Fayetteville,", 
+                        "constraint": "'Fayetteville, AR'", 
                         "predicate": "location"
                     }, 
                     {
@@ -112,7 +112,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Capetown,", 
+                        "constraint": "'Capetown, South Africa'", 
                         "predicate": "location"
                     }, 
                     {
@@ -130,12 +130,12 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Dubai,", 
+                        "constraint": "'Dubai, UAE'", 
                         "predicate": "location"
                     }, 
                     {
-                        "constraint": "nationality", 
-                        "predicate": ""
+                        "predicate": "", 
+                        "variable": "nationality ?nationality"
                     }
                 ], 
                 "type": "Ad", 
@@ -148,7 +148,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Galveston,", 
+                        "constraint": "'Galveston, TX'", 
                         "predicate": "location"
                     }, 
                     {
@@ -170,8 +170,8 @@
                         "predicate": "location"
                     }, 
                     {
-                        "constraint": "business_type", 
-                        "predicate": ""
+                        "predicate": "", 
+                        "variable": "business_type ?bt"
                     }
                 ], 
                 "filters": [
@@ -203,7 +203,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Philadelphia,", 
+                        "constraint": "'Philadelphia, PA'", 
                         "predicate": "location"
                     }, 
                     {
@@ -240,7 +240,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Fargo,", 
+                        "constraint": "'Fargo, ND'", 
                         "predicate": "location"
                     }, 
                     {
@@ -277,7 +277,7 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Delhi,", 
+                        "constraint": "'Delhi, India'", 
                         "predicate": "location"
                     }, 
                     {
@@ -313,11 +313,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Vancouver,", 
+                        "constraint": "'Vancouver, BC, Canada'", 
                         "predicate": "location"
                     }, 
                     {
-                        "constraint": "'escort", 
+                        "constraint": "'escort agency'", 
                         "predicate": "business_type"
                     }, 
                     {
@@ -335,11 +335,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Glasgow,", 
+                        "constraint": "'Glasgow, Scotland'", 
                         "predicate": "location"
                     }, 
                     {
-                        "constraint": "'escort", 
+                        "constraint": "'escort agency'", 
                         "predicate": "business_type"
                     }, 
                     {
@@ -533,7 +533,7 @@
                         "predicate": "seed"
                     }, 
                     {
-                        "constraint": "'Co", 
+                        "constraint": "'Co Co'", 
                         "predicate": "name"
                     }, 
                     {
@@ -809,7 +809,7 @@
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'May", 
+                        "constraint": "'May 7, 2016'", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -831,7 +831,7 @@
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'February", 
+                        "constraint": "'February 18, 2016'", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -853,7 +853,7 @@
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'April", 
+                        "constraint": "'April 1, 2016'", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -875,7 +875,7 @@
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'April", 
+                        "constraint": "'April 25, 2014'", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -897,7 +897,7 @@
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'June", 
+                        "constraint": "'June 28, 2016'", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -919,7 +919,7 @@
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'January", 
+                        "constraint": "'January 9, 2016'", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -941,7 +941,7 @@
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'January", 
+                        "constraint": "'January 17, 2015'", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -963,7 +963,7 @@
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'June", 
+                        "constraint": "'June 29, 2016'", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -981,11 +981,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Midtown", 
+                        "constraint": "'Midtown East, New York City, NY'", 
                         "predicate": "location"
                     }, 
                     {
-                        "constraint": "'Stunning", 
+                        "constraint": "'Stunning Ebony International Companion available for extended trysts and fun times!'", 
                         "predicate": "title"
                     }, 
                     {
@@ -1007,15 +1007,15 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Chicago,", 
+                        "constraint": "'Chicago, IL'", 
                         "predicate": "location"
                     }, 
                     {
-                        "constraint": "'Porn", 
+                        "constraint": "'Porn Star, Chicago, Illinois Female Escort & Limited GFE & GFE available for Incall and Outcall'", 
                         "predicate": "title"
                     }, 
                     {
-                        "constraint": "'VIP", 
+                        "constraint": "'VIP Desire'", 
                         "predicate": "name"
                     }, 
                     {
@@ -1033,11 +1033,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Los", 
+                        "constraint": "'Los Angeles, CA'", 
                         "predicate": "location"
                     }, 
                     {
-                        "constraint": "'Los", 
+                        "constraint": "'Los Angeles, California Female Escort & GFE available for Outcall.'", 
                         "predicate": "title"
                     }, 
                     {
@@ -1059,11 +1059,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'June", 
+                        "constraint": "'June 30'", 
                         "predicate": "posting_date"
                     }, 
                     {
-                        "constraint": "'Bengaluru,", 
+                        "constraint": "'Bengaluru, India'", 
                         "predicate": "location"
                     }, 
                     {
@@ -1271,7 +1271,7 @@
                         "predicate": "seed"
                     }, 
                     {
-                        "constraint": "'Co", 
+                        "constraint": "'Co Co'", 
                         "predicate": "name"
                     }, 
                     {
@@ -1547,7 +1547,7 @@
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'May", 
+                        "constraint": "'May 7, 2016'", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -1569,7 +1569,7 @@
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'February", 
+                        "constraint": "'February 18, 2016'", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -1591,7 +1591,7 @@
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'April", 
+                        "constraint": "'April 1, 2016'", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -1613,7 +1613,7 @@
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'April", 
+                        "constraint": "'April 25, 2014'", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -1635,7 +1635,7 @@
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'June", 
+                        "constraint": "'June 28, 2016'", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -1657,7 +1657,7 @@
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'January", 
+                        "constraint": "'January 9, 2016'", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -1679,7 +1679,7 @@
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'January", 
+                        "constraint": "'January 17, 2015'", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -1701,7 +1701,7 @@
                         "predicate": "phone"
                     }, 
                     {
-                        "constraint": "'June", 
+                        "constraint": "'June 29, 2016'", 
                         "predicate": "posting_date"
                     }, 
                     {
@@ -1719,11 +1719,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Midtown", 
+                        "constraint": "'Midtown East, New York City, NY'", 
                         "predicate": "location"
                     }, 
                     {
-                        "constraint": "'Stunning", 
+                        "constraint": "'Stunning Ebony International Companion available for extended trysts and fun times!'", 
                         "predicate": "title"
                     }, 
                     {
@@ -1745,15 +1745,15 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Chicago,", 
+                        "constraint": "'Chicago, IL'", 
                         "predicate": "location"
                     }, 
                     {
-                        "constraint": "'Porn", 
+                        "constraint": "'Porn Star, Chicago, Illinois Female Escort & Limited GFE & GFE available for Incall and Outcall'", 
                         "predicate": "title"
                     }, 
                     {
-                        "constraint": "'VIP", 
+                        "constraint": "'VIP Desire'", 
                         "predicate": "name"
                     }, 
                     {
@@ -1771,11 +1771,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'Los", 
+                        "constraint": "'Los Angeles, CA'", 
                         "predicate": "location"
                     }, 
                     {
-                        "constraint": "'Los", 
+                        "constraint": "'Los Angeles, California Female Escort & GFE available for Outcall.'", 
                         "predicate": "title"
                     }, 
                     {
@@ -1797,11 +1797,11 @@
             "parsed": {
                 "clauses": [
                     {
-                        "constraint": "'June", 
+                        "constraint": "'June 30'", 
                         "predicate": "posting_date"
                     }, 
                     {
-                        "constraint": "'Bengaluru,", 
+                        "constraint": "'Bengaluru, India'", 
                         "predicate": "location"
                     }, 
                     {

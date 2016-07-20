@@ -19,10 +19,14 @@ class TestSQParserMethods(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def test_parser(self):
+    def test_parse_json(self):
         target_component = 'WHERE'
         has_title = True
         SQParser.parse_sq_json(input_, output_path=output_, target_component=target_component, has_title=has_title)
+
+    def test_parse(self):
+        text = ""
+        print SQParser.parse(text)
 
     
 
@@ -31,7 +35,8 @@ if __name__ == '__main__':
 
     def run_main_test():
         suite = unittest.TestSuite()
-        suite.addTest(TestSQParserMethods('test_parser'))
+        # suite.addTest(TestSQParserMethods('test_parse_json'))
+        suite.addTest(TestSQParserMethods('test_parse'))
         runner = unittest.TextTestRunner()
         runner.run(suite)
 

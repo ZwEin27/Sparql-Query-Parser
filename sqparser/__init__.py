@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 09:50:10
+# @Last Modified time: 2016-07-20 10:23:02
 
 import re
 import json
@@ -92,8 +92,10 @@ re_statement_split = re.compile(r'.*?(?=;|\s\.\s)')
 re_statement_a = re.compile(r'(?<=[a-zA-Z])\s+?\ba\b\s+?(?=[:a-zA-Z])')
 # re_statement_a_split = re.compile(r'(?<=[a-zA-Z])\s+?\ba\b\s+?(?=[a-zA-Z])')
 re_statement_variable = re.compile(r'(?:^|\s])\?[a-zA-Z]+\b')
-re_statement_qpr = re.compile(r'\b(?:(?<=qpr\:)|\b(?<=\:))[a-zA-Z]+\b')
+re_statement_qpr = re.compile(r'\b(?:(?<=qpr\:)|(?<=\:))[_a-zA-Z]+\b')
+re_statement_qpr_constaint = re.compile(r'(?<=\').+(?=\')')
 re_statement_content = re.compile(r'(?<=qpr\:).+(?=\s|$)')
+# re_statement_content = re.compile(r'qpr\:.+(?=\s|$)')
 
 
 # function
@@ -203,10 +205,17 @@ class SQParser(object):
     @staticmethod
     def parse_content(text):
         ans = {}
-        text = text.split(' ')
+        # text = text.split(' ')
         print 'parse_content: ', text
-        cv = text[1]
-        ans[SQ_EXT_PREDICATE] = text[0]
+        text = text.split(' ', 1)
+
+        # predicate = re_statement_qpr.search(text).group(0)
+        # constraint = re_statement_qpr_constaint.search(text).group(0)
+        predicate = text[0]
+        constraint = text[1]
+        
+        cv = constraint
+        ans[SQ_EXT_PREDICATE] = predicate
         if '?' in cv:
             ans[SQ_EXT_VARIABLE] = cv
         else:
@@ -239,7 +248,7 @@ class SQParser(object):
                     ans.setdefault(SQ_EXT_FILTERS, [])
                     ans[SQ_EXT_FILTERS].append(icf_rtn)
         else:
-            print 'parse_statement', text
+            print 'parse_statement:', text
             content = re_statement_content.search(text)
             if not content:
                 raise Exception('Sparql Format Error')
