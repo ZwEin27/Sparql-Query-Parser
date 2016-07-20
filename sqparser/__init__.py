@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 00:05:50
+# @Last Modified time: 2016-07-20 00:10:46
 
 import re
 import json
@@ -65,6 +65,10 @@ re_statement_content = re.compile(r'(?<=qpr\:).+(?=\s|$)')
 
 class SQParser(object):
     
+    ####################################################
+    #   Outer Component Functions
+    ####################################################
+
     def __cp_func_prefix(text):
         pass
 
@@ -79,7 +83,7 @@ class SQParser(object):
 
         return ans
 
-    COMPONENT_FUNC = {
+    OUTER_COMPONENT_FUNC = {
         SQ_KEYWORD_PREFIX: __cp_func_prefix,
         SQ_KEYWORD_SELECT: __cp_func_select,
         SQ_KEYWORD_WHERE: __cp_func_where,
@@ -87,6 +91,25 @@ class SQParser(object):
         SQ_KEYWORD_GROUP: lambda x: None,
         SQ_KEYWORD_LIMIT: lambda x: None
     }
+
+    ####################################################
+    #   Inner Component Functions
+    ####################################################
+
+    def __cp_func_filter(text):
+        pass
+
+    def __cp_func_component(text):
+        pass
+
+    INNER_COMPONENT_FUNC = {
+        SQ_KEYWORD_FILTER: __cp_func_filter,
+        SQ_KEYWORD_OPTIONAL: __cp_func_component
+    }
+
+    ####################################################
+    #   Main Functions
+    ####################################################
 
     @staticmethod
     def parse_content(text):
@@ -136,7 +159,7 @@ class SQParser(object):
     def parse_components(components):
         ans = {}
         for (key, content) in components.iteritems():
-            ans[key] = SQParser.COMPONENT_FUNC[key](content)
+            ans[key] = SQParser.OUTER_COMPONENT_FUNC[key](content)
         return ans
 
     @staticmethod
