@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 00:10:46
+# @Last Modified time: 2016-07-20 00:19:16
 
 import re
 import json
@@ -41,8 +41,12 @@ SQ_EXT_OPTIONAL_FLAG = 'isOptional'
 #   Regular Expression
 ######################################################################
 
-re_brackets_most = re.compile(r'(?<={).*(?=})')
-re_brackets_least = re.compile(r'(?<={).*?(?=})')
+re_brackets_most_b = re.compile(r'(?<={).*(?=})')
+re_brackets_least_b = re.compile(r'(?<={).*?(?=})')
+re_brackets_most_m = re.compile(r'(?<=\[).*(?=\])')
+re_brackets_least_m = re.compile(r'(?<=\[).*?(?=\])')
+re_brackets_most_s = re.compile(r'(?<=\().*(?=\))')
+re_brackets_least_s = re.compile(r'(?<=\().*?(?=\))')
 
 reg_outer = r'(?:'+r'|'.join(SQ_OUTER_KEYWORDS)+r').*?(?='+r'|'.join(SQ_OUTER_KEYWORDS)+r'|\s*$)'
 re_outer = re.compile(reg_outer)
@@ -97,14 +101,19 @@ class SQParser(object):
     ####################################################
 
     def __cp_func_filter(text):
-        pass
+        return 's'
 
-    def __cp_func_component(text):
-        pass
+    def __cp_func_optional(text):
+        content = re_statement_content.search(text).group(0)
+        if not content:
+            raise Exception('Sparql Format Error')
+        clause = SQParser.parse_content(content)
+        clause[SQ_EXT_OPTIONAL_FLAG] = True
+        return clause
 
     INNER_COMPONENT_FUNC = {
         SQ_KEYWORD_FILTER: __cp_func_filter,
-        SQ_KEYWORD_OPTIONAL: __cp_func_component
+        SQ_KEYWORD_OPTIONAL: __cp_func_optional
     }
 
     ####################################################
@@ -134,18 +143,15 @@ class SQParser(object):
         elif len(re_inner.findall(text)) > 0:
             for component in re_inner.findall(text):
                 keyword = re_keyword.match(component).group(0)
-                content = re_brackets_most.search(component).group(0) if re_brackets_most.search(component) else component
-                if keyword == SQ_KEYWORD_OPTIONAL:
-                    content = re_statement_content.search(content).group(0)
-                    if not content:
-                        raise Exception('Sparql Format Error')
-                    clause = SQParser.parse_content(content)
-                    clause[SQ_EXT_OPTIONAL_FLAG] = True
-                    ans[SQ_EXT_CLAUSES].append(clause)
-                elif keyword == SQ_KEYWORD_FILTER:
-                    pass
+
+                if re_brackets_most_b.search(component):
+                    content = re_brackets_most_b.search(component).group(0)
+                elif re_brackets_most_s.search(component):
+                    content = re_brackets_most_s.search(component).group(0)
                 else:
-                    pass
+                    content = component
+
+                ans[SQ_EXT_CLAUSES].append(SQParser.INNER_COMPONENT_FUNC[keyword](content))
         else:
             content = re_statement_content.search(text)
             if not content:
@@ -164,7 +170,7 @@ class SQParser(object):
 
     @staticmethod
     def parse(text, target_component='WHERE'):
-        components = {_.split()[0]:re_brackets_most.search(_).group(0) if re_brackets_most.search(_) else _ for _ in re_outer.findall(text)}
+        components = {_.split()[0]:re_brackets_most_b.search(_).group(0) if re_brackets_most_b.search(_) else _ for _ in re_outer.findall(text)}
         # print components
         
         # if target_component:
