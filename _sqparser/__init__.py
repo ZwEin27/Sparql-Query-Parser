@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 11:00:27
+# @Last Modified time: 2016-07-20 11:04:00
 
 import re
 import json
@@ -375,7 +375,7 @@ if __name__ == '__main__':
     # import argparse
 
     # arg_parser = argparse.ArgumentParser()
-    # arg_parser.add_argument('-t','--text', required=True)
+    # arg_parser.add_argument('-s','--string', required=True)
 
     # args = arg_parser.parse_args()
 
@@ -391,6 +391,7 @@ if __name__ == '__main__':
     arg_parser.add_argument('-o','--output_file')
     arg_parser.add_argument('-c','--target_component', required=False)
     arg_parser.add_argument('-t','--has_title', required=False)
+    arg_parser.add_argument('-s','--str_input', required=False)
 
     args = arg_parser.parse_args()
 
@@ -398,7 +399,12 @@ if __name__ == '__main__':
     output_file = str(args.output_file)
     target_component = str(args.target_component)
     has_title = args.has_title if args.has_title else False
-    SQParser.parse_sq_json(input_file, output_path=output_file, target_component=target_component, has_title=has_title)
+    str_input = str_input
+
+    if str_input:
+        print SQParser.parse(text)
+    else:
+        SQParser.parse_sq_json(input_file, output_path=output_file, target_component=target_component, has_title=has_title)
 
     
 
