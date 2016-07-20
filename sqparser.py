@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 15:25:43
+# @Last Modified time: 2016-07-20 15:44:17
 
 
 """
@@ -194,7 +194,7 @@ class SQParser(object):
         for statement in statements:
             # print 'statement:', statement.encode('ascii', 'ignore')
             SQParser.parse_statement(ans, statement.strip())
-        parent_ans.setdefault(SQ_KEYWORD_WHERE, ans)
+        parent_ans.setdefault(SQ_KEYWORD_WHERE.lower(), ans)
         # return ans
     
     def __cp_func_order(parent_ans, text):
@@ -202,9 +202,9 @@ class SQParser(object):
         parent_ans[SQ_EXT_GOL][SQ_EXT_ORDER_VARIABLE] = re_variable.search(text).group(0)
 
         if re_functions_content[SQ_FUNCTION_ASC].search(text):
-            parent_ans[SQ_EXT_GOL][SQ_EXT_SORTED_ORDER] = 'asc'
+            parent_ans[SQ_EXT_GOL][SQ_EXT_SORTED_ORDER] = SQ_FUNCTION_ASC.lower()
         elif re_functions_content[SQ_FUNCTION_DESC].search(text):
-            parent_ans[SQ_EXT_GOL][SQ_EXT_SORTED_ORDER] = 'desc'
+            parent_ans[SQ_EXT_GOL][SQ_EXT_SORTED_ORDER] = SQ_FUNCTION_DESC.lower()
 
     def __cp_func_group(parent_ans, text):
         parent_ans.setdefault(SQ_EXT_GOL, {})
