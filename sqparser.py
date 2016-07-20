@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 15:44:17
+# @Last Modified time: 2016-07-20 16:01:34
 
 
 """
@@ -127,7 +127,7 @@ re_statement_others = re.compile(r'.*?(?=;|\s\.\s)')
 re_statement_a = re.compile(r'(?<=[a-zA-Z])\s+?\ba\b\s+?(?=[:a-zA-Z])')
 # re_statement_a_split = re.compile(r'(?<=[a-zA-Z])\s+?\ba\b\s+?(?=[a-zA-Z])')
 re_statement_variable = re.compile(r'(?:^|\s|\b])\?[a-zA-Z]+\b')
-re_statement_qpr = re.compile(r'\b(?:(?<=qpr\:)|(?<=\:))[_a-zA-Z]+\b')
+re_statement_qpr = re.compile(r'\b(?:(?<=qpr\:)|(?<=\:))\s?[_a-zA-Z]+\b')
 re_statement_qpr_constaint = re.compile(r'(?<=\').+(?=\')')
 re_statement_content = re.compile(r'(?<=qpr\:).+(?=\s|$)')
 # re_statement_content = re.compile(r'qpr\:.+(?=\s|$)')
@@ -179,7 +179,11 @@ class SQParser(object):
         pass
 
     def __cp_func_select(parent_ans, text):
-        pass
+        ans = {}
+        ans['variables'] = []
+
+
+        parent_ans.setdefault(SQ_KEYWORD_SELECT, ans)
 
     def __cp_func_where(parent_ans, text):
         ans = {}
@@ -274,8 +278,8 @@ class SQParser(object):
     def parse_content(text):
         ans = {}
         # text = text.split(' ')
-        # print 'parse_content: ', text
-        text = text.split(' ', 1)
+        # print 'parse_content: ', text.strip()
+        text = text.strip().split(' ', 1)
 
         # predicate = re_statement_qpr.search(text).group(0)
         # constraint = re_statement_qpr_constaint.search(text).group(0)

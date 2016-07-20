@@ -2,6 +2,9 @@
     "Aggregate": {
         "1486": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "group-by": {
                     "group-variable": "?number_of_individuals", 
                     "limit": "1", 
@@ -28,6 +31,9 @@
         }, 
         "1493": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "group-by": {
                     "group-variable": "?number_of_individuals", 
                     "limit": "1", 
@@ -53,6 +59,9 @@
         }, 
         "1505": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "group-by": {
                     "group-variable": "?ethnicity", 
                     "limit": "1", 
@@ -79,6 +88,9 @@
         }, 
         "1519": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "group-by": {
                     "group-variable": "?ethnicity", 
                     "limit": "1", 
@@ -104,6 +116,9 @@
         }, 
         "1564": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "group-by": {
                     "group-variable": "?review_site", 
                     "limit": "1", 
@@ -129,6 +144,9 @@
         }, 
         "1566": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "group-by": {
                     "group-variable": "?review_site", 
                     "limit": "1", 
@@ -155,6 +173,9 @@
         }, 
         "1567": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "group-by": {
                     "group-variable": "?review_site", 
                     "limit": "1", 
@@ -181,6 +202,9 @@
         }, 
         "1575": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "group-by": {
                     "group-variable": "?nationality", 
                     "limit": "1", 
@@ -194,8 +218,8 @@
                             "predicate": "location"
                         }, 
                         {
-                            "predicate": "", 
-                            "variable": "nationality ?nationality"
+                            "predicate": "nationality", 
+                            "variable": "?nationality"
                         }
                     ], 
                     "type": "Ad", 
@@ -207,6 +231,9 @@
         }, 
         "1577": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "group-by": {
                     "group-variable": "?nationality", 
                     "limit": "1", 
@@ -232,6 +259,9 @@
         }, 
         "1582": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "group-by": {
                     "group-variable": "?business", 
                     "limit": "1", 
@@ -248,15 +278,15 @@
                         {
                             "isOptional": true, 
                             "predicate": "physical_address", 
-                            "variable": "?physical_address "
+                            "variable": "?physical_address"
                         }, 
                         {
                             "constraint": "Vermont", 
                             "predicate": "location"
                         }, 
                         {
-                            "predicate": "", 
-                            "variable": "business_type ?bt"
+                            "predicate": "business_type", 
+                            "variable": "?bt"
                         }
                     ], 
                     "filters": [
@@ -287,6 +317,9 @@
         }, 
         "1584": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "group-by": {
                     "group-variable": "?business", 
                     "limit": "1", 
@@ -303,7 +336,7 @@
                         {
                             "isOptional": true, 
                             "predicate": "physical_address", 
-                            "variable": "?physical_address "
+                            "variable": "?physical_address"
                         }, 
                         {
                             "constraint": "Philadelphia, PA", 
@@ -342,6 +375,9 @@
         }, 
         "1592": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "group-by": {
                     "group-variable": "?business", 
                     "limit": "1", 
@@ -357,7 +393,7 @@
                         {
                             "isOptional": true, 
                             "predicate": "physical_address", 
-                            "variable": "?physical_address "
+                            "variable": "?physical_address"
                         }, 
                         {
                             "constraint": "Fargo, ND", 
@@ -396,6 +432,9 @@
         }, 
         "1595": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "group-by": {
                     "group-variable": "?ad", 
                     "limit": "1", 
@@ -422,6 +461,9 @@
         }, 
         "1602": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "group-by": {
                     "group-variable": "?ad", 
                     "limit": "1", 
@@ -448,6 +490,9 @@
         }, 
         "1608": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "group-by": {
                     "group-variable": "?business_name", 
                     "limit": "1", 
@@ -478,6 +523,9 @@
         }, 
         "1612": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "group-by": {
                     "group-variable": "?business_name", 
                     "limit": "1", 
@@ -508,17 +556,20 @@
         }, 
         "1633.1837": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
                             "isOptional": true, 
                             "predicate": "image_with_phone", 
-                            "variable": "?iwp "
+                            "variable": "?iwp"
                         }, 
                         {
                             "isOptional": true, 
                             "predicate": "image_with_email", 
-                            "variable": "?iwe "
+                            "variable": "?iwe"
                         }, 
                         {
                             "constraint": "5105124396", 
@@ -553,6 +604,9 @@
         }, 
         "1634.1818": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -577,6 +631,9 @@
         }, 
         "1636.1818": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -601,6 +658,9 @@
         }, 
         "1638.1822": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -625,6 +685,9 @@
         }, 
         "1646.1842": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -649,6 +712,9 @@
         }, 
         "1657.1825": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -673,6 +739,9 @@
         }, 
         "1661.1856": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -697,6 +766,9 @@
         }, 
         "1664.1857": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -721,6 +793,9 @@
         }, 
         "1668.1828": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -745,6 +820,9 @@
         }, 
         "1674.1832": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -769,6 +847,9 @@
         }, 
         "1676.1864": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -793,17 +874,20 @@
         }, 
         "1682.1834": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
                             "isOptional": true, 
                             "predicate": "image_with_phone", 
-                            "variable": "?iwp "
+                            "variable": "?iwp"
                         }, 
                         {
                             "isOptional": true, 
                             "predicate": "image_with_email", 
-                            "variable": "?iwe "
+                            "variable": "?iwe"
                         }, 
                         {
                             "constraint": "6476877096", 
@@ -838,17 +922,20 @@
         }, 
         "1684.1836": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
                             "isOptional": true, 
                             "predicate": "image_with_phone", 
-                            "variable": "?iwp "
+                            "variable": "?iwp"
                         }, 
                         {
                             "isOptional": true, 
                             "predicate": "image_with_email", 
-                            "variable": "?iwe "
+                            "variable": "?iwe"
                         }, 
                         {
                             "constraint": "7865064729", 
@@ -883,17 +970,20 @@
         }, 
         "1686.1869": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
                             "isOptional": true, 
                             "predicate": "image_with_phone", 
-                            "variable": "?iwp "
+                            "variable": "?iwp"
                         }, 
                         {
                             "isOptional": true, 
                             "predicate": "image_with_email", 
-                            "variable": "?iwe "
+                            "variable": "?iwe"
                         }, 
                         {
                             "constraint": "9253051222", 
@@ -928,6 +1018,9 @@
         }, 
         "1694.1887": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -952,6 +1045,9 @@
         }, 
         "1699.1889": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -972,6 +1068,9 @@
         }, 
         "1701.1891": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -992,6 +1091,9 @@
         }, 
         "20": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "group-by": {
                     "limit": "1", 
                     "order-variable": "?posting_date"
@@ -1016,6 +1118,9 @@
         }, 
         "22": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "group-by": {
                     "limit": "1", 
                     "order-variable": "?posting_date"
@@ -1040,6 +1145,9 @@
         }, 
         "24": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "group-by": {
                     "limit": "1", 
                     "order-variable": "?posting_date"
@@ -1064,6 +1172,9 @@
         }, 
         "28": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1088,6 +1199,9 @@
         }, 
         "30": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1112,6 +1226,9 @@
         }, 
         "41": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1136,6 +1253,9 @@
         }, 
         "43": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1160,6 +1280,9 @@
         }, 
         "50": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1184,6 +1307,9 @@
         }, 
         "52": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1208,6 +1334,9 @@
         }, 
         "54": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1232,6 +1361,9 @@
         }, 
         "58": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1256,6 +1388,9 @@
         }, 
         "61": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1280,6 +1415,9 @@
         }, 
         "63": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1304,6 +1442,9 @@
         }, 
         "77": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1332,6 +1473,9 @@
         }, 
         "82": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1360,6 +1504,9 @@
         }, 
         "83": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1388,6 +1535,9 @@
         }, 
         "88": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1426,17 +1576,20 @@
     "Cluster": {
         "1633.1837": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
                             "isOptional": true, 
                             "predicate": "image_with_phone", 
-                            "variable": "?iwp "
+                            "variable": "?iwp"
                         }, 
                         {
                             "isOptional": true, 
                             "predicate": "image_with_email", 
-                            "variable": "?iwe "
+                            "variable": "?iwe"
                         }, 
                         {
                             "constraint": "5105124396", 
@@ -1471,6 +1624,9 @@
         }, 
         "1634.1818": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1495,6 +1651,9 @@
         }, 
         "1636.1818": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1519,6 +1678,9 @@
         }, 
         "1638.1822": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1543,6 +1705,9 @@
         }, 
         "1646.1842": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1567,6 +1732,9 @@
         }, 
         "1657.1825": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1591,6 +1759,9 @@
         }, 
         "1661.1856": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1615,6 +1786,9 @@
         }, 
         "1664.1857": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1639,6 +1813,9 @@
         }, 
         "1668.1828": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1663,6 +1840,9 @@
         }, 
         "1674.1832": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1687,6 +1867,9 @@
         }, 
         "1676.1864": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1711,17 +1894,20 @@
         }, 
         "1682.1834": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
                             "isOptional": true, 
                             "predicate": "image_with_phone", 
-                            "variable": "?iwp "
+                            "variable": "?iwp"
                         }, 
                         {
                             "isOptional": true, 
                             "predicate": "image_with_email", 
-                            "variable": "?iwe "
+                            "variable": "?iwe"
                         }, 
                         {
                             "constraint": "6476877096", 
@@ -1756,17 +1942,20 @@
         }, 
         "1684.1836": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
                             "isOptional": true, 
                             "predicate": "image_with_phone", 
-                            "variable": "?iwp "
+                            "variable": "?iwp"
                         }, 
                         {
                             "isOptional": true, 
                             "predicate": "image_with_email", 
-                            "variable": "?iwe "
+                            "variable": "?iwe"
                         }, 
                         {
                             "constraint": "7865064729", 
@@ -1801,17 +1990,20 @@
         }, 
         "1686.1869": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
                             "isOptional": true, 
                             "predicate": "image_with_phone", 
-                            "variable": "?iwp "
+                            "variable": "?iwp"
                         }, 
                         {
                             "isOptional": true, 
                             "predicate": "image_with_email", 
-                            "variable": "?iwe "
+                            "variable": "?iwe"
                         }, 
                         {
                             "constraint": "9253051222", 
@@ -1846,6 +2038,9 @@
         }, 
         "1694.1887": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1870,6 +2065,9 @@
         }, 
         "1699.1889": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1890,6 +2088,9 @@
         }, 
         "1701.1891": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -1910,6 +2111,9 @@
         }, 
         "20": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "group-by": {
                     "limit": "1", 
                     "order-variable": "?posting_date"
@@ -1934,6 +2138,9 @@
         }, 
         "22": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "group-by": {
                     "limit": "1", 
                     "order-variable": "?posting_date"
@@ -1958,6 +2165,9 @@
         }, 
         "24": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "group-by": {
                     "limit": "1", 
                     "order-variable": "?posting_date"
@@ -1982,6 +2192,9 @@
         }, 
         "28": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -2006,6 +2219,9 @@
         }, 
         "30": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -2030,6 +2246,9 @@
         }, 
         "41": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -2054,6 +2273,9 @@
         }, 
         "43": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -2078,6 +2300,9 @@
         }, 
         "50": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -2102,6 +2327,9 @@
         }, 
         "52": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -2126,6 +2354,9 @@
         }, 
         "54": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -2150,6 +2381,9 @@
         }, 
         "58": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -2174,6 +2408,9 @@
         }, 
         "61": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -2198,6 +2435,9 @@
         }, 
         "63": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -2222,6 +2462,9 @@
         }, 
         "77": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -2250,6 +2493,9 @@
         }, 
         "82": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -2278,6 +2524,9 @@
         }, 
         "83": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
@@ -2306,6 +2555,9 @@
         }, 
         "88": {
             "parsed": {
+                "SELECT": {
+                    "variables": []
+                }, 
                 "where": {
                     "clauses": [
                         {
