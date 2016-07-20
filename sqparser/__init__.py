@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 09:46:07
+# @Last Modified time: 2016-07-20 09:50:10
 
 import re
 import json
@@ -291,7 +291,7 @@ class SQParser(object):
 
     @staticmethod
     def parse(text, target_component='WHERE'):
-        components = {_.split()[0]:re_brackets_most_b.search(_).group(0) if re_brackets_most_b.search(_) else _ for _ in re_outer.findall(text)}
+        components = {re_keyword.match(_).group(0):re_brackets_most_b.search(_).group(0) if re_brackets_most_b.search(_) else _ for _ in re_outer.findall(text)}
         # print components
         
         # if target_component:
@@ -299,7 +299,8 @@ class SQParser(object):
         #     print t
 
         ans = SQParser.parse_components(components)[target_component]
-        return json.dumps(ans, indent=4)
+        # return json.dumps(ans, indent=4)
+        return ans
 
     @staticmethod
     def parse_sq_json(input_path, output_path=None, target_component='WHERE', has_title=True):
