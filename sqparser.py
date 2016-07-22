@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-22 10:26:52
+# @Last Modified time: 2016-07-22 10:29:08
 
 
 """
@@ -310,7 +310,7 @@ class SQParser(object):
         for op in SQ_OUTER_OPERATOR:
             if op in text:
                 ans.setdefault(SQ_EXT_OPERATOR, [])
-                ans[SQ_EXT_OPERATOR].append(op)
+                ans[SQ_EXT_OPERATOR].append(SQ_OPERATOR_MAPPING[op].lower())
 
         component = [_.strip() for _ in re_outer_operator_split.split(text) if _ != '']
 
