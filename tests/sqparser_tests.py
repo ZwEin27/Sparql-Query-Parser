@@ -30,7 +30,8 @@ class TestSQParserMethods(unittest.TestCase):
         # text = "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?nationality  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads) WHERE { ?ad a qpr:Ad ; qpr:location 'Dubai, UAE'; qpr: nationality ?nationality . FILTER(?nationality != 'Emirati') } GROUP BY ?nationality ORDER BY DESC(?count) LIMIT 1"
         # text = "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ethnicity  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads) WHERE { ?ad a qpr:Ad ; qpr:location 'Bangalore, India' ; qpr:ethnicity ?ethnicity . } GROUP BY ?ethnicity ORDER BY ?count LIMIT 1"
         # text = "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?number_of_individuals (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads) WHERE { ?ad a qpr:Ad ; qpr:location 'Eugene, OR' ; qpr:number_of_individuals ?number_of_individuals .  } GROUP BY ?number_of_individuals ORDER BY DESC(?count) LIMIT 1"
-        text = "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?review_site  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads) WHERE { ?ad a qpr:Ad ; qpr:location 'Fayetteville, AR' ; qpr:review_site ?review_site . } GROUP BY ?review_site ORDER BY DESC(?count) LIMIT 1"
+        # text = "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?review_site  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads) WHERE { ?ad a qpr:Ad ; qpr:location 'Fayetteville, AR' ; qpr:review_site ?review_site . } GROUP BY ?review_site ORDER BY DESC(?count) LIMIT 1"
+        text = "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?nationality  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads) WHERE { ?ad a qpr:Ad ; qpr:location 'Dubai, UAE'; qpr: nationality ?nationality . FILTER(?nationality != 'Emirati') } GROUP BY ?nationality ORDER BY DESC(?count) LIMIT 1"
         print json.dumps(SQParser.parse(text), indent=4)
 
     
@@ -40,8 +41,8 @@ if __name__ == '__main__':
 
     def run_main_test():
         suite = unittest.TestSuite()
-        suite.addTest(TestSQParserMethods('test_parse_json'))
-        # suite.addTest(TestSQParserMethods('test_parse'))
+        # suite.addTest(TestSQParserMethods('test_parse_json'))
+        suite.addTest(TestSQParserMethods('test_parse'))
         runner = unittest.TextTestRunner()
         runner.run(suite)
 
