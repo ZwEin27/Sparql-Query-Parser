@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-20 17:48:51
+# @Last Modified time: 2016-07-22 10:26:52
 
 
 """
@@ -127,7 +127,7 @@ re_inner_operator = re.compile(reg_inner_operator)
 # re_statement_split = re.compile(r'[;\.]')
 re_statement_split = re.compile(r'.*?(?=;|\s\.\s)')
 re_statement_inner_keyword = re.compile(r'(?:'+r'|'.join(SQ_INNER_KEYWORDS)+r')\s*?[\{\(](?:\(.*?\)|[\s\w!\"#\$%&()\*+\,-\./:;<=>\?@[\]\^_`{|}~])+?[\}\)]')
-re_statement_others = re.compile(r'.*?(?=;|\s\.\s)')
+re_statement_others = re.compile(r'.*?(?=;|\s\.\s?)')
 re_statement_a = re.compile(r'(?<=[a-zA-Z])\s+?\ba\b\s+?(?=[:a-zA-Z])')
 # re_statement_a_split = re.compile(r'(?<=[a-zA-Z])\s+?\ba\b\s+?(?=[a-zA-Z])')
 re_statement_variable = re.compile(r'(?:^|\s|\b])\?[a-zA-Z]+\b')
@@ -255,12 +255,14 @@ class SQParser(object):
 
     def __cp_func_where(parent_ans, text):
         ans = {}
+        # print '__cp_func_where', text
 
         statements = [_.strip() for _ in re_statement_inner_keyword.findall(text)]
+        # print statements
         for statement in statements:
             text = text.replace(statement, '')
         statements += [_.strip() for _ in re_statement_others.findall(text) if _.strip() != '']
-
+        # print statements
         # statements = re_statement_split.split(text)
         # statements = [_.strip() for _ in re_statement_split.findall(text) if _ != '']
         for statement in statements:

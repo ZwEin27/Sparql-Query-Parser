@@ -34,6 +34,11 @@
                             "constraint": "Eugene, OR", 
                             "isOptional": false, 
                             "predicate": "location"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "number_of_individuals", 
+                            "variable": "?number_of_individuals"
                         }
                     ], 
                     "type": "Ad", 
@@ -76,6 +81,11 @@
                             "constraint": "Rochester, NY", 
                             "isOptional": false, 
                             "predicate": "location"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "number_of_individuals", 
+                            "variable": "?number_of_individuals"
                         }
                     ], 
                     "type": "Ad", 
@@ -119,6 +129,11 @@
                             "constraint": "Seattle, WA", 
                             "isOptional": false, 
                             "predicate": "location"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ethnicity", 
+                            "variable": "?ethnicity"
                         }
                     ], 
                     "type": "Ad", 
@@ -161,6 +176,11 @@
                             "constraint": "Bangalore, India", 
                             "isOptional": false, 
                             "predicate": "location"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ethnicity", 
+                            "variable": "?ethnicity"
                         }
                     ], 
                     "type": "Ad", 
@@ -203,6 +223,11 @@
                             "constraint": "Flagstaff, AZ", 
                             "isOptional": false, 
                             "predicate": "location"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "review_site", 
+                            "variable": "?review_site"
                         }
                     ], 
                     "type": "Ad", 
@@ -246,6 +271,11 @@
                             "constraint": "Fayetteville, AR", 
                             "isOptional": false, 
                             "predicate": "location"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "review_site", 
+                            "variable": "?review_site"
                         }
                     ], 
                     "type": "Ad", 
@@ -289,6 +319,11 @@
                             "constraint": "Capetown, South Africa", 
                             "isOptional": false, 
                             "predicate": "location"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "review_site", 
+                            "variable": "?review_site"
                         }
                     ], 
                     "type": "Ad", 
@@ -657,6 +692,11 @@
                             "constraint": "Delhi, India", 
                             "isOptional": false, 
                             "predicate": "location"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "hair_color", 
+                            "variable": "?hair_color"
                         }
                     ], 
                     "type": "Ad", 
@@ -700,6 +740,11 @@
                             "constraint": "Bangkok,Thailand", 
                             "isOptional": false, 
                             "predicate": "location"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "hair_color", 
+                            "variable": "?hair_color"
                         }
                     ], 
                     "type": "Ad", 
@@ -748,6 +793,11 @@
                             "constraint": "escort agency", 
                             "isOptional": false, 
                             "predicate": "business_type"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "business_name", 
+                            "variable": "?business_name"
                         }
                     ], 
                     "type": "Ad", 
@@ -796,6 +846,11 @@
                             "constraint": "escort agency", 
                             "isOptional": false, 
                             "predicate": "business_type"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "business_name", 
+                            "variable": "?business_name"
                         }
                     ], 
                     "type": "Ad", 
@@ -889,6 +944,11 @@
                             "constraint": "white", 
                             "isOptional": false, 
                             "predicate": "ethnicity:"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -923,6 +983,11 @@
                             "constraint": "cuban", 
                             "isOptional": false, 
                             "predicate": "ethnicity"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -957,6 +1022,11 @@
                             "constraint": "white", 
                             "isOptional": false, 
                             "predicate": "ethnicity"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -991,6 +1061,11 @@
                             "constraint": "female", 
                             "isOptional": false, 
                             "predicate": "gender"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1025,6 +1100,11 @@
                             "constraint": "male", 
                             "isOptional": false, 
                             "predicate": "gender"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1059,6 +1139,11 @@
                             "constraint": "male", 
                             "isOptional": false, 
                             "predicate": "gender"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1093,6 +1178,11 @@
                             "constraint": "Samanta", 
                             "isOptional": false, 
                             "predicate": "name"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1127,6 +1217,11 @@
                             "constraint": "Co Co", 
                             "isOptional": false, 
                             "predicate": "name"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1161,6 +1256,11 @@
                             "constraint": "trans", 
                             "isOptional": false, 
                             "predicate": "gender"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1195,6 +1295,11 @@
                             "constraint": "trans", 
                             "isOptional": false, 
                             "predicate": "gender"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1406,6 +1511,11 @@
                             "isOptional": false, 
                             "predicate": "ofuscation", 
                             "variable": "?ofuscation"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1435,6 +1545,11 @@
                             "constraint": "easytoremember@mail.ua", 
                             "isOptional": false, 
                             "predicate": "seed"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1464,6 +1579,11 @@
                             "constraint": "mojoentertainment@outlook.com", 
                             "isOptional": false, 
                             "predicate": "seed"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1559,6 +1679,11 @@
                             "constraint": "white", 
                             "isOptional": false, 
                             "predicate": "ethnicity:"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1593,6 +1718,11 @@
                             "constraint": "cuban", 
                             "isOptional": false, 
                             "predicate": "ethnicity"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1627,6 +1757,11 @@
                             "constraint": "white", 
                             "isOptional": false, 
                             "predicate": "ethnicity"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1661,6 +1796,11 @@
                             "constraint": "female", 
                             "isOptional": false, 
                             "predicate": "gender"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1695,6 +1835,11 @@
                             "constraint": "male", 
                             "isOptional": false, 
                             "predicate": "gender"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1729,6 +1874,11 @@
                             "constraint": "male", 
                             "isOptional": false, 
                             "predicate": "gender"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1763,6 +1913,11 @@
                             "constraint": "Samanta", 
                             "isOptional": false, 
                             "predicate": "name"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1797,6 +1952,11 @@
                             "constraint": "Co Co", 
                             "isOptional": false, 
                             "predicate": "name"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1831,6 +1991,11 @@
                             "constraint": "trans", 
                             "isOptional": false, 
                             "predicate": "gender"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -1865,6 +2030,11 @@
                             "constraint": "trans", 
                             "isOptional": false, 
                             "predicate": "gender"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -2076,6 +2246,11 @@
                             "isOptional": false, 
                             "predicate": "ofuscation", 
                             "variable": "?ofuscation"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -2105,6 +2280,11 @@
                             "constraint": "easytoremember@mail.ua", 
                             "isOptional": false, 
                             "predicate": "seed"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -2134,6 +2314,11 @@
                             "constraint": "mojoentertainment@outlook.com", 
                             "isOptional": false, 
                             "predicate": "seed"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
                         }
                     ], 
                     "type": "cluster", 
@@ -2165,6 +2350,11 @@
                             "constraint": "7075610282", 
                             "isOptional": false, 
                             "predicate": "phone"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "posting_date", 
+                            "variable": "?posting_date"
                         }
                     ], 
                     "type": "Ad", 
@@ -2194,6 +2384,11 @@
                             "constraint": "4784201625", 
                             "isOptional": false, 
                             "predicate": "phone"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "posting_date", 
+                            "variable": "?posting_date"
                         }
                     ], 
                     "type": "Ad", 
@@ -2223,6 +2418,11 @@
                             "constraint": "13222255761", 
                             "isOptional": false, 
                             "predicate": "phone"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "posting_date", 
+                            "variable": "?posting_date"
                         }
                     ], 
                     "type": "Ad", 
@@ -2257,6 +2457,11 @@
                             "constraint": "Phoenix01skye@gmail.com", 
                             "isOptional": false, 
                             "predicate": "email"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "eye_color", 
+                            "variable": "?eye_color"
                         }
                     ], 
                     "type": "Ad", 
@@ -2291,6 +2496,11 @@
                             "constraint": "Abigail.in.SF@gmail.com", 
                             "isOptional": false, 
                             "predicate": "email"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "eye_color", 
+                            "variable": "?eye_color"
                         }
                     ], 
                     "type": "Ad", 
@@ -2325,6 +2535,11 @@
                             "constraint": "\u20192016-05-07\u2019", 
                             "isOptional": false, 
                             "predicate": "posting_date"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "price", 
+                            "variable": "?price"
                         }
                     ], 
                     "type": "Ad", 
@@ -2359,6 +2574,11 @@
                             "constraint": "\u20192016\u201402-18\u2019", 
                             "isOptional": false, 
                             "predicate": "posting_date"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "price", 
+                            "variable": "?price"
                         }
                     ], 
                     "type": "Ad", 
@@ -2393,6 +2613,11 @@
                             "constraint": "\u20182016-04-01\u2019", 
                             "isOptional": false, 
                             "predicate": "posting_date"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "email", 
+                            "variable": "?email"
                         }
                     ], 
                     "type": "Ad", 
@@ -2427,6 +2652,11 @@
                             "constraint": "\u20182016-04-01\u2019", 
                             "isOptional": false, 
                             "predicate": "posting_date"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "email", 
+                            "variable": "?email"
                         }
                     ], 
                     "type": "Ad", 
@@ -2461,6 +2691,11 @@
                             "constraint": "\u20182016-06-28\u2019", 
                             "isOptional": false, 
                             "predicate": "posting_date"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "email", 
+                            "variable": "?email"
                         }
                     ], 
                     "type": "Ad", 
@@ -2495,6 +2730,11 @@
                             "constraint": "\u20182016-01-09\u2019", 
                             "isOptional": false, 
                             "predicate": "posting_date"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ethnicity", 
+                            "variable": "?ethnicity"
                         }
                     ], 
                     "type": "Ad", 
@@ -2529,6 +2769,11 @@
                             "constraint": "\u20182015-01-17\u2019", 
                             "isOptional": false, 
                             "predicate": "posting_date"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ethnicity", 
+                            "variable": "?ethnicity"
                         }
                     ], 
                     "type": "Ad", 
@@ -2563,6 +2808,11 @@
                             "constraint": "\u20182016-06-29\u2019", 
                             "isOptional": false, 
                             "predicate": "posting_date"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ethnicity", 
+                            "variable": "?ethnicity"
                         }
                     ], 
                     "type": "Ad", 
@@ -2602,6 +2852,11 @@
                             "constraint": "Vivian", 
                             "isOptional": false, 
                             "predicate": "name"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "review_site", 
+                            "variable": "?review_site"
                         }
                     ], 
                     "type": "Ad", 
@@ -2641,6 +2896,11 @@
                             "constraint": "VIP Desire", 
                             "isOptional": false, 
                             "predicate": "name"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "review_site", 
+                            "variable": "?review_site"
                         }
                     ], 
                     "type": "Ad", 
@@ -2680,6 +2940,11 @@
                             "constraint": "Layla", 
                             "isOptional": false, 
                             "predicate": "name"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "review_iste", 
+                            "variable": "?review_site"
                         }
                     ], 
                     "type": "Ad", 
@@ -2733,6 +2998,11 @@
                             "isOptional": false, 
                             "predicate": "phone", 
                             "variable": "?phone"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "multiple_phone", 
+                            "variable": "?multiple_phone"
                         }
                     ], 
                     "type": "Ad", 
