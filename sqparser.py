@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-22 10:34:40
+# @Last Modified time: 2016-07-22 11:31:13
 
 
 """
@@ -258,11 +258,11 @@ class SQParser(object):
         # print '__cp_func_where', text
 
         statements = [_.strip() for _ in re_statement_inner_keyword.findall(text)]
-        print statements
+        # print statements
         for statement in statements:
             text = text.replace(statement, '')
         statements += [_.strip() for _ in re_statement_others.findall(text) if _.strip() != '']
-        print statements
+        # print statements
         # statements = re_statement_split.split(text)
         # statements = [_.strip() for _ in re_statement_split.findall(text) if _ != '']
         for statement in statements:

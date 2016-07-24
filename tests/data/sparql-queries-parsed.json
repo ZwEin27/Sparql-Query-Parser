@@ -374,6 +374,17 @@
                             "variable": "?nationality"
                         }
                     ], 
+                    "filters": [
+                        {
+                            "clauses": [
+                                {
+                                    "constraint": "'Emirati'", 
+                                    "operator": "!=", 
+                                    "variable": "?nationality"
+                                }
+                            ]
+                        }
+                    ], 
                     "type": "Ad", 
                     "variable": "?ad"
                 }
@@ -419,6 +430,17 @@
                             "isOptional": false, 
                             "predicate": "nationality", 
                             "variable": "?nationality"
+                        }
+                    ], 
+                    "filters": [
+                        {
+                            "clauses": [
+                                {
+                                    "constraint": "'American'", 
+                                    "operator": "!=", 
+                                    "variable": "?nationality"
+                                }
+                            ]
                         }
                     ], 
                     "type": "Ad", 
@@ -477,6 +499,11 @@
                             "isOptional": false, 
                             "predicate": "business_type", 
                             "variable": "?bt"
+                        }, 
+                        {
+                            "constraint": "sex", 
+                            "isOptional": false, 
+                            "predicate": "services"
                         }
                     ], 
                     "filters": [
@@ -554,6 +581,11 @@
                             "isOptional": false, 
                             "predicate": "business_type", 
                             "variable": "?bt"
+                        }, 
+                        {
+                            "constraint": "sex", 
+                            "isOptional": false, 
+                            "predicate": "services"
                         }
                     ], 
                     "filters": [
@@ -630,6 +662,11 @@
                             "isOptional": false, 
                             "predicate": "business_type", 
                             "variable": "?bt"
+                        }, 
+                        {
+                            "constraint": "sex", 
+                            "isOptional": false, 
+                            "predicate": "services"
                         }
                     ], 
                     "filters": [
