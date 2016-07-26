@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-22 11:31:13
+# @Last Modified time: 2016-07-26 11:35:10
 
 
 """
@@ -150,6 +150,10 @@ re_function_distinct = re.compile(r'distinct', re.IGNORECASE)
 #   Main Function
 ######################################################################
 
+def exception_handler(info):
+    # raise Exception(info)
+    # print info
+    return None
 
 class SQParser(object):
 
@@ -165,7 +169,7 @@ class SQParser(object):
         ans = {}
         content = re_functions_content[SQ_FUNCTION_BOUND].search(text)
         if not content:
-            raise Exception('Sparql Format Error')
+            exception_handler('Sparql Format Error')
         content = content.group(0).strip()
         ans.setdefault(SQ_FUNCTION_BIND.lower(), content)
         return ans
@@ -326,7 +330,7 @@ class SQParser(object):
     def __cp_func_optional(text):
         content = re_statement_content.search(text).group(0).strip()
         if not content:
-            raise Exception('Sparql Format Error')
+            exception_handler('Sparql Format Error')
         clause = SQParser.parse_content(content)
         clause[SQ_EXT_OPTIONAL_FLAG] = True
         return clause
@@ -394,7 +398,7 @@ class SQParser(object):
             # print 'parse_statement:', text
             content = re_statement_content.search(text)
             if not content:
-                raise Exception('Sparql Format Error')
+                exception_handler('Sparql Format Error')
             content = content.group(0).strip()
             ans.setdefault(SQ_EXT_CLAUSES, [])
             ans[SQ_EXT_CLAUSES].append(SQParser.parse_content(content))
@@ -423,7 +427,7 @@ class SQParser(object):
             if op_name in text:
                 return SQParser.parse_inner_operator(text)
 
-        raise Exception('Sparql Format Error')
+        exception_handler('Sparql Format Error')
          
 
 
