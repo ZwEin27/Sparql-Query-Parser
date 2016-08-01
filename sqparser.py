@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-08-01 12:14:28
+# @Last Modified time: 2016-08-01 12:22:22
 
 
 """
@@ -322,6 +322,7 @@ class SQParser(object):
         component = [_.strip() for _ in re_outer_operator_split.split(text) if _ != '']
 
         subc_rtn = SQParser.parse_subcomponents(component)
+        # print subc_rtn
         if len(subc_rtn) > 0:
             ans.setdefault(SQ_EXT_CLAUSES, [])
             ans[SQ_EXT_CLAUSES] += subc_rtn
@@ -363,7 +364,8 @@ class SQParser(object):
         predicate = text[0]
         constraint = text[1]
         
-        constraint = constraint[1:-1] if '\'' in constraint else constraint
+        constraint = constraint.replace('\'', '')
+        # constraint = constraint[1:-1] if '\'' in constraint else constraint
         ans[SQ_EXT_PREDICATE] = predicate
         ans.setdefault(SQ_EXT_OPTIONAL_FLAG, False)
         if '?' in constraint:
@@ -408,11 +410,14 @@ class SQParser(object):
 
     @staticmethod
     def parse_inner_operator(text):
+        def clean_item_content(text):
+            return text.replace('\'', '').strip()
+
         ans = {}
         items = text.strip().split(' ')
-        ans.setdefault(SQ_EXT_VARIABLE, items[0])
+        ans.setdefault(SQ_EXT_VARIABLE, clean_item_content(items[0]))
         ans.setdefault(SQ_EXT_OPERATOR, items[1])
-        ans.setdefault(SQ_EXT_CONSTAINT, items[2])
+        ans.setdefault(SQ_EXT_CONSTAINT, clean_item_content(items[2]))
         return ans
 
     @staticmethod
@@ -424,7 +429,7 @@ class SQParser(object):
         for func_name in SQ_FUNCTIONS:
             if func_name in text:
                 return SQParser.SQ_FUNCTIONS_FUNC[func_name](text)
-
+        # print SQ_INNER_OPERATOR
         # else handle conditions
         for op_name in SQ_INNER_OPERATOR:
             if op_name in text:
