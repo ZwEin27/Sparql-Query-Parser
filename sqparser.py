@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-08-01 12:22:22
+# @Last Modified time: 2016-08-01 13:17:09
 
 
 """
@@ -126,8 +126,9 @@ re_inner_operator = re.compile(reg_inner_operator)
 # statement
 # re_statement_split = re.compile(r'[;\.]')
 re_statement_split = re.compile(r'.*?(?=;|\s\.\s)')
-re_statement_inner_keyword = re.compile(r'(?:'+r'|'.join(SQ_INNER_KEYWORDS)+r')\s*?[\{\(](?:\(.*?\)|[\'\s\w!\"#\$%&()\*+\,-\./\:;<\=>\?@[\]\^_`{|}~])+?[\}\)]')
-re_statement_others = re.compile(r'.*?(?=;|\s\.\s?|$)')
+re_statement_inner_keyword = re.compile(r'(?:'+r'|'.join(SQ_INNER_KEYWORDS)+r')\s*?[\{\(](?:\(.*\)|[\'\s\w!\"#\$%&()\*+\,-\./\:;<\=>\?@[\]\^_`{|}~])+?[\}\)]')  # (?:\(.*\) # need to check () pairs
+re_statement_others = re.compile(r'.*?(?=;|\s\.\s?)')
+re_statement_others_last = re.compile(r'(?<=;|\.)[^;\.]*?(?=$)')
 re_statement_a = re.compile(r'(?<=[a-zA-Z])\s+?\ba\b\s+?(?=[:a-zA-Z])')
 # re_statement_a_split = re.compile(r'(?<=[a-zA-Z])\s+?\ba\b\s+?(?=[a-zA-Z])')
 re_statement_variable = re.compile(r'(?:^|\s|\b])\?[a-zA-Z]+\b')
@@ -260,15 +261,32 @@ class SQParser(object):
     def __cp_func_where(parent_ans, text):
         ans = {}
         # print '__cp_func_where', text
-
+        # print text.encode('utf-8')
         # find all inner keyworkd
         statements = [_.strip() for _ in re_statement_inner_keyword.findall(text)]
         # print statements
         for statement in statements:
             text = text.replace(statement, '')
-        # print text
-        statements += [_.strip() for _ in re_statement_others.findall(text) if _.strip() != '']
+
+        # print text.encode('utf-8')
+        statements += [_.strip() for _ in re_statement_others.findall(text) if _.strip() != '' and _.strip() != '.']
+
+        for statement in statements:
+            text = text.replace(statement, '')
+
+        if re_statement_others_last.search(text):
+            last = re_statement_others_last.search(text).group(0).strip()
+            # print 'last', last
+            if last != '':
+                statements.append(last)
+
+        # print re_statement_others_last.findall(text)[0].strip()
+
+        
+        # text = text.replace('.', '').replace(';', '').strip()
+        # statements.append(text)
         # print statements
+        
         # print re_statement_others.findall(text)
         # statements = re_statement_split.split(text)
         # statements = [_.strip() for _ in re_statement_split.findall(text) if _ != '']
@@ -409,15 +427,16 @@ class SQParser(object):
             ans[SQ_EXT_CLAUSES].append(SQParser.parse_content(content))
 
     @staticmethod
-    def parse_inner_operator(text):
+    def parse_inner_operator(op_name, text):
         def clean_item_content(text):
             return text.replace('\'', '').strip()
 
         ans = {}
-        items = text.strip().split(' ')
-        ans.setdefault(SQ_EXT_VARIABLE, clean_item_content(items[0]))
-        ans.setdefault(SQ_EXT_OPERATOR, items[1])
-        ans.setdefault(SQ_EXT_CONSTAINT, clean_item_content(items[2]))
+        kv = text.strip().split(op_name)
+
+        ans.setdefault(SQ_EXT_VARIABLE, clean_item_content(kv[0]))
+        ans.setdefault(SQ_EXT_OPERATOR, op_name)
+        ans.setdefault(SQ_EXT_CONSTAINT, clean_item_content(kv[1]))
         return ans
 
     @staticmethod
@@ -433,7 +452,7 @@ class SQParser(object):
         # else handle conditions
         for op_name in SQ_INNER_OPERATOR:
             if op_name in text:
-                return SQParser.parse_inner_operator(text)
+                return SQParser.parse_inner_operator(op_name, text)
 
         exception_handler('Sparql Format Error')
          
@@ -459,6 +478,7 @@ class SQParser(object):
 
     @staticmethod
     def parse(text, target_component=None):
+        # print text
         components = {re_keyword.match(_).group(0).strip():re_brackets_most_b.search(_).group(0).strip() if re_brackets_most_b.search(_) else _ for _ in re_outer.findall(text)}
         # print components
         

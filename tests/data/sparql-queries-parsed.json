@@ -378,7 +378,7 @@
                         {
                             "clauses": [
                                 {
-                                    "constraint": "'Emirati'", 
+                                    "constraint": "Emirati", 
                                     "operator": "!=", 
                                     "variable": "?nationality"
                                 }
@@ -436,7 +436,7 @@
                         {
                             "clauses": [
                                 {
-                                    "constraint": "'American'", 
+                                    "constraint": "American", 
                                     "operator": "!=", 
                                     "variable": "?nationality"
                                 }
@@ -510,12 +510,12 @@
                         {
                             "clauses": [
                                 {
-                                    "constraint": "'Spa'", 
+                                    "constraint": "Spa", 
                                     "operator": "=", 
                                     "variable": "?bt"
                                 }, 
                                 {
-                                    "constraint": "'Massage", 
+                                    "constraint": "Massage Parlor", 
                                     "operator": "=", 
                                     "variable": "?bt"
                                 }
@@ -592,12 +592,12 @@
                         {
                             "clauses": [
                                 {
-                                    "constraint": "'Spa'", 
+                                    "constraint": "Spa", 
                                     "operator": "=", 
                                     "variable": "?bt"
                                 }, 
                                 {
-                                    "constraint": "'Massage", 
+                                    "constraint": "Massage Parlor", 
                                     "operator": "=", 
                                     "variable": "?bt"
                                 }
@@ -673,12 +673,12 @@
                         {
                             "clauses": [
                                 {
-                                    "constraint": "'Spa'", 
+                                    "constraint": "Spa", 
                                     "operator": "=", 
                                     "variable": "?bt"
                                 }, 
                                 {
-                                    "constraint": "'Massage", 
+                                    "constraint": "Massage Parlor", 
                                     "operator": "=", 
                                     "variable": "?bt"
                                 }
