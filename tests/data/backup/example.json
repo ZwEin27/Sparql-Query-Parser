@@ -1,0 +1,18 @@
+{
+    "Aggregate": {}, 
+    "Cluster": {}, 
+    "Point Fact": {
+        "0": {
+            "query": "Q1: Find the ethnicity and hair color of ad with - name Dior - posting-date: 22 Oct 2014 - city Kansas City",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity ?hair_color WHERE { ?ad a qpr:Ad ; qpr:name 'Dior' ; qpr:posting_date '22 Oct 2014' ; qpr:city 'Kansas City' ; qpr:ethnicity ?ethnicity ; qpr:hair_color ?hair_color .}"
+        },
+        "1" : {
+            "query": "What is the phone number of the escort with - name: Ella - eye color: green - hair color: brown - city: Portland",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone WHERE { ?ad a qpr:Ad ; qpr:name 'Ella' ; qpr:eye_color 'green' ; qpr:city 'Portland' ; qpr:hair_color 'brown' ; qpr:phone ?phone .}"
+        },
+        "2" : {
+            "query": "What is the city of escort with: - name: Brandy - phone: 386-334-6213",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?city WHERE { ?ad a qpr:Ad ; qpr:name 'Brandy' ; qpr:phone '386-334-6213' ; qpr:city ?city .}"
+        }
+    }
+}

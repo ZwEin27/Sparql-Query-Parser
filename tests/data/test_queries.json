@@ -1,0 +1,106 @@
+{
+    "Aggregate" : {},
+    "Cluster" : {},
+    "Point Fact": {
+        "0" : {
+            "query": "Find the ethnicity and hair color of ad with - name Dior - posting-date: 22 Oct 2014 - city Kansas City",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity ?hair_color WHERE { ?ad a qpr:Ad ; qpr:name 'Dior' ; qpr:posting_date '22 Oct 2014' ; qpr:city 'Kansas City' ; qpr:ethnicity ?ethnicity ; qpr:hair_color ?hair_color .}"
+        },
+        "1" : {
+            "query": "What is the phone number of the escort with - name: Ella - eye color: green - hair color: brown - city: Portland",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone WHERE { ?ad a qpr:Ad ; qpr:name 'Ella' ; qpr:eye_color 'green' ; qpr:city 'Portland' ; qpr:hair_color 'brown' ; qpr:phone ?phone .}"
+        },
+        "2" : {
+            "query": "What is the city of escort with: - name: Brandy - phone: 386-334-6213",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?city WHERE { ?ad a qpr:Ad ; qpr:name 'Brandy' ; qpr:phone '386-334-6213' ; qpr:city ?city .}"
+        },
+        "3" : {
+            "query": "What is the escort phone associated with: - email: Homer201121@gmail.com - location: Kansas City",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone WHERE { ?ad a qpr:Ad ; qpr:email 'Homer201121@gmail.com' ; qpr:location 'Kansas City' ; qpr:phone ?phone .}"
+        },
+        "4" : {
+            "query": "What is the review id associated with: - phone: 647-687-7096 - city: Calgary",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?review_id WHERE { ?ad a qpr:Ad ; qpr:phone '647-687-7096' ; qpr:city 'Calgary' ; qpr:review_id ?review_id .}"
+        },
+        "5" : {
+            "query": "What is the name of the escort associated with: - Ethinicity: Asian - Phone: 929-272-7898 - Height: 5'4\"",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?name WHERE { ?ad a qpr:Ad ; qpr:ethnicity 'Asian' ; qpr:phone '929-272-7898' ; qpr:height '5'4\"' ; qpr:name ?name .}"
+        },
+        "6" : {
+            "query": "What cities are the escorts associated with: - phone: 647-687-7096",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?city WHERE { ?ad a qpr:Ad ; qpr:phone '647-687-7096' ; qpr:city ?city .}"
+        },
+        "7" : {
+            "query": "What is the phone associated with: -height: 163 cm -weight: 46 kg -age: 25",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone WHERE { ?ad a qpr:Ad ; qpr:height '163 cm' ; qpr:weight '46 kg' ; qpr:age '25' ; qpr:phone ?phone .}"
+        },
+        "8" : {
+            "query": "What is the phone associated with the escort: -name: TINA -city: Kansas City -age: 22 -ethnicity: Asian",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone WHERE { ?ad a qpr:Ad ; qpr:name 'TINA' ; qpr:city 'Kansas City' ; qpr:age '22' ; qpr:ethnicity 'Asian' ; qpr:phone ?phone .}"
+        },
+        "9" : {
+            "query": "What state is the escort with following details associated: -phone: 425-609-2235",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?state WHERE { ?ad a qpr:Ad ; qpr:phone '425-609-2235' ;  qpr:state ?state .}"
+        },
+        "10" : {
+            "query": "What is the phone associated with: -age: 23 -ethnicity: White -height: 175",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone WHERE { ?ad a qpr:Ad ; qpr:age '23' ;  qpr:ethnicity 'White' ; qpr:height '175' ; qpr:phone ?phone .}"
+        },
+        "11" : {
+            "query": "What is the city associated with: -age: 23 -name: Lucy -phone: 510-512-4396",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?city WHERE { ?ad a qpr:Ad ; qpr:age '23' ;  qpr:name 'Lucy' ; qpr:phone '510-512-4396' ; qpr:city ?city .}"
+        },
+        "12" : {
+            "query": "",
+            "sparql": ""
+        },
+        "13" : {
+            "query": "What is the phone associated with: -city: New Orleans -age: 30",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone WHERE { ?ad a qpr:Ad ; qpr:city 'New Orleans' ;  qpr:age '30' ; qpr:phone ?phone .}"
+        },
+        "14" : {
+            "query": "What is the city of escort: -name: Rashmi Chopra -age: 21 -eye color: Blue",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?city WHERE { ?ad a qpr:Ad ; qpr:name 'Rashmi Chopra' ;  qpr:age '21' ; qpr:eye_color 'Blue' ; qpr:city ?city .}"
+        },
+        "15" : {
+            "query": "What is the phone associated with escort: -name: mil iagarawal -city: Bangalore -ethnicity: Indian",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone WHERE { ?ad a qpr:Ad ; qpr:name 'mil iagarawal' ;  qpr:city 'Bangalore' ; qpr:ethnicity 'Indian' ; qpr:phone ?phone .}"
+        },
+        "16" : {
+            "query": "What is the city of the escort: -name: nisha khan -age: 22 -ethnicity: Indian",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?city WHERE { ?ad a qpr:Ad ; qpr:name 'nisha khan' ;  qpr:age '22' ; qpr:ethnicity 'Indian' ; qpr:city ?city .}"
+        },
+        "17" : {
+            "query": "What is the country associated with: -phone: +1 514-574-2069",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?country WHERE { ?ad a qpr:Ad ; qpr:phone '+1 514-574-2069' ; qpr:country ?country .}"
+        },
+        "18" : {
+            "query": "What is the city associated with: -phone: 215-440-0125 -ethnicity: Asian",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?city WHERE { ?ad a qpr:Ad ; qpr:phone '215-440-0125' ; qpr:ethnicity 'Asian' ; qpr:city ?city .}"
+        },
+        "19" : {
+            "query": "What is the service associated with: -phone: (402) 932-8811",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?service WHERE { ?ad a qpr:Ad ; qpr:phone '(402) 932-8811' ; qpr:service ?service .}"
+        },
+        "20" : {
+            "query": "what is the age and ethnicity of the escort: - posting date: July 8, 2016 - phone: 619-551-1357",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?age ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '619-551-1357' ; qpr:posting_date 'July 8, 2016' ; qpr:age ?age ; qpr:ethnicity ?ethnicity .}"
+        },
+        "21" : {
+            "query": "what is the phone number of the escort at - address: NW Prairie View Rd Kansas City.MO64151",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone WHERE { ?ad a qpr:Ad ; qpr:address 'NW Prairie View Rd Kansas City.MO64151' ; qpr:phone ?phone .}"
+        },
+        "22" : {
+            "query": "What is the hair color of the escort on ad - phone: 469-781-5418 - city: Shreveport",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?hair_color WHERE { ?ad a qpr:Ad ; qpr:city 'Kansas City' ; qpr:phone '469-781-5418' ; qpr:hair_color ?hair_color .}"
+        },
+        "23" : {
+            "query": "what is the ethnicity of the escort with - phone: 0831546423 - name: anya",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '0831546423' ; qpr:name 'anya' ; qpr:ethnicity ?ethnicity .}"
+        },
+        "24" : {
+            "query": "where does the escort with the following properties advertise - age: 43 - phone: 903-576-0570",
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?city WHERE { ?ad a qpr:Ad ; qpr:phone '903-576-0570' ; qpr:age '43' ; qpr:city ?city .}"
+        }
+    }
+}

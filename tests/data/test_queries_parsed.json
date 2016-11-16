@@ -1,0 +1,1000 @@
+{
+    "Aggregate": {}, 
+    "Cluster": {}, 
+    "Point Fact": {
+        "0": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ethnicity"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?hair_color"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "Dior", 
+                            "isOptional": false, 
+                            "predicate": "name"
+                        }, 
+                        {
+                            "constraint": "22 Oct 2014", 
+                            "isOptional": false, 
+                            "predicate": "posting_date"
+                        }, 
+                        {
+                            "constraint": "Kansas City", 
+                            "isOptional": false, 
+                            "predicate": "city"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ethnicity", 
+                            "variable": "?ethnicity"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "hair_color", 
+                            "variable": "?hair_color"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "Find the ethnicity and hair color of ad with - name Dior - posting-date: 22 Oct 2014 - city Kansas City", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity ?hair_color WHERE { ?ad a qpr:Ad ; qpr:name 'Dior' ; qpr:posting_date '22 Oct 2014' ; qpr:city 'Kansas City' ; qpr:ethnicity ?ethnicity ; qpr:hair_color ?hair_color .}"
+        }, 
+        "1": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?phone"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "Ella", 
+                            "isOptional": false, 
+                            "predicate": "name"
+                        }, 
+                        {
+                            "constraint": "green", 
+                            "isOptional": false, 
+                            "predicate": "eye_color"
+                        }, 
+                        {
+                            "constraint": "Portland", 
+                            "isOptional": false, 
+                            "predicate": "city"
+                        }, 
+                        {
+                            "constraint": "brown", 
+                            "isOptional": false, 
+                            "predicate": "hair_color"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "phone", 
+                            "variable": "?phone"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "What is the phone number of the escort with - name: Ella - eye color: green - hair color: brown - city: Portland", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone WHERE { ?ad a qpr:Ad ; qpr:name 'Ella' ; qpr:eye_color 'green' ; qpr:city 'Portland' ; qpr:hair_color 'brown' ; qpr:phone ?phone .}"
+        }, 
+        "10": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?phone"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "23", 
+                            "isOptional": false, 
+                            "predicate": "age"
+                        }, 
+                        {
+                            "constraint": "White", 
+                            "isOptional": false, 
+                            "predicate": "ethnicity"
+                        }, 
+                        {
+                            "constraint": "175", 
+                            "isOptional": false, 
+                            "predicate": "height"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "phone", 
+                            "variable": "?phone"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "What is the phone associated with: -age: 23 -ethnicity: White -height: 175", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone WHERE { ?ad a qpr:Ad ; qpr:age '23' ;  qpr:ethnicity 'White' ; qpr:height '175' ; qpr:phone ?phone .}"
+        }, 
+        "11": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?city"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "23", 
+                            "isOptional": false, 
+                            "predicate": "age"
+                        }, 
+                        {
+                            "constraint": "Lucy", 
+                            "isOptional": false, 
+                            "predicate": "name"
+                        }, 
+                        {
+                            "constraint": "510-512-4396", 
+                            "isOptional": false, 
+                            "predicate": "phone"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "city", 
+                            "variable": "?city"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "What is the city associated with: -age: 23 -name: Lucy -phone: 510-512-4396", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?city WHERE { ?ad a qpr:Ad ; qpr:age '23' ;  qpr:name 'Lucy' ; qpr:phone '510-512-4396' ; qpr:city ?city .}"
+        }, 
+        "12": {
+            "parsed": {}, 
+            "query": "", 
+            "sparql": ""
+        }, 
+        "13": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?phone"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "New Orleans", 
+                            "isOptional": false, 
+                            "predicate": "city"
+                        }, 
+                        {
+                            "constraint": "30", 
+                            "isOptional": false, 
+                            "predicate": "age"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "phone", 
+                            "variable": "?phone"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "What is the phone associated with: -city: New Orleans -age: 30", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone WHERE { ?ad a qpr:Ad ; qpr:city 'New Orleans' ;  qpr:age '30' ; qpr:phone ?phone .}"
+        }, 
+        "14": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?city"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "Rashmi Chopra", 
+                            "isOptional": false, 
+                            "predicate": "name"
+                        }, 
+                        {
+                            "constraint": "21", 
+                            "isOptional": false, 
+                            "predicate": "age"
+                        }, 
+                        {
+                            "constraint": "Blue", 
+                            "isOptional": false, 
+                            "predicate": "eye_color"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "city", 
+                            "variable": "?city"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "What is the city of escort: -name: Rashmi Chopra -age: 21 -eye color: Blue", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?city WHERE { ?ad a qpr:Ad ; qpr:name 'Rashmi Chopra' ;  qpr:age '21' ; qpr:eye_color 'Blue' ; qpr:city ?city .}"
+        }, 
+        "15": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?phone"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "mil iagarawal", 
+                            "isOptional": false, 
+                            "predicate": "name"
+                        }, 
+                        {
+                            "constraint": "Bangalore", 
+                            "isOptional": false, 
+                            "predicate": "city"
+                        }, 
+                        {
+                            "constraint": "Indian", 
+                            "isOptional": false, 
+                            "predicate": "ethnicity"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "phone", 
+                            "variable": "?phone"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "What is the phone associated with escort: -name: mil iagarawal -city: Bangalore -ethnicity: Indian", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone WHERE { ?ad a qpr:Ad ; qpr:name 'mil iagarawal' ;  qpr:city 'Bangalore' ; qpr:ethnicity 'Indian' ; qpr:phone ?phone .}"
+        }, 
+        "16": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?city"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "nisha khan", 
+                            "isOptional": false, 
+                            "predicate": "name"
+                        }, 
+                        {
+                            "constraint": "22", 
+                            "isOptional": false, 
+                            "predicate": "age"
+                        }, 
+                        {
+                            "constraint": "Indian", 
+                            "isOptional": false, 
+                            "predicate": "ethnicity"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "city", 
+                            "variable": "?city"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "What is the city of the escort: -name: nisha khan -age: 22 -ethnicity: Indian", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?city WHERE { ?ad a qpr:Ad ; qpr:name 'nisha khan' ;  qpr:age '22' ; qpr:ethnicity 'Indian' ; qpr:city ?city .}"
+        }, 
+        "17": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?country"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "+1 514-574-2069", 
+                            "isOptional": false, 
+                            "predicate": "phone"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "country", 
+                            "variable": "?country"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "What is the country associated with: -phone: +1 514-574-2069", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?country WHERE { ?ad a qpr:Ad ; qpr:phone '+1 514-574-2069' ; qpr:country ?country .}"
+        }, 
+        "18": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?city"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "215-440-0125", 
+                            "isOptional": false, 
+                            "predicate": "phone"
+                        }, 
+                        {
+                            "constraint": "Asian", 
+                            "isOptional": false, 
+                            "predicate": "ethnicity"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "city", 
+                            "variable": "?city"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "What is the city associated with: -phone: 215-440-0125 -ethnicity: Asian", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?city WHERE { ?ad a qpr:Ad ; qpr:phone '215-440-0125' ; qpr:ethnicity 'Asian' ; qpr:city ?city .}"
+        }, 
+        "19": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?service"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "(402) 932-8811", 
+                            "isOptional": false, 
+                            "predicate": "phone"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "service", 
+                            "variable": "?service"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "What is the service associated with: -phone: (402) 932-8811", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?service WHERE { ?ad a qpr:Ad ; qpr:phone '(402) 932-8811' ; qpr:service ?service .}"
+        }, 
+        "2": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?city"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "Brandy", 
+                            "isOptional": false, 
+                            "predicate": "name"
+                        }, 
+                        {
+                            "constraint": "386-334-6213", 
+                            "isOptional": false, 
+                            "predicate": "phone"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "city", 
+                            "variable": "?city"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "What is the city of escort with: - name: Brandy - phone: 386-334-6213", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?city WHERE { ?ad a qpr:Ad ; qpr:name 'Brandy' ; qpr:phone '386-334-6213' ; qpr:city ?city .}"
+        }, 
+        "20": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?age"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ethnicity"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "619-551-1357", 
+                            "isOptional": false, 
+                            "predicate": "phone"
+                        }, 
+                        {
+                            "constraint": "July 8, 2016", 
+                            "isOptional": false, 
+                            "predicate": "posting_date"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "age", 
+                            "variable": "?age"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ethnicity", 
+                            "variable": "?ethnicity"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "what is the age and ethnicity of the escort: - posting date: July 8, 2016 - phone: 619-551-1357", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?age ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '619-551-1357' ; qpr:posting_date 'July 8, 2016' ; qpr:age ?age ; qpr:ethnicity ?ethnicity .}"
+        }, 
+        "21": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?phone"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "NW Prairie View Rd Kansas City.MO64151", 
+                            "isOptional": false, 
+                            "predicate": "address"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "phone", 
+                            "variable": "?phone"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "what is the phone number of the escort at - address: NW Prairie View Rd Kansas City.MO64151", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone WHERE { ?ad a qpr:Ad ; qpr:address 'NW Prairie View Rd Kansas City.MO64151' ; qpr:phone ?phone .}"
+        }, 
+        "22": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?hair_color"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "Kansas City", 
+                            "isOptional": false, 
+                            "predicate": "city"
+                        }, 
+                        {
+                            "constraint": "469-781-5418", 
+                            "isOptional": false, 
+                            "predicate": "phone"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "hair_color", 
+                            "variable": "?hair_color"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "What is the hair color of the escort on ad - phone: 469-781-5418 - city: Shreveport", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?hair_color WHERE { ?ad a qpr:Ad ; qpr:city 'Kansas City' ; qpr:phone '469-781-5418' ; qpr:hair_color ?hair_color .}"
+        }, 
+        "23": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ethnicity"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "0831546423", 
+                            "isOptional": false, 
+                            "predicate": "phone"
+                        }, 
+                        {
+                            "constraint": "anya", 
+                            "isOptional": false, 
+                            "predicate": "name"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ethnicity", 
+                            "variable": "?ethnicity"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "what is the ethnicity of the escort with - phone: 0831546423 - name: anya", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?ethnicity WHERE { ?ad a qpr:Ad ; qpr:phone '0831546423' ; qpr:name 'anya' ; qpr:ethnicity ?ethnicity .}"
+        }, 
+        "24": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?city"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "903-576-0570", 
+                            "isOptional": false, 
+                            "predicate": "phone"
+                        }, 
+                        {
+                            "constraint": "43", 
+                            "isOptional": false, 
+                            "predicate": "age"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "city", 
+                            "variable": "?city"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "where does the escort with the following properties advertise - age: 43 - phone: 903-576-0570", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?city WHERE { ?ad a qpr:Ad ; qpr:phone '903-576-0570' ; qpr:age '43' ; qpr:city ?city .}"
+        }, 
+        "3": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?phone"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "Homer201121@gmail.com", 
+                            "isOptional": false, 
+                            "predicate": "email"
+                        }, 
+                        {
+                            "constraint": "Kansas City", 
+                            "isOptional": false, 
+                            "predicate": "location"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "phone", 
+                            "variable": "?phone"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "What is the escort phone associated with: - email: Homer201121@gmail.com - location: Kansas City", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone WHERE { ?ad a qpr:Ad ; qpr:email 'Homer201121@gmail.com' ; qpr:location 'Kansas City' ; qpr:phone ?phone .}"
+        }, 
+        "4": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?review_id"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "647-687-7096", 
+                            "isOptional": false, 
+                            "predicate": "phone"
+                        }, 
+                        {
+                            "constraint": "Calgary", 
+                            "isOptional": false, 
+                            "predicate": "city"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "review_id", 
+                            "variable": "?review_id"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "What is the review id associated with: - phone: 647-687-7096 - city: Calgary", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?review_id WHERE { ?ad a qpr:Ad ; qpr:phone '647-687-7096' ; qpr:city 'Calgary' ; qpr:review_id ?review_id .}"
+        }, 
+        "5": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?name"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "Asian", 
+                            "isOptional": false, 
+                            "predicate": "ethnicity"
+                        }, 
+                        {
+                            "constraint": "929-272-7898", 
+                            "isOptional": false, 
+                            "predicate": "phone"
+                        }, 
+                        {
+                            "constraint": "54\"", 
+                            "isOptional": false, 
+                            "predicate": "height"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "name", 
+                            "variable": "?name"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "What is the name of the escort associated with: - Ethinicity: Asian - Phone: 929-272-7898 - Height: 5'4\"", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?name WHERE { ?ad a qpr:Ad ; qpr:ethnicity 'Asian' ; qpr:phone '929-272-7898' ; qpr:height '5'4\"' ; qpr:name ?name .}"
+        }, 
+        "6": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?city"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "647-687-7096", 
+                            "isOptional": false, 
+                            "predicate": "phone"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "city", 
+                            "variable": "?city"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "What cities are the escorts associated with: - phone: 647-687-7096", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?city WHERE { ?ad a qpr:Ad ; qpr:phone '647-687-7096' ; qpr:city ?city .}"
+        }, 
+        "7": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?phone"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "163 cm", 
+                            "isOptional": false, 
+                            "predicate": "height"
+                        }, 
+                        {
+                            "constraint": "46 kg", 
+                            "isOptional": false, 
+                            "predicate": "weight"
+                        }, 
+                        {
+                            "constraint": "25", 
+                            "isOptional": false, 
+                            "predicate": "age"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "phone", 
+                            "variable": "?phone"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "What is the phone associated with: -height: 163 cm -weight: 46 kg -age: 25", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone WHERE { ?ad a qpr:Ad ; qpr:height '163 cm' ; qpr:weight '46 kg' ; qpr:age '25' ; qpr:phone ?phone .}"
+        }, 
+        "8": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?phone"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "TINA", 
+                            "isOptional": false, 
+                            "predicate": "name"
+                        }, 
+                        {
+                            "constraint": "Kansas City", 
+                            "isOptional": false, 
+                            "predicate": "city"
+                        }, 
+                        {
+                            "constraint": "22", 
+                            "isOptional": false, 
+                            "predicate": "age"
+                        }, 
+                        {
+                            "constraint": "Asian", 
+                            "isOptional": false, 
+                            "predicate": "ethnicity"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "phone", 
+                            "variable": "?phone"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "What is the phone associated with the escort: -name: TINA -city: Kansas City -age: 22 -ethnicity: Asian", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?phone WHERE { ?ad a qpr:Ad ; qpr:name 'TINA' ; qpr:city 'Kansas City' ; qpr:age '22' ; qpr:ethnicity 'Asian' ; qpr:phone ?phone .}"
+        }, 
+        "9": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?state"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "425-609-2235", 
+                            "isOptional": false, 
+                            "predicate": "phone"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "state", 
+                            "variable": "?state"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "What state is the escort with following details associated: -phone: 425-609-2235", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?state WHERE { ?ad a qpr:Ad ; qpr:phone '425-609-2235' ;  qpr:state ?state .}"
+        }
+    }
+}

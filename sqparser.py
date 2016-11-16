@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-11-16 13:49:31
+# @Last Modified time: 2016-11-16 15:24:58
 
 
 """
@@ -271,7 +271,8 @@ class SQParser(object):
             # print variable_filed
             is_func = False
             for func_name in SQ_FUNCTIONS:
-                if func_name in variable_filed:
+                # print variable_filed
+                if func_name+'(' in variable_filed:
                     func_rtn = SQParser.SQ_FUNCTIONS_FUNC[func_name](variable_filed)
                     ans['variables'].append(func_rtn)
                     is_func = True
