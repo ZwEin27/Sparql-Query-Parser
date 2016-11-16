@@ -2,9 +2,27 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 14:48:56
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-07-19 22:06:50
+# @Last Modified time: 2016-11-16 12:43:27
+
+import re
+
+re_select_variables = re.compile(r'[\{\(](?:\(.+\)|[\s\w!\"#\$%&\(\)\*+\,-\./:;<=>\?@\[\]\^_`\{|\}\~])+?[\}\)]')
+
+text_1 = "?weight ((count(?ad)) AS ?count)" # 
+text_2 = "?weight (count(?ad) AS ?count)"
+print re_select_variables.findall(text_1)
+print re_select_variables.findall(text_2)
 
 
+
+# import re
+# def re_functions_content(func_name='count'):
+#     return re.compile(r'(?<='+func_name+r'\().*?(?=\))', re.IGNORECASE)
+
+# text = '((count(?ad))'
+# print re_functions_content().search(text).group(0)
+
+"""
 import re
 
 # text = "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?review_site  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads) WHERE { ?ad a qpr:Ad ; qpr:location 'Capetown, South Africa' ; qpr:review_site ?review_site . } GROUP BY ?review_site ORDER BY DESC(?count) LIMIT 1"
@@ -33,6 +51,6 @@ reg_kw = r'(?:'+r'|'.join(SQ_KEYWORDS)+r').*?(?='+r'|'.join(SQ_KEYWORDS)+r'|\s*$
 re_kw = re.compile(reg_kw)
 # print re_kw.findall(text)
 
-
+"""
 
 

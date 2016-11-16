@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-08-01 13:17:09
+# @Last Modified time: 2016-11-16 12:48:58
 
 
 """
@@ -137,7 +137,8 @@ re_statement_qpr_constaint = re.compile(r'(?<=\').+(?=\')')
 re_statement_content = re.compile(r'(?<=qpr\:).+(?=\s|$)')
 # re_statement_content = re.compile(r'qpr\:.+(?=\s|$)')
 
-re_select_variables = re.compile(r'[\{\(](?:\(.*?\)|[\s\w!\"#\$%&()\*+\,-\./:;<=>\?@[\]\^_`{|}~])+?[\}\)]')
+# re_select_variables = re.compile(r'[\{\(](?:\(.*?\)|[\s\w!\"#\$%&()\*+\,-\./:;<=>\?@[\]\^_`{|}~])+?[\}\)]')
+re_select_variables = re.compile(r'[\{\(](?:\(.+\)|[\s\w!\"#\$%&\(\)\*+\,-\./:;<=>\?@\[\]\^_`\{|\}\~])+?[\}\)]')
 
 # function
 # re_function_content = re.compile(r'(?:'+r'|'.join(SQ_FUNCTIONS)+r')'+r'.*', re.IGNORECASE)
@@ -183,6 +184,7 @@ class SQParser(object):
 
     def __sqf_func_count(text):
         # ?ethnicity  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads)
+        # print 'here:', text
         ans = {}
         ans['variable'] = re_functions_content[SQ_FUNCTION_COUNT].search(text).group(0).strip()
         dependent_variable = re_function_dependent_variable.search(text)
@@ -234,7 +236,9 @@ class SQParser(object):
         text = ' '.join(text.strip().split(' ', 1)[1:]) # remove keyword
         ans = {}
         ans['variables'] = []
+        # print text
         variable_fileds = re_select_variables.findall(text)
+        # print "variable_fileds:", variable_fileds
         for variable_filed in variable_fileds:
             text = text.replace(variable_filed, '').strip()
         variable_fileds += text.split(' ')
@@ -506,7 +510,7 @@ class SQParser(object):
             # else:
             #     for (k, v) in json_obj.iteritems():
             #         contents.append(v['sparql'])
-            
+        
             if has_title: 
                 for value in json_obj.values():
                     for (k, v) in value.iteritems():
@@ -559,7 +563,7 @@ if __name__ == '__main__':
     input_file = str(args.input_file)
     output_file = str(args.output_file)
     target_component = str(args.target_component) if args.target_component else None
-    has_title = args.has_title if args.has_title else True
+    has_title = args.has_title if args.has_title else False
     str_input = args.str_input
 
     if str_input:
