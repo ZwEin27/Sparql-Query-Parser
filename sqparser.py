@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-11-16 12:48:58
+# @Last Modified time: 2016-11-16 13:49:31
 
 
 """
@@ -81,6 +81,9 @@ SQ_FUNCTION_BOUND = 'bound'
 SQ_FUNCTION_ASC = 'asc'
 SQ_FUNCTION_DESC = 'desc'
 SQ_FUNCTION_COUNT = 'count'
+SQ_FUNCTION_AVG = 'avg'
+SQ_FUNCTION_MIN = 'min'
+SQ_FUNCTION_MAX = 'max'
 SQ_FUNCTION_GROUP_CONCAT = 'group_concat'
 
 SQ_FUNCTIONS = [    # modify SQ_FUNCTION_FUNC also, if update
@@ -89,6 +92,9 @@ SQ_FUNCTIONS = [    # modify SQ_FUNCTION_FUNC also, if update
     SQ_FUNCTION_ASC,
     SQ_FUNCTION_DESC,
     SQ_FUNCTION_COUNT,
+    SQ_FUNCTION_AVG,
+    SQ_FUNCTION_MIN,
+    SQ_FUNCTION_MAX,
     SQ_FUNCTION_GROUP_CONCAT
 ]
 
@@ -148,9 +154,21 @@ re_functions_content = {_:re_functions_content(_) for _ in SQ_FUNCTIONS}
 re_function_dependent_variable = re.compile(r'(?<=as)\s+.*(?=\))', re.IGNORECASE)
 re_function_distinct = re.compile(r'distinct', re.IGNORECASE)
 
+
 ######################################################################
 #   Main Function
 ######################################################################
+
+def func_sq_common(text, func_name):
+    ans = {}
+    # print text
+    # print func_name
+    ans['variable'] = re_functions_content[func_name].search(text).group(0).strip()
+    dependent_variable = re_function_dependent_variable.search(text)
+    if dependent_variable:
+        ans['dependent-variable'] = dependent_variable.group(0).strip()
+    ans['type'] = func_name
+    return ans
 
 def exception_handler(info):
     # raise Exception(info)
@@ -183,15 +201,16 @@ class SQParser(object):
         pass
 
     def __sqf_func_count(text):
-        # ?ethnicity  (count(?ad) AS ?count)(group_concat(?ad;separator=',') AS ?ads)
-        # print 'here:', text
-        ans = {}
-        ans['variable'] = re_functions_content[SQ_FUNCTION_COUNT].search(text).group(0).strip()
-        dependent_variable = re_function_dependent_variable.search(text)
-        if dependent_variable:
-            ans['dependent-variable'] = dependent_variable.group(0).strip()
-        ans['type'] = 'count'
-        return ans
+        return func_sq_common(text, SQ_FUNCTION_COUNT)
+
+    def __sqf_func_avg(text):
+        return func_sq_common(text, SQ_FUNCTION_AVG)
+
+    def __sqf_func_min(text):
+        return func_sq_common(text, SQ_FUNCTION_MIN)
+
+    def __sqf_func_max(text):
+        return func_sq_common(text, SQ_FUNCTION_MAX)
 
     def __sqf_func_group_concat(text):
         ans = {}
@@ -220,6 +239,9 @@ class SQParser(object):
         SQ_FUNCTION_ASC: __sqf_func_asc,
         SQ_FUNCTION_DESC: __sqf_func_desc,
         SQ_FUNCTION_COUNT: __sqf_func_count,
+        SQ_FUNCTION_AVG: __sqf_func_avg,
+        SQ_FUNCTION_MIN: __sqf_func_min,
+        SQ_FUNCTION_MAX: __sqf_func_max,
         SQ_FUNCTION_GROUP_CONCAT: __sqf_func_group_concat
     }
     
