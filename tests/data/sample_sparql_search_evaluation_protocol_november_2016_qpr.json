@@ -1,0 +1,48 @@
+{ 
+  "Aggregate": {
+    "avg_query": {
+      "query": "Aggregate Average Example Query - AVG QUERY",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT (AVG(?weight) AS ?avg_weight)  WHERE {   ?cluster a qpr:cluster ;     qpr:seed '9164027085' ;     qpr:weight ?weight ;     qpr:ad ?ad . }"
+    },
+    "avg_data_query": {
+      "query": "Aggregate Average Example Query - DATA QUERY",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?weight ?ad WHERE {   ?cluster a qpr:cluster ;     qpr:seed '9164027085' ;     qpr:weight ?weight ;     qpr:ad ?ad . }"
+    },
+    "max_query": {
+      "query": "Aggregate Maximum Example Query - MAX QUERY",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT (MAX(?weight) AS ?max_weight)  WHERE {   ?cluster a qpr:cluster ;     qpr:seed '9164027085' ;     qpr:weight ?weight ;     qpr:ad ?ad . }"
+    },
+    "max_data_query": {
+      "query": "Aggregate Maximum Example Query - DATA QUERY",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?weight ?ad WHERE {   ?cluster a qpr:cluster ;     qpr:seed '9164027085' ;     qpr:weight ?weight ;     qpr:ad ?ad . }"
+    },
+    "min_query": {
+      "query": "Aggregate Maximum Example Query - MIN QUERY",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT (MIN(?weight) AS ?min_weight)  WHERE {   ?cluster a qpr:cluster ;     qpr:seed '9164027085' ;     qpr:weight ?weight ;     qpr:ad ?ad . }"
+    },
+    "min_data_query": {
+      "query": "Aggregate Maximum Example Query - DATA QUERY",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?weight ?ad WHERE {   ?cluster a qpr:cluster ;     qpr:seed '9164027085' ;     qpr:weight ?weight ;     qpr:ad ?ad . }"
+    },
+    "mode_data_query": {
+      "query": "Aggregate Maximum Example Query - MODE QUERY",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?weight ?ad WHERE {   ?cluster a qpr:cluster ;     qpr:seed '9164027085' ;     qpr:weight ?weight ;     qpr:ad ?ad . }"
+    }
+  },
+  "Point Fact": {
+    "sample_1": {
+      "query": "",
+      "sparql": "PREFIX qpr:<http://istresearch.com/qpr> SELECT ?email ?ad WHERE {       ?ad a qpr:Ad ;         qpr:phone '9495329903' ;         qpr:title 'Beautiful, All-American Blonde VIP Companion' ;         qpr:weight '125lbs' ;         qpr:ethnicity 'Caucasian' ;         qpr:eye_color 'blue' ;         qpr:hair_color 'blonde' ;         qpr:age '24' ;          qpr:location 'Boston' ;         qpr:email ?email .   }"
+    },
+    "sample_2": {
+      "query": "",
+      "sparql": "PREFIX qpr:<http://istresearch.com/qpr> SELECT ?name ?ad WHERE {       ?ad a qpr:Ad ;         qpr:ethnicity 'Caucasian' ;         qpr:age '34' ;         qpr:height '5\"5' ;         qpr:location 'New Orleans' ;         qpr:name ?name . }"
+    }
+  },
+  "Cluster": {
+    "sample_1": {
+      "query": "",
+      "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?name ?ad WHERE {   ?cluster a qpr:cluster ;     qpr:seed '6192126681' ;     qpr:name 'miss dee' ;     qpr:name ?name ;     qpr:ad ?ad . }"
+    }
+  }
+}

@@ -1,0 +1,443 @@
+{
+    "Aggregate": {
+        "avg_data_query": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?weight"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "9164027085", 
+                            "isOptional": false, 
+                            "predicate": "seed"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "weight", 
+                            "variable": "?weight"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
+                        }
+                    ], 
+                    "type": "cluster", 
+                    "variable": "?cluster"
+                }
+            }, 
+            "query": "Aggregate Average Example Query - DATA QUERY", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?weight ?ad WHERE {   ?cluster a qpr:cluster ;     qpr:seed '9164027085' ;     qpr:weight ?weight ;     qpr:ad ?ad . }"
+        }, 
+        "avg_query": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "(AVG(?weight) AS ?avg_weight)"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": ""
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "9164027085", 
+                            "isOptional": false, 
+                            "predicate": "seed"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "weight", 
+                            "variable": "?weight"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
+                        }
+                    ], 
+                    "type": "cluster", 
+                    "variable": "?cluster"
+                }
+            }, 
+            "query": "Aggregate Average Example Query - AVG QUERY", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT (AVG(?weight) AS ?avg_weight)  WHERE {   ?cluster a qpr:cluster ;     qpr:seed '9164027085' ;     qpr:weight ?weight ;     qpr:ad ?ad . }"
+        }, 
+        "max_data_query": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?weight"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "9164027085", 
+                            "isOptional": false, 
+                            "predicate": "seed"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "weight", 
+                            "variable": "?weight"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
+                        }
+                    ], 
+                    "type": "cluster", 
+                    "variable": "?cluster"
+                }
+            }, 
+            "query": "Aggregate Maximum Example Query - DATA QUERY", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?weight ?ad WHERE {   ?cluster a qpr:cluster ;     qpr:seed '9164027085' ;     qpr:weight ?weight ;     qpr:ad ?ad . }"
+        }, 
+        "max_query": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "(MAX(?weight) AS ?max_weight)"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": ""
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "9164027085", 
+                            "isOptional": false, 
+                            "predicate": "seed"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "weight", 
+                            "variable": "?weight"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
+                        }
+                    ], 
+                    "type": "cluster", 
+                    "variable": "?cluster"
+                }
+            }, 
+            "query": "Aggregate Maximum Example Query - MAX QUERY", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT (MAX(?weight) AS ?max_weight)  WHERE {   ?cluster a qpr:cluster ;     qpr:seed '9164027085' ;     qpr:weight ?weight ;     qpr:ad ?ad . }"
+        }, 
+        "min_data_query": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?weight"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "9164027085", 
+                            "isOptional": false, 
+                            "predicate": "seed"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "weight", 
+                            "variable": "?weight"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
+                        }
+                    ], 
+                    "type": "cluster", 
+                    "variable": "?cluster"
+                }
+            }, 
+            "query": "Aggregate Maximum Example Query - DATA QUERY", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?weight ?ad WHERE {   ?cluster a qpr:cluster ;     qpr:seed '9164027085' ;     qpr:weight ?weight ;     qpr:ad ?ad . }"
+        }, 
+        "min_query": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "(MIN(?weight) AS ?min_weight)"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": ""
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "9164027085", 
+                            "isOptional": false, 
+                            "predicate": "seed"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "weight", 
+                            "variable": "?weight"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
+                        }
+                    ], 
+                    "type": "cluster", 
+                    "variable": "?cluster"
+                }
+            }, 
+            "query": "Aggregate Maximum Example Query - MIN QUERY", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT (MIN(?weight) AS ?min_weight)  WHERE {   ?cluster a qpr:cluster ;     qpr:seed '9164027085' ;     qpr:weight ?weight ;     qpr:ad ?ad . }"
+        }, 
+        "mode_data_query": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?weight"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "9164027085", 
+                            "isOptional": false, 
+                            "predicate": "seed"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "weight", 
+                            "variable": "?weight"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
+                        }
+                    ], 
+                    "type": "cluster", 
+                    "variable": "?cluster"
+                }
+            }, 
+            "query": "Aggregate Maximum Example Query - MODE QUERY", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?weight ?ad WHERE {   ?cluster a qpr:cluster ;     qpr:seed '9164027085' ;     qpr:weight ?weight ;     qpr:ad ?ad . }"
+        }
+    }, 
+    "Cluster": {
+        "sample_1": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?name"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "6192126681", 
+                            "isOptional": false, 
+                            "predicate": "seed"
+                        }, 
+                        {
+                            "constraint": "miss dee", 
+                            "isOptional": false, 
+                            "predicate": "name"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "name", 
+                            "variable": "?name"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "ad", 
+                            "variable": "?ad"
+                        }
+                    ], 
+                    "type": "cluster", 
+                    "variable": "?cluster"
+                }
+            }, 
+            "query": "", 
+            "sparql": "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?name ?ad WHERE {   ?cluster a qpr:cluster ;     qpr:seed '6192126681' ;     qpr:name 'miss dee' ;     qpr:name ?name ;     qpr:ad ?ad . }"
+        }
+    }, 
+    "Point Fact": {
+        "sample_1": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?email"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "9495329903", 
+                            "isOptional": false, 
+                            "predicate": "phone"
+                        }, 
+                        {
+                            "constraint": "Beautiful, All-American Blonde VIP Companion", 
+                            "isOptional": false, 
+                            "predicate": "title"
+                        }, 
+                        {
+                            "constraint": "125lbs", 
+                            "isOptional": false, 
+                            "predicate": "weight"
+                        }, 
+                        {
+                            "constraint": "Caucasian", 
+                            "isOptional": false, 
+                            "predicate": "ethnicity"
+                        }, 
+                        {
+                            "constraint": "blue", 
+                            "isOptional": false, 
+                            "predicate": "eye_color"
+                        }, 
+                        {
+                            "constraint": "blonde", 
+                            "isOptional": false, 
+                            "predicate": "hair_color"
+                        }, 
+                        {
+                            "constraint": "24", 
+                            "isOptional": false, 
+                            "predicate": "age"
+                        }, 
+                        {
+                            "constraint": "Boston", 
+                            "isOptional": false, 
+                            "predicate": "location"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "email", 
+                            "variable": "?email"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "", 
+            "sparql": "PREFIX qpr:<http://istresearch.com/qpr> SELECT ?email ?ad WHERE {       ?ad a qpr:Ad ;         qpr:phone '9495329903' ;         qpr:title 'Beautiful, All-American Blonde VIP Companion' ;         qpr:weight '125lbs' ;         qpr:ethnicity 'Caucasian' ;         qpr:eye_color 'blue' ;         qpr:hair_color 'blonde' ;         qpr:age '24' ;          qpr:location 'Boston' ;         qpr:email ?email .   }"
+        }, 
+        "sample_2": {
+            "parsed": {
+                "select": {
+                    "variables": [
+                        {
+                            "type": "simple", 
+                            "variable": "?name"
+                        }, 
+                        {
+                            "type": "simple", 
+                            "variable": "?ad"
+                        }
+                    ]
+                }, 
+                "where": {
+                    "clauses": [
+                        {
+                            "constraint": "Caucasian", 
+                            "isOptional": false, 
+                            "predicate": "ethnicity"
+                        }, 
+                        {
+                            "constraint": "34", 
+                            "isOptional": false, 
+                            "predicate": "age"
+                        }, 
+                        {
+                            "constraint": "5\"5", 
+                            "isOptional": false, 
+                            "predicate": "height"
+                        }, 
+                        {
+                            "constraint": "New Orleans", 
+                            "isOptional": false, 
+                            "predicate": "location"
+                        }, 
+                        {
+                            "isOptional": false, 
+                            "predicate": "name", 
+                            "variable": "?name"
+                        }
+                    ], 
+                    "type": "Ad", 
+                    "variable": "?ad"
+                }
+            }, 
+            "query": "", 
+            "sparql": "PREFIX qpr:<http://istresearch.com/qpr> SELECT ?name ?ad WHERE {       ?ad a qpr:Ad ;         qpr:ethnicity 'Caucasian' ;         qpr:age '34' ;         qpr:height '5\"5' ;         qpr:location 'New Orleans' ;         qpr:name ?name . }"
+        }
+    }
+}
