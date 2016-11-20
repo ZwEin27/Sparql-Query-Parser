@@ -38,7 +38,14 @@ class TestSQParserMethods(unittest.TestCase):
         # text = "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?weight ((count(?ad)) AS ?count)  WHERE {   ?cluster a qpr:cluster ;     qpr:seed '9164027085' ;     qpr:weight ?weight ;     qpr:ad ?ad . } GROUP BY ?weight ORDER BY DESC(?count) LIMIT 1"
         # text = "PREFIX qpr: <http://istresearch.com/qpr> SELECT (AVG(?weight) AS ?avg_weight)  WHERE {   ?cluster a qpr:cluster ;     qpr:seed '9164027085' ;     qpr:weight ?weight ;     qpr:ad ?ad . }"
         
-        text = "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?country WHERE { ?ad a qpr:Ad ; qpr:phone '+1 514-574-2069' ; qpr:country ?country .}"
+        # text = "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?ad ?country WHERE { ?ad a qpr:Ad ; qpr:phone '+1 514-574-2069' ; qpr:country ?country .}"
+        
+
+
+        text = "PREFIX qpr:<http://istresearch.com/qpr> SELECT ?ad ?social_media_id WHERE {     ?ad a qpr:Ad ;     qpr:phone '8887124569' :     qpr:location 'Lake Placid'     qpr:social_media_id ?social_media_id .       qpr:content ?content .      FILTER CONTAINS(LCASE(?content), \"hello boys i am a barbie doll\") }"
+
+        # text = "PREFIX qpr:<http://istresearch.com/qpr> SELECT ?ad ?social_media_id WHERE {     ?ad a qpr:Ad ;     qpr:phone '8887124569' :     qpr:location 'Lake Placid'     qpr:social_media_id ?social_media_id .       qpr:content ?content .      FILTER (?content = 'hello boys i am a barbie doll') } "
+
         print json.dumps(SQParser.parse(text), indent=4)
 
     

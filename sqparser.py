@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-11-16 15:24:58
+# @Last Modified time: 2016-11-19 22:52:22
 
 
 """
@@ -133,6 +133,8 @@ re_inner_operator = re.compile(reg_inner_operator)
 # re_statement_split = re.compile(r'[;\.]')
 re_statement_split = re.compile(r'.*?(?=;|\s\.\s)')
 re_statement_inner_keyword = re.compile(r'(?:'+r'|'.join(SQ_INNER_KEYWORDS)+r')\s*?[\{\(](?:\(.*\)|[\'\s\w!\"#\$%&()\*+\,-\./\:;<\=>\?@[\]\^_`{|}~])+?[\}\)]')  # (?:\(.*\) # need to check () pairs
+re_statement_inner_keyword_filter_special = re.compile(r'(?:FILTER[ ]*[a-zA-Z]{3,}\(.*\))')
+
 re_statement_others = re.compile(r'.*?(?=;|\s\.\s?)')
 re_statement_others_last = re.compile(r'(?<=;|\.)[^;\.]*?(?=$)')
 re_statement_a = re.compile(r'(?<=[a-zA-Z])\s+?\ba\b\s+?(?=[:a-zA-Z])')
@@ -289,12 +291,13 @@ class SQParser(object):
         ans = {}
         # print '__cp_func_where', text
         # print text.encode('utf-8')
+        
         # find all inner keyworkd
         statements = [_.strip() for _ in re_statement_inner_keyword.findall(text)]
-        # print statements
+        statements += re_statement_inner_keyword_filter_special.findall(text)
         for statement in statements:
             text = text.replace(statement, '')
-
+        
         # print text.encode('utf-8')
         statements += [_.strip() for _ in re_statement_others.findall(text) if _.strip() != '' and _.strip() != '.']
 
