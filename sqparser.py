@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-11-19 23:05:39
+# @Last Modified time: 2016-11-19 23:56:51
 
 
 """
@@ -85,6 +85,8 @@ SQ_FUNCTION_AVG = 'avg'
 SQ_FUNCTION_MIN = 'min'
 SQ_FUNCTION_MAX = 'max'
 SQ_FUNCTION_GROUP_CONCAT = 'group_concat'
+SQ_FUNCTION_FILTER_CONTAINS = 'contains'
+SQ_FUNCTION_FILTER_LCASE = 'lcase'
 
 SQ_FUNCTIONS = [    # modify SQ_FUNCTION_FUNC also, if update
     SQ_FUNCTION_BIND,
@@ -95,7 +97,9 @@ SQ_FUNCTIONS = [    # modify SQ_FUNCTION_FUNC also, if update
     SQ_FUNCTION_AVG,
     SQ_FUNCTION_MIN,
     SQ_FUNCTION_MAX,
-    SQ_FUNCTION_GROUP_CONCAT
+    SQ_FUNCTION_GROUP_CONCAT,
+    SQ_FUNCTION_FILTER_CONTAINS,
+    SQ_FUNCTION_FILTER_LCASE
 ]
 
 ######################################################################
@@ -234,6 +238,19 @@ class SQParser(object):
         ans['type'] = 'group-concat'
         return ans
 
+    def __sqf_func_filter_contain(text):
+        content = re_brackets_most_s.search(text).group(0).strip()
+        source, target = re.split(', ', content) 
+        source = SQParser.parse_subcomponent(source)
+        target = target.strip('"')
+        target = target.strip('\'')
+        operator = '='
+        return source, target, operator
+
+
+    def __sqf_func_filter_lcase(text):
+        return re_brackets_most_s.search(text).group(0).strip()
+
 
     SQ_FUNCTIONS_FUNC = {
         SQ_FUNCTION_BIND: __sqf_func_bind,
@@ -244,7 +261,9 @@ class SQParser(object):
         SQ_FUNCTION_AVG: __sqf_func_avg,
         SQ_FUNCTION_MIN: __sqf_func_min,
         SQ_FUNCTION_MAX: __sqf_func_max,
-        SQ_FUNCTION_GROUP_CONCAT: __sqf_func_group_concat
+        SQ_FUNCTION_GROUP_CONCAT: __sqf_func_group_concat,
+        SQ_FUNCTION_FILTER_CONTAINS: __sqf_func_filter_contain,
+        SQ_FUNCTION_FILTER_LCASE: __sqf_func_filter_lcase
     }
     
     ####################################################
@@ -346,6 +365,7 @@ class SQParser(object):
             if digits > 0:
                 parent_ans[SQ_EXT_GOL][SQ_EXT_LIMIT] = digits
 
+
     OUTER_COMPONENT_FUNC = {
         SQ_KEYWORD_PREFIX: __cp_func_prefix,
         SQ_KEYWORD_SELECT: __cp_func_select,
@@ -360,24 +380,40 @@ class SQParser(object):
     ####################################################
 
     def __cp_func_filter(text):
-        print text
-        ans = {}
-        for op in SQ_OUTER_OPERATOR:
-            if op in text:
-                ans.setdefault(SQ_EXT_OPERATOR, [])
-                ans[SQ_EXT_OPERATOR].append(SQ_OPERATOR_MAPPING[op].lower())
+        # print text
+        keyword = re_keyword.match(text).group(0).strip()
 
-        component = [_.strip() for _ in re_outer_operator_split.split(text) if _ != '']
+        
+        if re_statement_inner_keyword_filter_special.search(text):
+            source, target, operator = SQParser.parse_subcomponent(text)
+            ans = {}
+            ans[SQ_EXT_VARIABLE] = source
+            ans[SQ_EXT_CONSTAINT] = target
+            ans[SQ_EXT_OPERATOR] = operator
+            return ans
+        else:
+            if re_brackets_most_b.search(text):
+                text = re_brackets_most_b.search(text).group(0).strip()
+            elif re_brackets_most_s.search(text):
+                text = re_brackets_most_s.search(text).group(0).strip()
 
-        subc_rtn = SQParser.parse_subcomponents(component)
-        # print subc_rtn
-        if len(subc_rtn) > 0:
-            ans.setdefault(SQ_EXT_CLAUSES, [])
-            ans[SQ_EXT_CLAUSES] += subc_rtn
-            
-        # content = re_statement_content.search(text).group(0).strip()
-        # print component
-        return ans
+            ans = {}
+            for op in SQ_OUTER_OPERATOR:
+                if op in text:
+                    ans.setdefault(SQ_EXT_OPERATOR, [])
+                    ans[SQ_EXT_OPERATOR].append(SQ_OPERATOR_MAPPING[op].lower())
+
+            component = [_.strip() for _ in re_outer_operator_split.split(text) if _ != '']
+
+            subc_rtn = SQParser.parse_subcomponents(component)
+            # print subc_rtn
+            if len(subc_rtn) > 0:
+                ans.setdefault(SQ_EXT_CLAUSES, [])
+                ans[SQ_EXT_CLAUSES] += subc_rtn
+                
+            # content = re_statement_content.search(text).group(0).strip()
+            # print component
+            return ans
 
     def __cp_func_optional(text):
         content = re_statement_content.search(text).group(0).strip()
@@ -433,21 +469,26 @@ class SQParser(object):
         elif len(re_inner.findall(text)) > 0:
             for component in re_inner.findall(text):
                 keyword = re_keyword.match(component).group(0).strip()
+                content = component
 
-                if re_brackets_most_b.search(component):
-                    content = re_brackets_most_b.search(component).group(0).strip()
-                elif re_brackets_most_s.search(component):
-                    content = re_brackets_most_s.search(component).group(0).strip()
-                else:
-                    content = component
+                # print 'component:', component
 
-                icf_rtn = SQParser.INNER_COMPONENT_FUNC[keyword](content)
-                if keyword == SQ_KEYWORD_OPTIONAL:
-                    ans.setdefault(SQ_EXT_CLAUSES, [])
-                    ans[SQ_EXT_CLAUSES].append(icf_rtn)
-                elif keyword == SQ_KEYWORD_FILTER:
+                if keyword == SQ_KEYWORD_FILTER:
+                    icf_rtn = SQParser.INNER_COMPONENT_FUNC[keyword](content)
                     ans.setdefault(SQ_EXT_FILTERS, [])
                     ans[SQ_EXT_FILTERS].append(icf_rtn)
+                else:
+
+                    if re_brackets_most_b.search(component):
+                        content = re_brackets_most_b.search(component).group(0).strip()
+                    elif re_brackets_most_s.search(component):
+                        content = re_brackets_most_s.search(component).group(0).strip()
+
+                    icf_rtn = SQParser.INNER_COMPONENT_FUNC[keyword](content)
+                    if keyword == SQ_KEYWORD_OPTIONAL:
+                        ans.setdefault(SQ_EXT_CLAUSES, [])
+                        ans[SQ_EXT_CLAUSES].append(icf_rtn)
+      
         else:
             # print 'parse_statement:', text
             content = re_statement_content.search(text)
@@ -477,7 +518,8 @@ class SQParser(object):
         
         # handle functions
         for func_name in SQ_FUNCTIONS:
-            if func_name in text:
+            # if func_name in text:
+            if func_name+'(' in text.lower():   # for contains and lcase, into lower case
                 return SQParser.SQ_FUNCTIONS_FUNC[func_name](text)
         # print SQ_INNER_OPERATOR
         # else handle conditions
