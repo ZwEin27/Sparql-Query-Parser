@@ -2,16 +2,21 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 14:48:56
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-11-16 12:43:27
+# @Last Modified time: 2016-11-19 23:05:27
 
 import re
 
-re_select_variables = re.compile(r'[\{\(](?:\(.+\)|[\s\w!\"#\$%&\(\)\*+\,-\./:;<=>\?@\[\]\^_`\{|\}\~])+?[\}\)]')
 
-text_1 = "?weight ((count(?ad)) AS ?count)" # 
-text_2 = "?weight (count(?ad) AS ?count)"
-print re_select_variables.findall(text_1)
-print re_select_variables.findall(text_2)
+re_statement_a = re.compile(r'\?[a-zA-Z]+\s+?\ba\b\s+?(?=[:a-zA-Z])')
+text = "?cluster a qpr:cluster"
+print re_statement_a.findall(text)
+
+# re_select_variables = re.compile(r'[\{\(](?:\(.+\)|[\s\w!\"#\$%&\(\)\*+\,-\./:;<=>\?@\[\]\^_`\{|\}\~])+?[\}\)]')
+
+# text_1 = "?weight ((count(?ad)) AS ?count)" # 
+# text_2 = "?weight (count(?ad) AS ?count)"
+# print re_select_variables.findall(text_1)
+# print re_select_variables.findall(text_2)
 
 
 

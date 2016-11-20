@@ -42,9 +42,9 @@ class TestSQParserMethods(unittest.TestCase):
         
 
 
-        text = "PREFIX qpr:<http://istresearch.com/qpr> SELECT ?ad ?social_media_id WHERE {     ?ad a qpr:Ad ;     qpr:phone '8887124569' :     qpr:location 'Lake Placid'     qpr:social_media_id ?social_media_id .       qpr:content ?content .      FILTER CONTAINS(LCASE(?content), \"hello boys i am a barbie doll\") }"
+        # text = "PREFIX qpr:<http://istresearch.com/qpr> SELECT ?ad ?social_media_id WHERE {     ?ad a qpr:Ad ;     qpr:phone '8887124569' :     qpr:location 'Lake Placid'     qpr:social_media_id ?social_media_id .       qpr:content ?content .      FILTER CONTAINS(LCASE(?content), \"hello boys i am a barbie doll\") }"
 
-        # text = "PREFIX qpr:<http://istresearch.com/qpr> SELECT ?ad ?social_media_id WHERE {     ?ad a qpr:Ad ;     qpr:phone '8887124569' :     qpr:location 'Lake Placid'     qpr:social_media_id ?social_media_id .       qpr:content ?content .      FILTER (?content = 'hello boys i am a barbie doll') } "
+        text = "PREFIX qpr:<http://istresearch.com/qpr> SELECT ?ad ?social_media_id WHERE {     ?ad a qpr:Ad ;     qpr:phone '8887124569' :     qpr:location 'Lake Placid'     qpr:social_media_id ?social_media_id .       qpr:content ?content .      FILTER (?content = 'hello boys i am a barbie doll') } "
 
         print json.dumps(SQParser.parse(text), indent=4)
 

@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-11-19 22:52:22
+# @Last Modified time: 2016-11-19 23:05:39
 
 
 """
@@ -137,7 +137,7 @@ re_statement_inner_keyword_filter_special = re.compile(r'(?:FILTER[ ]*[a-zA-Z]{3
 
 re_statement_others = re.compile(r'.*?(?=;|\s\.\s?)')
 re_statement_others_last = re.compile(r'(?<=;|\.)[^;\.]*?(?=$)')
-re_statement_a = re.compile(r'(?<=[a-zA-Z])\s+?\ba\b\s+?(?=[:a-zA-Z])')
+re_statement_a = re.compile(r'\?[a-zA-Z]+\s+?\ba\b\s+?(?=[:a-zA-Z])')
 # re_statement_a_split = re.compile(r'(?<=[a-zA-Z])\s+?\ba\b\s+?(?=[a-zA-Z])')
 re_statement_variable = re.compile(r'(?:^|\s|\b])\?[a-zA-Z]+\b')
 re_statement_qpr = re.compile(r'\b(?:(?<=qpr\:)|(?<=\:))\s?[_a-zA-Z]+\b')
@@ -297,7 +297,7 @@ class SQParser(object):
         statements += re_statement_inner_keyword_filter_special.findall(text)
         for statement in statements:
             text = text.replace(statement, '')
-        
+
         # print text.encode('utf-8')
         statements += [_.strip() for _ in re_statement_others.findall(text) if _.strip() != '' and _.strip() != '.']
 
@@ -360,7 +360,7 @@ class SQParser(object):
     ####################################################
 
     def __cp_func_filter(text):
-        # print text
+        print text
         ans = {}
         for op in SQ_OUTER_OPERATOR:
             if op in text:
@@ -424,6 +424,7 @@ class SQParser(object):
 
     @staticmethod
     def parse_statement(ans, text):
+        # print text
         # print re_statement_a.findall(text)
         if re_statement_a.search(text):
             # print text
