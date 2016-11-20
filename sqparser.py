@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-11-19 23:56:51
+# @Last Modified time: 2016-11-20 11:13:30
 
 
 """
@@ -140,6 +140,7 @@ re_statement_inner_keyword = re.compile(r'(?:'+r'|'.join(SQ_INNER_KEYWORDS)+r')\
 re_statement_inner_keyword_filter_special = re.compile(r'(?:FILTER[ ]*[a-zA-Z]{3,}\(.*\))')
 
 re_statement_others = re.compile(r'.*?(?=;|\s\.\s?)')
+# re_statement_others = re.compile(r'\b(?:(?<=qpr\:)|(?<=\:))\s?[_a-zA-Z]+\b[ ]+\b.*?\b[ ]')
 re_statement_others_last = re.compile(r'(?<=;|\.)[^;\.]*?(?=$)')
 re_statement_a = re.compile(r'\?[a-zA-Z]+\s+?\ba\b\s+?(?=[:a-zA-Z])')
 # re_statement_a_split = re.compile(r'(?<=[a-zA-Z])\s+?\ba\b\s+?(?=[a-zA-Z])')
@@ -150,7 +151,8 @@ re_statement_content = re.compile(r'(?<=qpr\:).+(?=\s|$)')
 # re_statement_content = re.compile(r'qpr\:.+(?=\s|$)')
 
 # re_select_variables = re.compile(r'[\{\(](?:\(.*?\)|[\s\w!\"#\$%&()\*+\,-\./:;<=>\?@[\]\^_`{|}~])+?[\}\)]')
-re_select_variables = re.compile(r'[\{\(](?:\(.+\)|[\s\w!\"#\$%&\(\)\*+\,-\./:;<=>\?@\[\]\^_`\{|\}\~])+?[\}\)]')
+# re_select_variables = re.compile(r'[\{\(](?:\(.+\)|[\s\w!\"#\$%&\(\)\*+\,-\./:;<=>\?@\[\]\^_`\{|\}\~])+?[\}\)]')
+re_select_variables = re.compile(r'[\{\(](?:\(.*?\)|[\s\w!\"#\$%&\(\)\*+\,-\./:;<=>\?@\[\]\^_`\{|\}\~])+?[\}\)]')
 
 # function
 # re_function_content = re.compile(r'(?:'+r'|'.join(SQ_FUNCTIONS)+r')'+r'.*', re.IGNORECASE)
@@ -176,9 +178,15 @@ def func_sq_common(text, func_name):
     ans['type'] = func_name
     return ans
 
+SQP_CURRENT_CONTENT_ID = ''
+# SQP_CURRENT_CONTENT_FLAG = None
+
 def exception_handler(info):
     # raise Exception(info)
-    # print info
+    text = 'SYNTAX IS INCORRECT: ' + info
+    if SQP_CURRENT_CONTENT_ID:
+        text += '|' + SQP_CURRENT_CONTENT_ID
+    print text
     return None
 
 class SQParser(object):
@@ -292,8 +300,8 @@ class SQParser(object):
             # print variable_filed
             is_func = False
             for func_name in SQ_FUNCTIONS:
-                # print variable_filed
-                if func_name+'(' in variable_filed:
+                # print func_name, variable_filed
+                if func_name+'(' in variable_filed.lower():
                     func_rtn = SQParser.SQ_FUNCTIONS_FUNC[func_name](variable_filed)
                     ans['variables'].append(func_rtn)
                     is_func = True
@@ -317,8 +325,14 @@ class SQParser(object):
         for statement in statements:
             text = text.replace(statement, '')
 
+        # print text
+        # print statements
+
         # print text.encode('utf-8')
         statements += [_.strip() for _ in re_statement_others.findall(text) if _.strip() != '' and _.strip() != '.']
+
+        # print text
+        # print statements
 
         for statement in statements:
             text = text.replace(statement, '')
@@ -382,7 +396,6 @@ class SQParser(object):
     def __cp_func_filter(text):
         # print text
         keyword = re_keyword.match(text).group(0).strip()
-
         
         if re_statement_inner_keyword_filter_special.search(text):
             source, target, operator = SQParser.parse_subcomponent(text)
@@ -490,9 +503,9 @@ class SQParser(object):
                         ans[SQ_EXT_CLAUSES].append(icf_rtn)
       
         else:
-            # print 'parse_statement:', text
+            # print 'parse_statement:', text, len(re_statement_qpr.findall(text))
             content = re_statement_content.search(text)
-            if not content:
+            if not content or len(re_statement_qpr.findall(text)) > 1:
                 exception_handler('Sparql Format Error')
             content = content.group(0).strip()
             ans.setdefault(SQ_EXT_CLAUSES, [])
@@ -583,9 +596,11 @@ class SQParser(object):
             if has_title: 
                 for value in json_obj.values():
                     for (k, v) in value.iteritems():
+                        SQP_CURRENT_CONTENT_ID = k
                         value[k]['parsed'] = SQParser.parse(v['sparql'], target_component=target_component)
             else:
                 for (k, v) in json_obj.iteritems():
+                    SQP_CURRENT_CONTENT_ID = k
                     k['parsed'] = SQParser.parse(v['sparql'], target_component=target_component)
 
         # for content in contents:
