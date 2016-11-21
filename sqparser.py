@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-11-20 11:13:30
+# @Last Modified time: 2016-11-21 15:14:05
 
 
 """
@@ -29,6 +29,9 @@ import json
 ######################################################################
 #   Constant
 ######################################################################
+
+# schema
+SQ_SCHEMA_PAYLOAD = 'payload'
 
 # keyword
 SQ_KEYWORD_SELECT = 'SELECT'
@@ -178,7 +181,7 @@ def func_sq_common(text, func_name):
     ans['type'] = func_name
     return ans
 
-SQP_CURRENT_CONTENT_ID = ''
+SQP_CURRENT_CONTENT_ID = None
 # SQP_CURRENT_CONTENT_FLAG = None
 
 def exception_handler(info):
@@ -446,7 +449,7 @@ class SQParser(object):
     }
 
     ####################################################
-    #   Main Functions
+    #   Parse Functions
     ####################################################
 
     @staticmethod
@@ -505,6 +508,12 @@ class SQParser(object):
         else:
             # print 'parse_statement:', text, len(re_statement_qpr.findall(text))
             content = re_statement_content.search(text)
+
+            # global SQP_CURRENT_CONTENT_ID
+            # print SQP_CURRENT_CONTENT_ID
+            # if SQP_CURRENT_CONTENT_ID == '24':
+            #     print content
+
             if not content or len(re_statement_qpr.findall(text)) > 1:
                 exception_handler('Sparql Format Error')
             content = content.group(0).strip()
@@ -562,75 +571,67 @@ class SQParser(object):
             SQParser.OUTER_COMPONENT_FUNC[key](ans, content)
         return ans
 
-    @staticmethod
-    def parse(text, target_component=None):
-        # print text
-        components = {re_keyword.match(_).group(0).strip():re_brackets_most_b.search(_).group(0).strip() if re_brackets_most_b.search(_) else _ for _ in re_outer.findall(text)}
-        # print components
-        
-        # if target_component:
-        #     t = components[target_component]
-        #     print t
-
-        ans = SQParser.parse_components(components)
-        if target_component:
-            ans = ans[target_component]
-        # ans = SQParser.parse_components(components)[target_component]
-        # return json.dumps(ans, indent=4)
-        return ans
+    ####################################################
+    # Schema Functions
+    ####################################################
 
     @staticmethod
-    def parse_sq_json(input_path, output_path=None, target_component=None, has_title=True):
+    def parse_schema_default(**params):
+        input_path = params['input_path'] if 'input_path' in params else None
+        output_path = params['output_path'] if 'output_path' in params else None
+        target_component = params['target_component'] if 'target_component' in params else None
+        has_title = params['has_title'] if 'has_title' in params else None
+
+        global SQP_CURRENT_CONTENT_ID
         with open(input_path, 'rb') as file_handler:
-            # lines = file_handler.readlines()
             json_obj = json.load(file_handler)
-            # contents = []
-            # if has_title: 
-            #     for value in json_obj.values():
-            #         for (k, v) in value.iteritems():
-            #             contents.append(v['sparql'])
-            # else:
-            #     for (k, v) in json_obj.iteritems():
-            #         contents.append(v['sparql'])
-        
             if has_title: 
                 for value in json_obj.values():
                     for (k, v) in value.iteritems():
                         SQP_CURRENT_CONTENT_ID = k
-                        value[k]['parsed'] = SQParser.parse(v['sparql'], target_component=target_component)
+                        value[k]['parsed'] = SQParser.parse_string(v['sparql'], target_component=target_component)
             else:
                 for (k, v) in json_obj.iteritems():
                     SQP_CURRENT_CONTENT_ID = k
-                    k['parsed'] = SQParser.parse(v['sparql'], target_component=target_component)
-
-        # for content in contents:
-        #     SQParser.parse(content, target_component=target_component)
+                    k['parsed'] = SQParser.parse_string(v['sparql'], target_component=target_component)
 
         if output_path:
             file_handler = open(output_path, 'wb')
             file_handler.write(json.dumps(json_obj, sort_keys=True, indent=4))
             file_handler.close()
 
+    @staticmethod
+    def parse_schema_payload(text, **params):
+        pass
+
+
+    ####################################################
+    # Entry Point
+    ####################################################
+
+    @staticmethod
+    def parse_string(text, target_component=None):
+        components = {re_keyword.match(_).group(0).strip():re_brackets_most_b.search(_).group(0).strip() if re_brackets_most_b.search(_) else _ for _ in re_outer.findall(text)}
+        ans = SQParser.parse_components(components)
+        if target_component:
+            ans = ans[target_component]
+        return ans
+
+    @staticmethod
+    def parse_json(input_path=None, output_path=None, target_component=None, has_title=False, schema=None):
+
+        if not schema:
+            SQParser.parse_schema_default(input_path=input_file, output_path=output_file, target_component=target_component, has_title=has_title)
+        else:
+            if schema == SQ_SCHEMA_PAYLOAD:
+                SQParser.parse_schema_payload(input_path=input_file, output_path=output_file)
+
+    @staticmethod
+    def parse(text, **params):
+        pass
+
 
 if __name__ == '__main__':
-
-    """
-    text = "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?cluster ?ad WHERE { ?cluster a qpr:cluster ; qpr:seed '5105124396' ; qpr:ad ?ad . OPTIONAL { ?ad qpr:image_with_phone ?iwp } OPTIONAL { ?ad qpr:image_with_email ?iwe } FILTER(bound(?iwp) || bound(?iwe) || ?bt = 'Spa') }"
-    
-    SQParser.parse(text)
-    
-
-    # import sys
-    # import argparse
-
-    # arg_parser = argparse.ArgumentParser()
-    # arg_parser.add_argument('-s','--string', required=True)
-
-    # args = arg_parser.parse_args()
-
-    # text = str(args.text)
-    # print SQParser.parse(text)
-    """
 
     import sys
     import argparse
@@ -651,9 +652,9 @@ if __name__ == '__main__':
     str_input = args.str_input
 
     if str_input:
-        print json.dumps(SQParser.parse(str_input, target_component=target_component), indent=4)
+        print json.dumps(SQParser.parse_string(str_input, target_component=target_component), indent=4)
     else:
-        SQParser.parse_sq_json(input_file, output_path=output_file, target_component=target_component, has_title=has_title)
+        SQParser.parse_json(input_path=input_file, output_path=output_file, target_component=target_component, has_title=has_title)
 
     
 
