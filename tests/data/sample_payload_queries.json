@@ -1,0 +1,29 @@
+[
+  {
+    "id": "1",
+    "type": "AVG",
+    "question": "Aggregate Average Example Query",
+    "SPARQL": [
+      "PREFIX qpr: <http://istresearch.com/qpr> SELECT (AVG(?weight) AS ?avg_weight)  WHERE {   ?cluster a qpr:cluster ;     qpr:seed '9164027085' ;     qpr:weight ?weight ;     qpr:ad ?ad . }",
+      "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?weight ?ad WHERE {   ?cluster a qpr:cluster ;     qpr:seed '9164027085' ;     qpr:weight ?weight ;     qpr:ad ?ad . }"
+    ]
+  },
+  {
+    "id": "2",
+    "type": "MAX",
+    "question": "Aggregate Maximum Example Query",
+    "SPARQL": [
+      "PREFIX qpr: <http://istresearch.com/qpr> SELECT (MAX(?weight) AS ?max_weight)  WHERE {   ?cluster a qpr:cluster ;     qpr:seed '9164027085' ;     qpr:weight ?weight ;     qpr:ad ?ad . }",
+      "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?weight ?ad WHERE {   ?cluster a qpr:cluster ;     qpr:seed '9164027085' ;     qpr:weight ?weight ;     qpr:ad ?ad . }"
+    ]
+  },
+  {
+    "id": "3",
+    "type": "MODE",
+    "question": "Aggregate Maximum Example Query",
+    "SPARQL": [
+      "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?weight ((count(?ad)) AS ?count)  WHERE {   ?cluster a qpr:cluster ;     qpr:seed '9164027085' ;     qpr:weight ?weight ;     qpr:ad ?ad . } GROUP BY ?weight ORDER BY DESC(?count) LIMIT 1",
+      "PREFIX qpr: <http://istresearch.com/qpr> SELECT ?weight ?ad WHERE {   ?cluster a qpr:cluster ;     qpr:seed '9164027085' ;     qpr:weight ?weight ;     qpr:ad ?ad . }"
+    ]
+  }
+]
