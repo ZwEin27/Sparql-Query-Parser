@@ -2,7 +2,7 @@
 # @Author: ZwEin
 # @Date:   2016-07-19 19:16:31
 # @Last Modified by:   ZwEin
-# @Last Modified time: 2016-11-21 15:14:05
+# @Last Modified time: 2016-11-21 15:29:27
 
 
 """
@@ -601,8 +601,30 @@ class SQParser(object):
             file_handler.close()
 
     @staticmethod
-    def parse_schema_payload(text, **params):
-        pass
+    def parse_schema_payload(**params):
+
+        def parse_payload_json(json_obj):
+            ans = []
+            for i, query in enumerate(json_obj['SPARQL']):
+                parsed = {k:v for (k,v) in json_obj.iteritems() if k != 'SPARQL'}
+                parsed['id'] += '-' + str(i+1)
+                parsed['SPARQL'] = SQParser.parse_string(query)
+                ans.append(parsed)
+            return ans
+
+        input_path = params['input_path']
+        output_path = params['output_path']
+        
+        ans = []
+        with open(input_path, 'r') as file_handler:
+            for sparql_query_json_obj in json.load(file_handler):
+                ans += parse_payload_json(sparql_query_json_obj)
+
+        if output_path:
+            file_handler = open(output_path, 'wb')
+            file_handler.write(json.dumps(ans, sort_keys=True, indent=4))
+            file_handler.close()
+                
 
 
     ####################################################
@@ -642,6 +664,7 @@ if __name__ == '__main__':
     arg_parser.add_argument('-c','--target_component', required=False)
     arg_parser.add_argument('-t','--has_title', required=False)
     arg_parser.add_argument('-s','--str_input', required=False)
+    arg_parser.add_argument('-m','--schema', required=False)
 
     args = arg_parser.parse_args()
 
@@ -650,11 +673,12 @@ if __name__ == '__main__':
     target_component = str(args.target_component) if args.target_component else None
     has_title = args.has_title if args.has_title else False
     str_input = args.str_input
+    schema = args.schema
 
     if str_input:
         print json.dumps(SQParser.parse_string(str_input, target_component=target_component), indent=4)
     else:
-        SQParser.parse_json(input_path=input_file, output_path=output_file, target_component=target_component, has_title=has_title)
+        SQParser.parse_json(input_path=input_file, output_path=output_file, target_component=target_component, has_title=has_title, schema=schema)
 
     
 

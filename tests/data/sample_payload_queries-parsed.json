@@ -1,0 +1,262 @@
+[
+    {
+        "SPARQL": {
+            "select": {
+                "variables": [
+                    {
+                        "dependent-variable": "?avg_weight", 
+                        "type": "avg", 
+                        "variable": "?weight"
+                    }, 
+                    {
+                        "type": "simple", 
+                        "variable": ""
+                    }
+                ]
+            }, 
+            "where": {
+                "clauses": [
+                    {
+                        "constraint": "9164027085", 
+                        "isOptional": false, 
+                        "predicate": "seed"
+                    }, 
+                    {
+                        "isOptional": false, 
+                        "predicate": "weight", 
+                        "variable": "?weight"
+                    }, 
+                    {
+                        "isOptional": false, 
+                        "predicate": "ad", 
+                        "variable": "?ad"
+                    }
+                ], 
+                "type": "cluster", 
+                "variable": "?cluster"
+            }
+        }, 
+        "id": "1-1", 
+        "question": "Aggregate Average Example Query", 
+        "type": "AVG"
+    }, 
+    {
+        "SPARQL": {
+            "select": {
+                "variables": [
+                    {
+                        "type": "simple", 
+                        "variable": "?weight"
+                    }, 
+                    {
+                        "type": "simple", 
+                        "variable": "?ad"
+                    }
+                ]
+            }, 
+            "where": {
+                "clauses": [
+                    {
+                        "constraint": "9164027085", 
+                        "isOptional": false, 
+                        "predicate": "seed"
+                    }, 
+                    {
+                        "isOptional": false, 
+                        "predicate": "weight", 
+                        "variable": "?weight"
+                    }, 
+                    {
+                        "isOptional": false, 
+                        "predicate": "ad", 
+                        "variable": "?ad"
+                    }
+                ], 
+                "type": "cluster", 
+                "variable": "?cluster"
+            }
+        }, 
+        "id": "1-2", 
+        "question": "Aggregate Average Example Query", 
+        "type": "AVG"
+    }, 
+    {
+        "SPARQL": {
+            "select": {
+                "variables": [
+                    {
+                        "dependent-variable": "?max_weight", 
+                        "type": "max", 
+                        "variable": "?weight"
+                    }, 
+                    {
+                        "type": "simple", 
+                        "variable": ""
+                    }
+                ]
+            }, 
+            "where": {
+                "clauses": [
+                    {
+                        "constraint": "9164027085", 
+                        "isOptional": false, 
+                        "predicate": "seed"
+                    }, 
+                    {
+                        "isOptional": false, 
+                        "predicate": "weight", 
+                        "variable": "?weight"
+                    }, 
+                    {
+                        "isOptional": false, 
+                        "predicate": "ad", 
+                        "variable": "?ad"
+                    }
+                ], 
+                "type": "cluster", 
+                "variable": "?cluster"
+            }
+        }, 
+        "id": "2-1", 
+        "question": "Aggregate Maximum Example Query", 
+        "type": "MAX"
+    }, 
+    {
+        "SPARQL": {
+            "select": {
+                "variables": [
+                    {
+                        "type": "simple", 
+                        "variable": "?weight"
+                    }, 
+                    {
+                        "type": "simple", 
+                        "variable": "?ad"
+                    }
+                ]
+            }, 
+            "where": {
+                "clauses": [
+                    {
+                        "constraint": "9164027085", 
+                        "isOptional": false, 
+                        "predicate": "seed"
+                    }, 
+                    {
+                        "isOptional": false, 
+                        "predicate": "weight", 
+                        "variable": "?weight"
+                    }, 
+                    {
+                        "isOptional": false, 
+                        "predicate": "ad", 
+                        "variable": "?ad"
+                    }
+                ], 
+                "type": "cluster", 
+                "variable": "?cluster"
+            }
+        }, 
+        "id": "2-2", 
+        "question": "Aggregate Maximum Example Query", 
+        "type": "MAX"
+    }, 
+    {
+        "SPARQL": {
+            "group-by": {
+                "group-variable": "?weight", 
+                "limit": 1, 
+                "order-variable": "?count", 
+                "sorted-order": "desc"
+            }, 
+            "select": {
+                "variables": [
+                    {
+                        "type": "count", 
+                        "variable": "?ad"
+                    }, 
+                    {
+                        "type": "simple", 
+                        "variable": "?weight"
+                    }, 
+                    {
+                        "type": "simple", 
+                        "variable": ""
+                    }, 
+                    {
+                        "type": "simple", 
+                        "variable": "AS"
+                    }, 
+                    {
+                        "type": "simple", 
+                        "variable": "?count)"
+                    }
+                ]
+            }, 
+            "where": {
+                "clauses": [
+                    {
+                        "constraint": "9164027085", 
+                        "isOptional": false, 
+                        "predicate": "seed"
+                    }, 
+                    {
+                        "isOptional": false, 
+                        "predicate": "weight", 
+                        "variable": "?weight"
+                    }, 
+                    {
+                        "isOptional": false, 
+                        "predicate": "ad", 
+                        "variable": "?ad"
+                    }
+                ], 
+                "type": "cluster", 
+                "variable": "?cluster"
+            }
+        }, 
+        "id": "3-1", 
+        "question": "Aggregate Maximum Example Query", 
+        "type": "MODE"
+    }, 
+    {
+        "SPARQL": {
+            "select": {
+                "variables": [
+                    {
+                        "type": "simple", 
+                        "variable": "?weight"
+                    }, 
+                    {
+                        "type": "simple", 
+                        "variable": "?ad"
+                    }
+                ]
+            }, 
+            "where": {
+                "clauses": [
+                    {
+                        "constraint": "9164027085", 
+                        "isOptional": false, 
+                        "predicate": "seed"
+                    }, 
+                    {
+                        "isOptional": false, 
+                        "predicate": "weight", 
+                        "variable": "?weight"
+                    }, 
+                    {
+                        "isOptional": false, 
+                        "predicate": "ad", 
+                        "variable": "?ad"
+                    }
+                ], 
+                "type": "cluster", 
+                "variable": "?cluster"
+            }
+        }, 
+        "id": "3-2", 
+        "question": "Aggregate Maximum Example Query", 
+        "type": "MODE"
+    }
+]
