@@ -216,7 +216,7 @@
             }
         }, 
         "id": "3-1", 
-        "question": "Aggregate Maximum Example Query", 
+        "question": "Aggregate Mode Example Query", 
         "type": "MODE"
     }, 
     {
@@ -256,7 +256,7 @@
             }
         }, 
         "id": "3-2", 
-        "question": "Aggregate Maximum Example Query", 
+        "question": "Aggregate Mode Example Query", 
         "type": "MODE"
     }
 ]
